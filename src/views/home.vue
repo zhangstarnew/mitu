@@ -11,7 +11,7 @@
 				<!--logo-->
 <!--				<img class="logo" src="../assets/images/home-wy/logo.png" />-->
 				<span class="logo"></span>
-				<a href="#" class="search">
+				<a href="#/homeSelect" class="search">
 					2020春节北非包机
 				</a>
 			</div>

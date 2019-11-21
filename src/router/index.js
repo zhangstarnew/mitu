@@ -9,6 +9,8 @@ import login from "../views/login"
 import main from "../views/main"
 import travelAll from "../components/travel/travelAll";
 import seach from "../components/discover/seach";
+import homeSelect from "../components/homeSelect/homeSelect";
+import nextSelect from "../components/homeSelect/nextSelect";
 Vue.use(VueRouter)
 let router = new VueRouter({
     //路由map集合 path : views component
@@ -56,6 +58,14 @@ let router = new VueRouter({
         {
             path: '/seach',
             component: seach,
+        },
+        {
+            path:'/homeSelect',
+            component:homeSelect,
+        },
+        {
+            path:'/nextSelect',
+            component:nextSelect,
         }
 
 

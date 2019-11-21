@@ -1,7 +1,7 @@
 <template>
     <div class="destination-zx-box">
         <h2 class="destination-zx-box-h2">目的地</h2>
-        <a href="#" class="destination-zx-box-a">
+        <a href="#/homeSelect" class="destination-zx-box-a">
             <span class="iconfont destination-zx-box-a-span1">&#xe600;</span>
             <span class="destination-zx-box-a-span2">目的地/主题/关键字</span>
         </a>
