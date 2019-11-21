@@ -102,7 +102,7 @@
         },
         destroyed () {
             window.removeEventListener('scroll', this.handleScroll)
-        },
+        }
     }
 </script>
 

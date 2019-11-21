@@ -11,6 +11,7 @@ import travelAll from "../components/travel/travelAll";
 import seach from "../components/discover/seach";
 import homeSelect from "../components/homeSelect/homeSelect";
 import nextSelect from "../components/homeSelect/nextSelect";
+import ceshi from "../components/ceshi/ceshi";
 Vue.use(VueRouter)
 let router = new VueRouter({
     //路由map集合 path : views component
@@ -66,6 +67,10 @@ let router = new VueRouter({
         {
             path:'/nextSelect',
             component:nextSelect,
+        },
+        {
+            path:'/ceshi/:id',
+            component:ceshi
         }
 
 

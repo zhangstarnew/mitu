@@ -2,7 +2,7 @@
     <div class="destinationRight-zx-box">
         <p>{{data.province}}</p>
         <div class="destinationRight-zx-box1" >
-            <a href="#" class="destinationRight-zx-box1-a" v-for="(u,i) in data.city" :key="i">
+            <a :href="'#/ceshi/'+u.cid" class="destinationRight-zx-box1-a" v-for="(u,i) in data.city" :key="i">
                 <img :src="u.cityImg" class="destinationRight-zx-box1-img">
                 <br>
                 <span class="destinationRight-zx-box1-span">{{u.cityName}}</span>
