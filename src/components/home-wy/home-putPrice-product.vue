@@ -56,9 +56,13 @@
         color: #999;
     }
     .title{
-        height: 0.38rem;
         font-size: 0.14rem;
         text-align: left;
+        color: #333;
         overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
     }
 </style>

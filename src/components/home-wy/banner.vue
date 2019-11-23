@@ -16,31 +16,9 @@
         props:["banner"],
         data () {
             return {
-                // data:[]
                 // banner:['./images/home-wy/1.jpg','./images/home-wy/2.jpg','./images/home-wy/3.jpg','./images/home-wy/4.jpg','./images/home-wy/5.jpg','./images/home-wy/6.jpg','./images/home-wy/7.jpg','./images/home-wy/8.jpg']
             }
         },
-        // methods:{
-        //     async _initData(){
-        //         let a = await dataApi.getData();
-        //         this.data = a.home.banner;
-        //         this.$nextTick(() => { // 下一个UI帧再初始化swiper
-        //             new Swiper ('.swiper-container', {
-        //                 loop: true,
-        //                 autoplay:true,
-        //                 observer:true,//修改swiper自己或子元素时，自动初始化swiper
-        //                 observeParents:true,//修改swiper的父元素时，自动初始化swiper
-        //                 // 如果需要分页器
-        //                 pagination: {
-        //                     el: '.swiper-pagination'
-        //                 }
-        //             })
-        //         });
-        //     }
-        // },
-        // beforeMount() {
-        //     this._initData()
-        // },
         mounted() {
             new Swiper ('.swiper-container', {
                 loop: true,

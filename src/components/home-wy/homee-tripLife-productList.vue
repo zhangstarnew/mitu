@@ -30,11 +30,15 @@
         margin-left: 0.1rem;
     }
     .product>div>div{
-        height: 0.4rem;
         font-size: 0.14rem;
-        overflow: hidden;
         padding-top: 0.01rem;
         margin-bottom: 0.1rem;
+        color: #333;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
     }
     .product>div>p{
         font-size: 0.12rem;

@@ -121,17 +121,17 @@
                         pid:"2",
                         city:[
                             {
-                                cid:"1",
+                                cid:"6",
                                 cityImg:"./images/destinationRight/destinationRight-zx(6).jpg",
                                 cityName:"三亚"
                             },
                             {
-                                cid:"2",
+                                cid:"7",
                                 cityImg:"./images/destinationRight/destinationRight-zx(7).jpg",
                                 cityName:"海口"
                             },
                             {
-                                cid:"3",
+                                cid:"8",
                                 cityImg:"./images/destinationRight/destinationRight-zx(8).jpg",
                                 cityName:"兴隆"
                             }
@@ -142,22 +142,22 @@
                         pid:"3",
                         city:[
                             {
-                                cid:"1",
+                                cid:"9",
                                 cityImg:"./images/destinationRight/destinationRight-zx(9).jpg",
                                 cityName:"丽江"
                             },
                             {
-                                cid:"2",
+                                cid:"10",
                                 cityImg:"./images/destinationRight/destinationRight-zx(10).jpg",
                                 cityName:"大理"
                             },
                             {
-                                cid:"3",
+                                cid:"11",
                                 cityImg:"./images/destinationRight/destinationRight-zx(11).jpg",
                                 cityName:"西双版纳"
                             },
                             {
-                                cid:"4",
+                                cid:"12",
                                 cityImg:"./images/destinationRight/destinationRight-zx(12).jpg",
                                 cityName:"香格里拉"
                             }
@@ -168,22 +168,22 @@
                         pid:"4",
                         city:[
                             {
-                                cid:"1",
+                                cid:"13",
                                 cityImg:"./images/destinationRight/destinationRight-zx(13).jpg",
                                 cityName:"成都"
                             },
                             {
-                                cid:"2",
+                                cid:"14",
                                 cityImg:"./images/destinationRight/destinationRight-zx(14).jpg",
                                 cityName:"都江堰"
                             },
                             {
-                                cid:"3",
+                                cid:"15",
                                 cityImg:"./images/destinationRight/destinationRight-zx(15).jpg",
                                 cityName:"九寨沟"
                             },
                             {
-                                cid:"4",
+                                cid:"16",
                                 cityImg:"./images/destinationRight/destinationRight-zx(16).jpg",
                                 cityName:"稻城"
                             }
@@ -194,12 +194,12 @@
                         pid:"5",
                         city:[
                             {
-                                cid:"1",
+                                cid:"17",
                                 cityImg:"./images/destinationRight/destinationRight-zx(17).jpg",
                                 cityName:"厦门"
                             },
                             {
-                                cid:"2",
+                                cid:"18",
                                 cityImg:"./images/destinationRight/destinationRight-zx(18).jpg",
                                 cityName:"鼓浪屿"
                             }
@@ -210,12 +210,12 @@
                         pid:"6",
                         city:[
                             {
-                                cid:"1",
+                                cid:"19",
                                 cityImg:"./images/destinationRight/destinationRight-zx(19).jpg",
                                 cityName:"广州"
                             },
                             {
-                                cid:"2",
+                                cid:"20",
                                 cityImg:"./images/destinationRight/destinationRight-zx(20).jpg",
                                 cityName:"珠海"
                             }
@@ -226,12 +226,12 @@
                         pid:"7",
                         city:[
                             {
-                                cid:"1",
+                                cid:"21",
                                 cityImg:"./images/destinationRight/destinationRight-zx(21).jpg",
                                 cityName:"桂林"
                             },
                             {
-                                cid:"2",
+                                cid:"22",
                                 cityImg:"./images/destinationRight/destinationRight-zx(22).jpg",
                                 cityName:"南宁"
                             }
@@ -242,12 +242,12 @@
                         pid:"8",
                         city:[
                             {
-                                cid:"1",
+                                cid:"23",
                                 cityImg:"./images/destinationRight/destinationRight-zx(23).jpg",
                                 cityName:"哈尔滨"
                             },
                             {
-                                cid:"2",
+                                cid:"24",
                                 cityImg:"./images/destinationRight/destinationRight-zx(24).jpg",
                                 cityName:"大连"
                             }
@@ -258,17 +258,17 @@
                         pid:"9",
                         city:[
                             {
-                                cid:"1",
+                                cid:"25",
                                 cityImg:"./images/destinationRight/destinationRight-zx(25).jpg",
                                 cityName:"武汉"
                             },
                             {
-                                cid:"2",
+                                cid:"26",
                                 cityImg:"./images/destinationRight/destinationRight-zx(26).jpg",
                                 cityName:"荆门"
                             },
                             {
-                                cid:"3",
+                                cid:"27",
                                 cityImg:"./images/destinationRight/destinationRight-zx(27).jpg",
                                 cityName:"黄冈"
                             }
@@ -279,12 +279,12 @@
                         pid:"10",
                         city:[
                             {
-                                cid:"1",
+                                cid:"28",
                                 cityImg:"./images/destinationRight/destinationRight-zx(28).jpg",
                                 cityName:"长沙"
                             },
                             {
-                                cid:"2",
+                                cid:"29",
                                 cityImg:"./images/destinationRight/destinationRight-zx(29).jpg",
                                 cityName:"张家界"
                             }
@@ -295,12 +295,12 @@
                         pid:"11",
                         city:[
                             {
-                                cid:"1",
+                                cid:"30",
                                 cityImg:"./images/destinationRight/destinationRight-zx(30).jpg",
                                 cityName:"南昌"
                             },
                             {
-                                cid:"2",
+                                cid:"31",
                                 cityImg:"./images/destinationRight/destinationRight-zx(31).jpg",
                                 cityName:"宜春"
                             }

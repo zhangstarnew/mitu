@@ -6,7 +6,7 @@
                     <img :src="item.src" />
                     <div class="shade jian">
                         <div class="xl_product-tag">
-                            <span class="tag tag-green">{{item.tip}}</span>
+                            <span class="tag tag-green" :style="`background-color:`+item.color">{{item.tip}}</span>
                         </div>
                     </div>
                     <div class="xl_product-price">
@@ -16,8 +16,11 @@
                 <div class="xl_item-infor">
                     <h3 class="xl_item-tit desc">{{item.title}}</h3>
                     <p class="xl_item-des">{{item.details}}</p>
-                    <div class="tag-wrap">
-                        <p> <span class="tag-yellow">{{item.tag}}</span></p>
+                    <div class="tag-wrap" v-if="item.tag">
+                        <p>
+                            <span class="tag-green" v-for="(titem,tindex) in item.tag" :key="tindex">
+                                {{titem}}
+                            </span></p>
                     </div>
                 </div>
             </a>

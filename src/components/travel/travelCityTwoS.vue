@@ -24,6 +24,6 @@
         font-size: 0.14rem;
         text-align: center;
         line-height: 0.4rem;
-        color: red;
+        color: gray;
     }
 </style>

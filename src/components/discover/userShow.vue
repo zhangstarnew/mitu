@@ -1,34 +1,30 @@
 <template>
     <div>
         <div v-for="(data,u) in data" :key="u" class="userShow">
-            <a href="#"><img :src="data.charHead" alt="" class="chartHead"></a>
+            <a :href="'#/main/userInfo/'+data.userId"><img :src="data.charHead" alt="" class="chartHead"></a>
         <div class="head">
             <span class="userName">{{data.userName}}</span>
             <span class="label">{{data.userIntroduce}}</span>
         </div>
-            <a href="#"><img :src="data.article[0].articleImg[0]" alt="" class="banner"></a>
-        <p class="title">{{data.article[0].articleTitle}}</p>
-        <div class="view">
-            <div>
-            <img src="../../../public/images/cmdimg/view.png" alt="" class="cmdsee"><span>{{data.article[0].articleView}}</span>
-            </div>
-            <div>
-            <img src="../../../public/images/cmdimg/zan.png" alt="" class="cmdsee"><span>{{data.article[0].articleLike}}</span>
-            </div>
-        </div>
+            <article-show :data="data"></article-show>
         </div>
     </div>
-
 </template>
 
 <script>
+    import articleShow from "./articleShow";
     export default {
         name: "userShow",
-        props:["data"]
+        props:["data"],
+        components:{
+            articleShow
+        }
     }
 </script>
 
+
 <style scoped>
+
     .userShow{
         width:100%;
         margin: 0.2rem auto;
@@ -39,8 +35,11 @@
         width:80%;
         margin: 0 auto;
         margin-left: 0.55rem;
-        height: 0.2rem;
+        /*height: 0.2rem;*/
         overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
     }
     .userName{
         font-size: 0.14rem;

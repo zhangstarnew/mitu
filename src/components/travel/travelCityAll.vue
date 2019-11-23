@@ -1,9 +1,9 @@
 <template>
     <div>
         <travel-city-one :data="travelCity1" @travelCityIndexO="travelCityIndexO" ></travel-city-one>
-        <travel-city-one-s :data="travelCity1[i]" v-show="flag"></travel-city-one-s>
+        <travel-city-one-s :data="travelCity1[isChange]" v-show="flag"></travel-city-one-s>
         <travel-city-two :data="travelCity2" @travelCityIndexT="travelCityIndexT"></travel-city-two>
-        <travel-city-two-s :data="travelCity2[j]"></travel-city-two-s>
+        <travel-city-two-s :data="travelCity2[isAlter]" v-show="star"></travel-city-two-s>
     </div>
 </template>
 
@@ -22,9 +22,10 @@
         },
         data(){
             return {
-                i:0,
-                j:0,
+                isChange:0,
+                isAlter:0,
                 flag:false,
+                star:false,
                 travelCity1:[
                     {
                         img:"./images/travelAll/travelCity1.png",
@@ -73,14 +74,20 @@
         },
         methods:{
             travelCityIndexO(i){
-                this.i=i
-                // eslint-disable-next-line no-undef
-                this.flag=!this.flag
-                // eslint-disable-next-line no-undef
-                //this.flag=!this.flag
+                if(i==this.isChange){
+                    this.flag=!this.flag
+                }else{
+                    this.flag=true
+                }
+                this.isChange = i
             },
             travelCityIndexT(j){
-                this.j=j
+                if(j==this.isAlter){
+                    this.star=!this.star
+                }else{
+                    this.star=true
+                }
+                this.isAlter=j
             }
         }
     }

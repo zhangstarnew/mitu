@@ -28,9 +28,13 @@
         border-radius: 0.08rem;
     }
     .play-productList>.title{
+        width: 1.05rem;
         height: 0.3rem;
         line-height: 0.3rem;
         font-size: 0.14rem;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
     }
     .play-productList>.price{
         font-size: 0.14rem;

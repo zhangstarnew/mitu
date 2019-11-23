@@ -4,6 +4,7 @@
         <travel-fdj></travel-fdj>
         <travel-banner :data="travelBanner"></travel-banner>
         <travel-city-all></travel-city-all>
+        <travel-content ></travel-content>
     </div>
 </template>
 
@@ -12,13 +13,15 @@
     import travelFdj from "./travelFdj";
     import travelBanner from "./travelBanner";
     import travelCityAll from "./travelCityAll";
+    import travelContent from "./travelContent";
     export default {
         name: "travelAll",
         components:{
             travelTop,
             travelFdj,
             travelBanner,
-            travelCityAll
+            travelCityAll,
+            travelContent
         },
         data(){
             return {

@@ -1,6 +1,6 @@
 <template>
     <div class="travellerCon">
-        <a href="#" v-for="(data,u) in data" :key="u">
+        <a :href="'#/main/userInfo/'+data.userId" v-for="(data,u) in data" :key="u">
             <img :src="data.charHead" alt="">
             <h2>{{data.userName}}</h2>
             <p>{{data.userIntroduce}}</p>
@@ -30,8 +30,8 @@
     }
     .travellerCon>a{
         display: block;
-        float: left;
-        width: 42%;
+        /*float: left;*/
+        width: 40%;
         height: 1.5rem;
         overflow: hidden;
         text-align: center;

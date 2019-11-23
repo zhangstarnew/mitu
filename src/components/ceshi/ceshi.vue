@@ -1,10 +1,6 @@
 <template>
     <div class="box">
-<!--      <div v-for="(u,i) in all" :key="i">-->
-<!--          <div v-for="(data,j) in u.city" :key="j"></div>-->
-<!--      </div>-->
         <div v-for="(item,index) in detaildata.scenicSiteTablate" :key="index">
-
                 {{item.scenicSiteName}}
 
 

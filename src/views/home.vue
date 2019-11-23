@@ -1,120 +1,125 @@
 <template>
-	<div class="home">
-		<header>
-			<img class="phone" src="../assets/images/home-wy/phone.png"/>
-			<img class="scan" src="../assets/images/home-wy/scan.png"/>
-			<img class="information" src="../assets/images/home-wy/information.png"/>
-		</header>
-		<wy-banner :banner="home.banner"></wy-banner>
-		<div class="logo-search">
-			<div :class="searchFixed == true ? 'searchBarIsFixed' :''">
-				<!--logo-->
-<!--				<img class="logo" src="../assets/images/home-wy/logo.png" />-->
-				<span class="logo"></span>
-				<a href="#/homeSelect" class="search">
-					2020春节北非包机
-				</a>
+	<div>
+		<div class="home">
+			<header>
+				<img class="phone" src="../assets/images/home-wy/phone.png"/>
+				<img class="scan" src="../assets/images/home-wy/scan.png"/>
+				<img class="information" src="../assets/images/home-wy/information.png"/>
+			</header>
+			<wy-banner :banner="home.banner"></wy-banner>
+			<div class="logo-search">
+				<div :class="searchFixed == true ? 'searchBarIsFixed' :''">
+					<!--logo-->
+					<span class="logo"></span>
+					<a href="#/homeSelect" class="search">
+						2020春节北非包机
+					</a>
+				</div>
 			</div>
+
+			<table class="menu-bar">
+				<tr>
+					<td rowspan="2" class="menu-one">
+						<a class="celly" href="#">特惠精选</a>
+					</td>
+					<td class="menu-two">
+						<a class="celly" href="#/main/home/travelAll">跟团游</a>
+					</td>
+					<td class="menu-three">
+						<a class="celly" href="#">定制旅行</a>
+						<span>Hot</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="menu-two">
+						<a class="celly" href="#/main/home/travelAll">自由行</a>
+					</td>
+					<td class="menu-two">
+						<a class="celly" href="#/main/home/travelAll">国内游</a>
+					</td>
+				</tr>
+				<tr>
+					<td rowspan="2" class="menu-four">
+						<a class="celly" href="#">抢游惠</a>
+						<span style="left: -16px">周三放价</span>
+					</td>
+					<td class="menu-five">
+						<a class="celly" href="#">酒店+</a>
+					</td>
+					<td class="menu-five">
+						<a class="celly" href="#">当地玩乐</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="menu-five">
+						<a class="celly" href="#">游学/摄影</a>
+					</td>
+					<td class="menu-five" style="border-radius: 0 0 0.05rem 0;">
+						<a class="celly" href="#">阳光遨游</a>
+						<span style="left: -10px">金融</span>
+					</td>
+				</tr>
+			</table>
+			<a class="text-slider" href="#/discover">
+				<span class="newslogo"></span>
+				<p class="news-box">旅行，是生活之“光”。</p>
+			</a>
+
+			<!--周三放价putPrice-->
+			<div class="active">
+				<div class="title">
+					<h1>周三放价</h1>
+					<p>您不容错过的抢游惠</p>
+				</div>
+				<home-put-price :putPrice="home.putPrice"></home-put-price>
+			</div>
+
+			<!--热门当地玩乐play-->
+			<div class="active">
+				<div class="title">
+					<h1>热门当地玩乐</h1>
+					<p>古北水镇/北京周边...</p>
+				</div>
+				<home-play :play="home.play"></home-play>
+			</div>
+
+			<!--热门目的地destination-->
+			<div class="active">
+				<div class="title">
+					<h1>热门目的地</h1>
+					<p>大家都想去才是真的好</p>
+				</div>
+				<home-destination></home-destination>
+			</div>
+
+			<!--旅行生活tripLife-->
+			<div class="active-life">
+				<div class="title" :class="tripLifeOffsetTop == true ? 'tripLifeIsFixed' :''">
+					<h1>
+						旅行 . 生活
+						<span>换一换</span>
+					</h1>
+					<p>遨游四海，行乐千山</p>
+				</div>
+				<home-tripLife :tripLife="home.tripLife"></home-tripLife>
+			</div>
+			<!-- 旅游圈开始-->
+			<xl-home-tourism :tourCircle="home.tourCircle"></xl-home-tourism>
+			<!-- 错峰特惠开始-->
+			<div class="xl_character_tab">
+				<div :class="searchBarFixed == true ? 'isFixed' :''" >
+					<div class="xl_tab-item" @click="flag=0" :class="{xl_tab_active:flag===0}"> 错峰特惠  </div>
+					<div class="xl_tab-item" @click="flag=1" :class="{xl_tab_active:flag===1}"> 为你系列  </div>
+					<div class="xl_tab-item" @click="flag=2" :class="{xl_tab_active:flag===2}"> 设计师说  </div>
+					<div class="xl_tab-item" @click="flag=3" :class="{xl_tab_active:flag===3}"> 嗨玩周末  </div>
+				</div>
+			</div>
+
+			<xl-home-character :flag="flag" :characterList="home.characterList"></xl-home-character>
+			<!--footer开始-->
+			<xl-home-footer></xl-home-footer>
 		</div>
 
-		<table class="menu-bar">
-			<tr>
-				<td rowspan="2" class="menu-one">
-					<a class="celly" href="#">特惠精选</a>
-				</td>
-				<td class="menu-two">
-					<a class="celly" href="#">跟团游</a>
-				</td>
-				<td class="menu-three">
-					<a class="celly" href="#">定制旅行</a>
-				</td>
-			</tr>
-			<tr>
-				<td class="menu-two">
-					<a class="celly" href="#">自由行</a>
-				</td>
-				<td class="menu-two">
-					<a class="celly" href="#">国内游</a>
-				</td>
-			</tr>
-			<tr>
-				<td rowspan="2" class="menu-four">
-					<a class="celly" href="#">抢游惠</a>
-				</td>
-				<td class="menu-five">
-					<a class="celly" href="#">酒店+</a>
-				</td>
-				<td class="menu-five">
-					<a class="celly" href="#">当地玩乐</a>
-				</td>
-			</tr>
-			<tr>
-				<td class="menu-five">
-					<a class="celly" href="#">游学/摄影</a>
-				</td>
-				<td class="menu-five" style="border-radius: 0 0 0.05rem 0;">
-					<a class="celly" href="#">阳光遨游</a>
-				</td>
-			</tr>
-		</table>
-		<a class="text-slider" href="#/discover">
-			<span class="newslogo"></span>
-			<p class="news-box">旅行，是生活之“光”。</p>
-		</a>
-
-		<!--周三放价putPrice-->
-		<div class="active">
-			<div class="title">
-				<h1>周三放价</h1>
-				<p>您不容错过的抢游惠</p>
-			</div>
-			<home-put-price :putPrice="home.putPrice"></home-put-price>
-		</div>
-
-		<!--热门当地玩乐play-->
-		<div class="active">
-			<div class="title">
-				<h1>热门当地玩乐</h1>
-				<p>古北水镇/北京周边...</p>
-			</div>
-			<home-play :play="home.play"></home-play>
-		</div>
-
-		<!--热门目的地destination-->
-		<div class="active">
-			<div class="title">
-				<h1>热门目的地</h1>
-				<p>大家都想去才是真的好</p>
-			</div>
-			<home-destination></home-destination>
-		</div>
-
-		<!--旅行生活tripLife-->
-		<div class="active-life">
-			<div class="title" :class="tripLifeOffsetTop == true ? 'tripLifeIsFixed' :''">
-				<h1>
-					旅行 . 生活
-					<span>换一换</span>
-				</h1>
-				<p>遨游四海，行乐千山</p>
-			</div>
-			<home-tripLife :tripLife="home.tripLife"></home-tripLife>
-		</div>
-		<!-- 旅游圈开始-->
-		<xl-home-tourism :tourCircle="home.tourCircle"></xl-home-tourism>
-		<!-- 错峰特惠开始-->
-		<div class="xl_character_tab">
-			<div :class="searchBarFixed == true ? 'isFixed' :''" >
-				<div class="xl_tab-item" @click="flag=0" :class="{xl_tab_active:flag===0}"> 错峰特惠  </div>
-				<div class="xl_tab-item" @click="flag=1" :class="{xl_tab_active:flag===1}"> 为你系列  </div>
-				<div class="xl_tab-item" @click="flag=2" :class="{xl_tab_active:flag===2}"> 设计师说  </div>
-				<div class="xl_tab-item" @click="flag=3" :class="{xl_tab_active:flag===3}"> 嗨玩周末  </div>
-			</div>
-		</div>
-
-		<xl-home-character :flag="flag" :characterList="home.characterList"></xl-home-character>
-		<!--footer开始-->
-		<xl-home-footer></xl-home-footer>
 	</div>
 </template>
 
@@ -137,7 +142,8 @@
 			homeTripLife,
 			"xl-home-tourism":xlHomeTourism,
 			"xl-home-character":xlHomeCharacter,
-			"xl-home-footer":xlHomeFooter
+			"xl-home-footer":xlHomeFooter,
+
 		},
 		methods:{
 			handleScroll () {
@@ -235,7 +241,7 @@
 						},
 						{
 							src:'./images/home-wy/play-four.jpg',
-							title:'八达岭长城+',
+							title:'八达岭长城+八达岭长城',
 							price:148,
 							productId:8
 						},
@@ -317,7 +323,8 @@
 						}
 					],
 					//错峰特惠开始
-					characterList:[
+					characterList:
+							[
 								{
 									"peak":[
 										{
@@ -326,7 +333,8 @@
 											"price":"9999",
 											"title":"遨游保障|英国+爱尔兰乐享品质12日游【莫赫悬崖/巨人堤/黑暗树篱/爱尔兰农场做面包学舞打手鼓】",
 											"details":"托莱多+毕加索故居马拉加+斗牛发源地龙达+马德里皇宫+葡式餐+拒签全退+自由活动",
-											"tag":"4钻"
+											"tag":["4钻"],
+											'color':" #FF5C5D"
 										},
 										{
 											"src":"http://images1.aoyou.com/productlist/201607/t0b80612144428.jpg?imageView2/1/w/335/h/180/q/90",
@@ -334,15 +342,33 @@
 											"price":"9999",
 											"title":"遨游保障|英国+爱尔兰乐享品质12日游【莫赫悬崖/巨人堤/黑暗树篱/爱尔兰农场做面包学舞打手鼓】",
 											"details":"托莱多+毕加索故居马拉加+斗牛发源地龙达+马德里皇宫+葡式餐+拒签全退+自由活动",
-											"tag":"4钻"
+											"tag":[
+												"4钻",
+												"圣诞节",
+												"元旦"
+											],
+											'color':" #FF5C5D"
 										},
 										{
 											"src":"http://images1.aoyou.com/productlist/201607/t0b80612144428.jpg?imageView2/1/w/335/h/180/q/90",
-											"tip":"跟团游",
+											"tip":"自由行",
+											"color":"#3FADFF",
 											"price":"9999",
 											"title":"遨游保障|英国+爱尔兰乐享品质12日游【莫赫悬崖/巨人堤/黑暗树篱/爱尔兰农场做面包学舞打手鼓】",
 											"details":"托莱多+毕加索故居马拉加+斗牛发源地龙达+马德里皇宫+葡式餐+拒签全退+自由活动",
-											"tag":"4钻"
+											"tag":["4钻"]
+										},
+										{
+											"src":"http://images1.aoyou.com/productlist/201607/t0b80612144428.jpg?imageView2/1/w/335/h/180/q/90",
+											"tip":"自由行",
+											"color":"#3FADFF",
+											"price":"9999",
+											"title":"遨游保障|英国+爱尔兰乐享品质12日游【莫赫悬崖/巨人堤/黑暗树篱/爱尔兰农场做面包学舞打手鼓】",
+											"details":"托莱多+毕加索故居马拉加+斗牛发源地龙达+马德里皇宫+葡式餐+拒签全退+自由活动",
+											"tag":[
+												"5钻",
+												"春节"
+											]
 										}
 									]
 								},
@@ -354,7 +380,8 @@
 											"price":"9999",
 											"title":"遨游保障|英国+爱尔兰乐享品质12日游【莫赫悬崖/巨人堤/黑暗树篱/爱尔兰农场做面包学舞打手鼓】",
 											"details":"托莱多+毕加索故居马拉加+斗牛发源地龙达+马德里皇宫+葡式餐+拒签全退+自由活动",
-											"tag":"4钻"
+											"tag":["4钻"],
+											'color':" #FF5C5D"
 										},
 										{
 											"src":"http://images1.aoyou.com/productlist/201601/znx48621193934.jpg?imageView2/1/w/335/h/180/q/90",
@@ -362,7 +389,8 @@
 											"price":"9999",
 											"title":"遨游保障|英国+爱尔兰乐享品质12日游【莫赫悬崖/巨人堤/黑暗树篱/爱尔兰农场做面包学舞打手鼓】",
 											"details":"托莱多+毕加索故居马拉加+斗牛发源地龙达+马德里皇宫+葡式餐+拒签全退+自由活动",
-											"tag":"4钻"
+											"tag":["4钻"],
+											'color':" #FF5C5D"
 										},
 										{
 											"src":"http://images1.aoyou.com/productlist/201601/znx48621193934.jpg?imageView2/1/w/335/h/180/q/90",
@@ -370,7 +398,8 @@
 											"price":"9999",
 											"title":"遨游保障|英国+爱尔兰乐享品质12日游【莫赫悬崖/巨人堤/黑暗树篱/爱尔兰农场做面包学舞打手鼓】",
 											"details":"托莱多+毕加索故居马拉加+斗牛发源地龙达+马德里皇宫+葡式餐+拒签全退+自由活动",
-											"tag":"4钻"
+											"tag":["4钻"],
+											'color':" #FF5C5D"
 										}
 									]
 								},
@@ -382,7 +411,8 @@
 											"price":"9999",
 											"title":"遨游保障|英国+爱尔兰乐享品质12日游【莫赫悬崖/巨人堤/黑暗树篱/爱尔兰农场做面包学舞打手鼓】",
 											"details":"托莱多+毕加索故居马拉加+斗牛发源地龙达+马德里皇宫+葡式餐+拒签全退+自由活动",
-											"tag":"4钻"
+											"tag":["4钻"],
+											'color':" #FF5C5D"
 										},
 										{
 											"src":"http://images1.aoyou.com/productlist/201607/t0b80612144428.jpg?imageView2/1/w/335/h/180/q/90",
@@ -390,15 +420,17 @@
 											"price":"9999",
 											"title":"遨游保障|英国+爱尔兰乐享品质12日游【莫赫悬崖/巨人堤/黑暗树篱/爱尔兰农场做面包学舞打手鼓】",
 											"details":"托莱多+毕加索故居马拉加+斗牛发源地龙达+马德里皇宫+葡式餐+拒签全退+自由活动",
-											"tag":"4钻"
+											"tag":["4钻"],
+											'color':" #FF5C5D"
 										},
 										{
 											"src":"http://images1.aoyou.com/productlist/201607/t0b80612144428.jpg?imageView2/1/w/335/h/180/q/90",
-											"tip":"跟团游",
+											"tip":"半自助",
+											"color":"#3FADFF",
 											"price":"9999",
 											"title":"遨游保障|英国+爱尔兰乐享品质12日游【莫赫悬崖/巨人堤/黑暗树篱/爱尔兰农场做面包学舞打手鼓】",
 											"details":"托莱多+毕加索故居马拉加+斗牛发源地龙达+马德里皇宫+葡式餐+拒签全退+自由活动",
-											"tag":"4钻"
+											"tag":["4钻"]
 										}
 									]
 								},
@@ -410,23 +442,23 @@
 											"price":"9999",
 											"title":"遨游保障|英国+爱尔兰乐享品质12日游【莫赫悬崖/巨人堤/黑暗树篱/爱尔兰农场做面包学舞打手鼓】",
 											"details":"托莱多+毕加索故居马拉加+斗牛发源地龙达+马德里皇宫+葡式餐+拒签全退+自由活动",
-											"tag":"4钻"
+											"tag":["4钻"],
+											'color':" #FF5C5D"
 										},
 										{
 											"src":"http://images1.aoyou.com/productlist/201607/t0b80612144428.jpg?imageView2/1/w/335/h/180/q/90",
-											"tip":"跟团游",
+											"tip":"酒店",
 											"price":"9999",
 											"title":"遨游保障|英国+爱尔兰乐享品质12日游【莫赫悬崖/巨人堤/黑暗树篱/爱尔兰农场做面包学舞打手鼓】",
 											"details":"托莱多+毕加索故居马拉加+斗牛发源地龙达+马德里皇宫+葡式餐+拒签全退+自由活动",
-											"tag":"4钻"
 										},
 										{
 											"src":"http://images1.aoyou.com/productlist/201607/t0b80612144428.jpg?imageView2/1/w/335/h/180/q/90",
-											"tip":"跟团游",
+											"tip":"当地玩乐",
+											"color":"#0BBE4A",
 											"price":"9999",
 											"title":"遨游保障|英国+爱尔兰乐享品质12日游【莫赫悬崖/巨人堤/黑暗树篱/爱尔兰农场做面包学舞打手鼓】",
 											"details":"托莱多+毕加索故居马拉加+斗牛发源地龙达+马德里皇宫+葡式餐+拒签全退+自由活动",
-											"tag":"4钻"
 										}
 									]
 								},
@@ -468,9 +500,8 @@
 		margin-left: 0.2rem;
 		margin-right: 0.08rem;
 		width: 0.61rem;
-		background-image: url("../assets/images/home-wy/logo.png");
+		background: url("../assets/images/home-wy/logo.png") no-repeat;
 		background-size: 100%;
-		background-repeat: no-repeat;
 	}
 	.search{
 		display: inline-block;
@@ -490,16 +521,30 @@
 	.menu-bar{
 		margin: 0 0.2rem;
 		font-size: 0.15rem;
+		color: white;
+		text-align: left;
+	}
+	.menu-bar td{
+		position: relative;
 	}
 	.menu-bar a{
 		display: inline-block;
 		width: 1.11rem;
 		line-height: 0.4rem;
 		color: white;
-		text-align: left;
 		padding-left: 0.2rem;
 		background-size: 100%;
 		box-sizing: border-box;
+	}
+	.menu-bar span{
+		transform: scale(0.6);
+		line-height: 0.2rem;
+		padding: 0 0.1rem;
+		background-color: red;
+		border-radius: 0 0.2rem 0.2rem 0;
+		position: absolute;
+		top: -4px;
+		left: -8px;
 	}
 	.menu-one a,.menu-four a{
 		height: 0.8rem;
@@ -592,8 +637,7 @@
 		z-index:999;
 	}
 	.searchBarIsFixed>span{
-		background-image: url("../assets/images/home-wy/logo.jpg");
+		background: url("../assets/images/home-wy/logo.jpg") no-repeat;
 		background-size: 100%;
-		background-repeat: no-repeat;
 	}
 </style>

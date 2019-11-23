@@ -37,6 +37,7 @@
     .tripLife-div>a>div>p{
         width: 0.7rem;
         height: 0.2rem;
+        line-height: 0.2rem;
         font-size: 0.14rem;
         background-color: #fff;
         border-radius: 0.05rem;

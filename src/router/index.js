@@ -9,9 +9,14 @@ import login from "../views/login"
 import main from "../views/main"
 import travelAll from "../components/travel/travelAll";
 import seach from "../components/discover/seach";
+import userInfo from "../components/discover/userInfo";
+import articleInfo from "../components/discover/articleInfo";
+import searchUser from "../components/discover/searchUser";
 import homeSelect from "../components/homeSelect/homeSelect";
 import nextSelect from "../components/homeSelect/nextSelect";
-import ceshi from "../components/ceshi/ceshi";
+import detail from "../views/tabs/detail";
+import allEva from "../views/tabs/allEva";
+// import ceshi from "../components/ceshi/ceshi";
 Vue.use(VueRouter)
 let router = new VueRouter({
     //路由map集合 path : views component
@@ -61,18 +66,35 @@ let router = new VueRouter({
             component: seach,
         },
         {
+            path:'/main/userInfo/:id',
+            component:userInfo
+        },
+        {
+            path:'/main/userInfo/:id/:aid',
+            component:articleInfo
+        },
+        {
+            path: '/main/searchUser/:id',
+            component: searchUser,
+        },
+
+        {
             path:'/homeSelect',
             component:homeSelect,
         },
         {
-            path:'/nextSelect',
+            path:'/main/nextSelect/:id',
             component:nextSelect,
         },
-        {
-            path:'/ceshi/:id',
-            component:ceshi
+        {path:"/detail/:id",component:detail},
+        {path:"/alleva/:id",component:allEva},
+        // {
+        //     path:'/ceshi/:id',
+        //     component:ceshi
+        // },
+        {path:'/ceshi/:id',
+            component:()=>import('../components/ceshi/ceshi')
         }
-
 
     ],
     })

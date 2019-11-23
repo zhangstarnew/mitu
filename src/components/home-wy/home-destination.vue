@@ -1,17 +1,17 @@
 <template>
     <div class="home-destination">
-        <a href="#"><img src="../../assets/images/home-wy/hotred.png"/>西安</a>
-        <a href="#"><img src="../../assets/images/home-wy/hotyellow.png"/>三亚</a>
-        <a href="#"><img src="../../assets/images/home-wy/hotblue.png"/>丽江</a>
-        <a href="#">成都</a>
-        <a href="#">鼓浪屿</a>
-        <a href="#">珠海</a>
-        <a href="#">桂林</a>
-        <a href="#">南宁</a>
-        <a href="#">武汉</a>
-        <a href="#">哈尔滨</a>
-        <a href="#">长沙</a>
-        <a href="#">张家界</a>
+        <a href="#/main/nextSelect/1"><img src="../../assets/images/home-wy/hotred.png"/>西安</a><!--1-->
+        <a href="#/main/nextSelect/6"><img src="../../assets/images/home-wy/hotyellow.png"/>三亚</a><!--6-->
+        <a href="#/main/nextSelect/9"><img src="../../assets/images/home-wy/hotblue.png"/>丽江</a><!--9-->
+        <a href="#/main/nextSelect/13">成都</a><!--13-->
+        <a href="#/main/nextSelect/18">鼓浪屿</a><!--18-->
+        <a href="#/main/nextSelect/20">珠海</a><!--20-->
+        <a href="#/main/nextSelect/21">桂林</a><!--21-->
+        <a href="#/main/nextSelect/22">南宁</a><!--22-->
+        <a href="#/main/nextSelect/25">武汉</a><!--25-->
+        <a href="#/main/nextSelect/23">哈尔滨</a><!--23-->
+        <a href="#/main/nextSelect/28">长沙</a><!--28-->
+        <a href="#/main/nextSelect/29">张家界</a><!--29-->
     </div>
 </template>
 

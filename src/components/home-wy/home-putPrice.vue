@@ -48,8 +48,8 @@
         position: relative;
     }
     .countdown{
-        /*width: 1.95rem;*/
         height: 0.25rem;
+        line-height: 0.25rem;
         background-color: rgb(243,249,252);
         border-radius: 0 0.2rem 0.2rem 0;
         position: absolute;
@@ -62,8 +62,6 @@
         line-height: 0.21rem;
         margin-right: 5px;
         text-align: center;
-        border: 1px solid black;
-        border-radius: 0.08rem;
     }
     .orgin{
         color: rgb(227,121,74);

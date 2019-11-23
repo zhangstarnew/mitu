@@ -1,0 +1,402 @@
+[{
+  "goodsId": "1",
+  "topImage": "detailImages/top.jpg",
+  "type": "跟团游",
+  "level": "5钻",
+  "title": "土耳其番红花城11日游【直飞/两晚洞穴特色酒店/美食美宿】",
+  "brief": "卡帕多奇亚，棉花堡，安塔利亚，库萨达斯，以弗所，图兹盐湖",
+  "price": "12399",
+  "oldPrice": "13399",
+  "reason": [
+              "中东非拳头产品，多次踩线升级！",
+              "全程三飞，享早报名优惠/信用卡立减优惠！",
+              "五钻住宿还是有特色的五钻住宿！"
+            ],
+  "departPlace": "北京",
+  "date": "12/27",
+  "productFeatures": [
+    {
+      "tags": "行程亮点",
+      "title": "[童乐时光]",
+      "text": "【水上乐园】【海底世界】【室外机动游戏乐场】【海豚乐园】【4D电影院】【音乐喷池秀】【室内游乐场】"
+    },
+    {
+      "tags": "成团方式",
+      "title": "[说走就走]",
+      "text": "2人成团，（不含领队和导游）"
+    },
+    {
+      "tags": "一价全含",
+      "title": "[超级省心]",
+      "text": "酒店住宿、一日三餐、机场接送、珍珠乐园+野生动物园无限畅玩，食住行游超省心！"
+    }
+  ],
+  "productImages": [
+              "assets/detailImages/details01.jpg",
+              "assets/detailImages/details02.jpg",
+              "assets/detailImages/details03.jpg",
+              "assets/detailImages/details04.jpg",
+              "assets/detailImages/details05.jpg"
+            ],
+  "routeDetails": [
+              {"day":"D1","city":"北京"},
+              {"day":"D2","city":"北京/伊斯坦布尔"},
+              {"day":"D3","city":"伊斯坦布尔"},
+              {"day":"D4","city":"伊斯坦布尔－萨夫兰博卢Safranbulu（车程约5.5小时）"},
+              {"day":"D5","city":"萨夫兰布鲁—安卡拉—图兹湖—卡帕多奇亚（车程约4+4个小时）"},
+              {"day":"D6","city":"卡帕多奇亚"},
+              {"day":"D7","city":"卡帕多奇亚-孔亚-安塔利亚（车程约4+4个小时） "},
+              {"day":"D8","city":"安塔利亚-帕姆卡莱（棉花堡） （路程约330公里；约4小时）"},
+              {"day":"D9","city":"帕姆卡莱-库萨达斯（路程约195公里；约3小时）"},
+              {"day":"D10","city":"库萨达斯-埃菲所-伊兹密尔/伊斯坦布尔"},
+              {"day":"D11","city":"伊斯坦布尔/北京"}
+            ],
+  "feeInclude": [
+                  {"title": "导游", "text": "中文导游或英文导游中文翻译或英文导游领队兼中文翻译。"},
+                  {"title": "交通","text": "行程中所列航班经济舱团体机票及相关税费"},
+                  {"title": "餐饮","text": "行程中所列包含的餐食费用。早餐为酒店内，午餐和晚餐为中式桌餐、自助餐或当地餐，中餐标准为8菜1汤，10人一桌。平均餐标为40元/人，特色餐除外。"}
+                ],
+  "feeNotInclude": [
+                  {"title": "保险","text": "旅游意外伤害保险及航空意外险（建议旅游者均购买）。"},
+                  {"title": "证件费","text": "办理证件费用。准备签证资料过程中发生的费用。"}
+                ],
+  "reserve": [
+                  {"title": "成团方式","text": "此产品最低10人成团。"},
+                  {"title": "温馨提示","text": "土耳其时间晚于北京时间6小时（如：北京1月1日中午12点，土耳其1月1日上午6点）。"}
+            ],
+  "totalEvaluate": "74",
+  "evaluateRate": "100%",
+  "userContent": [
+            {
+              "evaluateDate": "2016-10-10",
+              "userName": "406999",
+              "userEva":
+              [
+                {"title": "行程安排", "text": "这是个半自助的团，泡酒店的玩法，所以并不需要导游领队一价全含模式让我们吃住行不再操心，只想着如何畅玩"},
+                {"title": "餐饮安排", "text": "特意要说珍珠酒店的自助餐，种类丰富，用餐环境干净宽敞，每一个餐台都有服务人员，一共住了五天，餐食都有变化，没见过小料那么丰富的自助餐。细节非常到位，还会有一些海鲜吃到，越南人微笑服务，让我们心旷神怡"},
+                {"title": "酒店住宿", "text": "珍珠度假村集酒店和游乐场，水上乐园，游乐场为一体，所以占地面积大，盖在富国岛的郊区，如果只在度假村里面玩，有班车直达各个景点，非常方便，而且很近。但如果大家想去市区酒店还有免费班车接送，虽然有点远但也基本算无忧出行"},
+                {"title": "导游领队", "text": "本行程无导游领队"}
+              ],
+              "userPhoto": [
+                "assets/detailImages/evaPhoto01.jpg",
+                "assets/detailImages/evaPhoto02.jpg",
+                "assets/detailImages/evaPhoto03.jpg",
+                "assets/detailImages/evaPhoto04.jpg",
+                "assets/detailImages/evaPhoto05.jpg",
+                "assets/detailImages/evaPhoto06.jpg"
+              ]
+            },
+            {
+              "evaluateDate": "2018-08-08",
+              "userName": "406888",
+              "userEva":
+                [{"title": "行程安排", "text": "这是个半自助的团，泡酒店的玩法，所以并不需要导游领队一价全含模式让我们吃住行不再操心，只想着如何畅玩"},
+                {"title": "餐饮安排", "text": "特意要说珍珠酒店的自助餐，种类丰富，用餐环境干净宽敞，每一个餐台都有服务人员，一共住了五天，餐食都有变化，没见过小料那么丰富的自助餐。细节非常到位，还会有一些海鲜吃到，越南人微笑服务，让我们心旷神怡"},
+                {"title": "酒店住宿", "text": "珍珠度假村集酒店和游乐场，水上乐园，游乐场为一体，所以占地面积大，盖在富国岛的郊区，如果只在度假村里面玩，有班车直达各个景点，非常方便，而且很近。但如果大家想去市区酒店还有免费班车接送，虽然有点远但也基本算无忧出行"},
+                {"title": "导游领队", "text": "本行程无导游领队"}],
+              "userPhoto": [
+                "assets/detailImages/plan1.jpg",
+                "assets/detailImages/plan2.jpg",
+                "assets/detailImages/plan3.jpg",
+                "assets/detailImages/plan4.jpg",
+                "assets/detailImages/plan5.jpg",
+                "assets/detailImages/plan1.jpg"
+              ]
+            },
+            {
+              "evaluateDate": "2018-08-08",
+              "userName": "4068881",
+              "userEva":
+              [{"title": "行程安排", "text": "这是个半自助的团，泡酒店的玩法，所以并不需要导游领队一价全含模式让我们吃住行不再操心，只想着如何畅玩"},
+                {"title": "餐饮安排", "text": "特意要说珍珠酒店的自助餐，种类丰富，用餐环境干净宽敞，每一个餐台都有服务人员，一共住了五天，餐食都有变化，没见过小料那么丰富的自助餐。细节非常到位，还会有一些海鲜吃到，越南人微笑服务，让我们心旷神怡"},
+                {"title": "酒店住宿", "text": "珍珠度假村集酒店和游乐场，水上乐园，游乐场为一体，所以占地面积大，盖在富国岛的郊区，如果只在度假村里面玩，有班车直达各个景点，非常方便，而且很近。但如果大家想去市区酒店还有免费班车接送，虽然有点远但也基本算无忧出行"},
+                {"title": "导游领队", "text": "本行程无导游领队"}],
+              "userPhoto": [
+                "assets/detailImages/plan1.jpg",
+                "assets/detailImages/plan2.jpg",
+                "assets/detailImages/plan3.jpg",
+                "assets/detailImages/plan4.jpg",
+                "assets/detailImages/plan5.jpg",
+                "assets/detailImages/plan1.jpg"
+              ]
+            },
+            {
+              "evaluateDate": "2018-08-08",
+              "userName": "4068882",
+              "userEva":
+              [{"title": "行程安排", "text": "这是个半自助的团，泡酒店的玩法，所以并不需要导游领队一价全含模式让我们吃住行不再操心，只想着如何畅玩"},
+                {"title": "餐饮安排", "text": "特意要说珍珠酒店的自助餐，种类丰富，用餐环境干净宽敞，每一个餐台都有服务人员，一共住了五天，餐食都有变化，没见过小料那么丰富的自助餐。细节非常到位，还会有一些海鲜吃到，越南人微笑服务，让我们心旷神怡"},
+                {"title": "酒店住宿", "text": "珍珠度假村集酒店和游乐场，水上乐园，游乐场为一体，所以占地面积大，盖在富国岛的郊区，如果只在度假村里面玩，有班车直达各个景点，非常方便，而且很近。但如果大家想去市区酒店还有免费班车接送，虽然有点远但也基本算无忧出行"},
+                {"title": "导游领队", "text": "本行程无导游领队"}],
+              "userPhoto": [
+                "assets/detailImages/plan1.jpg",
+                "assets/detailImages/plan2.jpg",
+                "assets/detailImages/plan3.jpg",
+                "assets/detailImages/plan4.jpg",
+                "assets/detailImages/plan5.jpg",
+                "assets/detailImages/plan1.jpg"
+              ]
+            },
+            {
+              "evaluateDate": "2018-08-08",
+              "userName": "4068883",
+              "userEva":
+              [{"title": "行程安排", "text": "这是个半自助的团，泡酒店的玩法，所以并不需要导游领队一价全含模式让我们吃住行不再操心，只想着如何畅玩"},
+                {"title": "餐饮安排", "text": "特意要说珍珠酒店的自助餐，种类丰富，用餐环境干净宽敞，每一个餐台都有服务人员，一共住了五天，餐食都有变化，没见过小料那么丰富的自助餐。细节非常到位，还会有一些海鲜吃到，越南人微笑服务，让我们心旷神怡"},
+                {"title": "酒店住宿", "text": "珍珠度假村集酒店和游乐场，水上乐园，游乐场为一体，所以占地面积大，盖在富国岛的郊区，如果只在度假村里面玩，有班车直达各个景点，非常方便，而且很近。但如果大家想去市区酒店还有免费班车接送，虽然有点远但也基本算无忧出行"},
+                {"title": "导游领队", "text": "本行程无导游领队"}],
+              "userPhoto": [
+                "assets/detailImages/plan1.jpg",
+                "assets/detailImages/plan2.jpg",
+                "assets/detailImages/plan3.jpg",
+                "assets/detailImages/plan4.jpg",
+                "assets/detailImages/plan5.jpg",
+                "assets/detailImages/plan1.jpg"
+              ]
+            },
+            {
+              "evaluateDate": "2018-08-08",
+              "userName": "4068884",
+              "userEva":
+              [{"title": "行程安排", "text": "这是个半自助的团，泡酒店的玩法，所以并不需要导游领队一价全含模式让我们吃住行不再操心，只想着如何畅玩"},
+                {"title": "餐饮安排", "text": "特意要说珍珠酒店的自助餐，种类丰富，用餐环境干净宽敞，每一个餐台都有服务人员，一共住了五天，餐食都有变化，没见过小料那么丰富的自助餐。细节非常到位，还会有一些海鲜吃到，越南人微笑服务，让我们心旷神怡"},
+                {"title": "酒店住宿", "text": "珍珠度假村集酒店和游乐场，水上乐园，游乐场为一体，所以占地面积大，盖在富国岛的郊区，如果只在度假村里面玩，有班车直达各个景点，非常方便，而且很近。但如果大家想去市区酒店还有免费班车接送，虽然有点远但也基本算无忧出行"},
+                {"title": "导游领队", "text": "本行程无导游领队"}],
+              "userPhoto": [
+                "assets/detailImages/plan1.jpg",
+                "assets/detailImages/plan2.jpg",
+                "assets/detailImages/plan3.jpg",
+                "assets/detailImages/plan4.jpg",
+                "assets/detailImages/plan5.jpg",
+                "assets/detailImages/plan1.jpg"
+              ]
+            }
+        ],
+  "evaluateTags":[
+        "世界文化遗产",
+        "好玩",
+        "家庭游",
+        "爆款系列",
+        "悠久历史",
+        "浪漫",
+        "呼朋唤友"
+      ],
+  "alertBottom": [
+    {
+      "src": "assets/detailImages/iconPhone.png",
+      "word": "客服热线",
+      "text": "400-600-6666"
+    },
+    {
+      "src": "assets/detailImages/iconAsk.png",
+      "word": "在线客服",
+      "text": "服务时间：9:00 - 24:00"
+    },
+    {
+      "src": "assets/detailImages/iconShop.png",
+      "word": "遨游门店",
+      "text": "免费预约 上门服务"
+    }
+  ]
+},
+  {
+    "goodsId": "2",
+    "topImage": "detailImages/top.jpg",
+    "type": "跟团游",
+    "level": "5钻",
+    "title": "土耳其番红花城11日游【直飞/两晚洞穴特色酒店/美食美宿】",
+    "brief": "卡帕多奇亚，棉花堡，安塔利亚，库萨达斯，以弗所，图兹盐湖",
+    "price": "12399",
+    "oldPrice": "13399",
+    "reason": [
+      "中东非拳头产品，多次踩线升级！",
+      "全程三飞，享早报名优惠/信用卡立减优惠！",
+      "五钻住宿还是有特色的五钻住宿！"
+    ],
+    "departPlace": "北京",
+    "date": "12/27",
+    "productFeatures": [
+      {
+        "tags": "行程亮点",
+        "title": "[童乐时光]",
+        "text": "【水上乐园】【海底世界】【室外机动游戏乐场】【海豚乐园】【4D电影院】【音乐喷池秀】【室内游乐场】"
+      },
+      {
+        "tags": "成团方式",
+        "title": "[说走就走]",
+        "text": "2人成团，（不含领队和导游）"
+      },
+      {
+        "tags": "一价全含",
+        "title": "[超级省心]",
+        "text": "酒店住宿、一日三餐、机场接送、珍珠乐园+野生动物园无限畅玩，食住行游超省心！"
+      }
+    ],
+    "productImages": [
+      "assets/detailImages/details01.jpg",
+      "assets/detailImages/details02.jpg",
+      "assets/detailImages/details03.jpg",
+      "assets/detailImages/details04.jpg",
+      "assets/detailImages/details05.jpg"
+    ],
+    "routeDetails": [
+      {"day":"D1","city":"北京"},
+      {"day":"D2","city":"北京/伊斯坦布尔"},
+      {"day":"D3","city":"伊斯坦布尔"},
+      {"day":"D4","city":"伊斯坦布尔－萨夫兰博卢Safranbulu（车程约5.5小时）"},
+      {"day":"D5","city":"萨夫兰布鲁—安卡拉—图兹湖—卡帕多奇亚（车程约4+4个小时）"},
+      {"day":"D6","city":"卡帕多奇亚"},
+      {"day":"D7","city":"卡帕多奇亚-孔亚-安塔利亚（车程约4+4个小时） "},
+      {"day":"D8","city":"安塔利亚-帕姆卡莱（棉花堡） （路程约330公里；约4小时）"},
+      {"day":"D9","city":"帕姆卡莱-库萨达斯（路程约195公里；约3小时）"},
+      {"day":"D10","city":"库萨达斯-埃菲所-伊兹密尔/伊斯坦布尔"},
+      {"day":"D11","city":"伊斯坦布尔/北京"}
+    ],
+    "feeInclude": [
+      {"title": "导游", "text": "中文导游或英文导游中文翻译或英文导游领队兼中文翻译。"},
+      {"title": "交通","text": "行程中所列航班经济舱团体机票及相关税费"},
+      {"title": "餐饮","text": "行程中所列包含的餐食费用。早餐为酒店内，午餐和晚餐为中式桌餐、自助餐或当地餐，中餐标准为8菜1汤，10人一桌。平均餐标为40元/人，特色餐除外。"}
+    ],
+    "feeNotInclude": [
+      {"title": "保险","text": "旅游意外伤害保险及航空意外险（建议旅游者均购买）。"},
+      {"title": "证件费","text": "办理证件费用。准备签证资料过程中发生的费用。"}
+    ],
+    "reserve": [
+      {"title": "成团方式","text": "此产品最低10人成团。"},
+      {"title": "温馨提示","text": "土耳其时间晚于北京时间6小时（如：北京1月1日中午12点，土耳其1月1日上午6点）。"}
+    ],
+    "totalEvaluate": "74",
+    "evaluateRate": "100%",
+    "userContent": [
+      {
+        "evaluateDate": "2016-10-10",
+        "userName": "406999",
+        "userEva":
+        [
+          {"title": "行程安排", "text": "这是个半自助的团，泡酒店的玩法，所以并不需要导游领队一价全含模式让我们吃住行不再操心，只想着如何畅玩"},
+          {"title": "餐饮安排", "text": "特意要说珍珠酒店的自助餐，种类丰富，用餐环境干净宽敞，每一个餐台都有服务人员，一共住了五天，餐食都有变化，没见过小料那么丰富的自助餐。细节非常到位，还会有一些海鲜吃到，越南人微笑服务，让我们心旷神怡"},
+          {"title": "酒店住宿", "text": "珍珠度假村集酒店和游乐场，水上乐园，游乐场为一体，所以占地面积大，盖在富国岛的郊区，如果只在度假村里面玩，有班车直达各个景点，非常方便，而且很近。但如果大家想去市区酒店还有免费班车接送，虽然有点远但也基本算无忧出行"},
+          {"title": "导游领队", "text": "本行程无导游领队"}
+        ],
+        "userPhoto": [
+          "assets/detailImages/evaPhoto01.jpg",
+          "assets/detailImages/evaPhoto02.jpg",
+          "assets/detailImages/evaPhoto03.jpg",
+          "assets/detailImages/evaPhoto04.jpg",
+          "assets/detailImages/evaPhoto05.jpg",
+          "assets/detailImages/evaPhoto06.jpg"
+        ]
+      },
+      {
+        "evaluateDate": "2018-08-08",
+        "userName": "406888",
+        "userEva":
+        [{"title": "行程安排", "text": "这是个半自助的团，泡酒店的玩法，所以并不需要导游领队一价全含模式让我们吃住行不再操心，只想着如何畅玩"},
+          {"title": "餐饮安排", "text": "特意要说珍珠酒店的自助餐，种类丰富，用餐环境干净宽敞，每一个餐台都有服务人员，一共住了五天，餐食都有变化，没见过小料那么丰富的自助餐。细节非常到位，还会有一些海鲜吃到，越南人微笑服务，让我们心旷神怡"},
+          {"title": "酒店住宿", "text": "珍珠度假村集酒店和游乐场，水上乐园，游乐场为一体，所以占地面积大，盖在富国岛的郊区，如果只在度假村里面玩，有班车直达各个景点，非常方便，而且很近。但如果大家想去市区酒店还有免费班车接送，虽然有点远但也基本算无忧出行"},
+          {"title": "导游领队", "text": "本行程无导游领队"}],
+        "userPhoto": [
+          "assets/detailImages/plan1.jpg",
+          "assets/detailImages/plan2.jpg",
+          "assets/detailImages/plan3.jpg",
+          "assets/detailImages/plan4.jpg",
+          "assets/detailImages/plan5.jpg",
+          "assets/detailImages/plan1.jpg"
+        ]
+      },
+      {
+        "evaluateDate": "2018-08-08",
+        "userName": "4068881",
+        "userEva":
+        [{"title": "行程安排", "text": "这是个半自助的团，泡酒店的玩法，所以并不需要导游领队一价全含模式让我们吃住行不再操心，只想着如何畅玩"},
+          {"title": "餐饮安排", "text": "特意要说珍珠酒店的自助餐，种类丰富，用餐环境干净宽敞，每一个餐台都有服务人员，一共住了五天，餐食都有变化，没见过小料那么丰富的自助餐。细节非常到位，还会有一些海鲜吃到，越南人微笑服务，让我们心旷神怡"},
+          {"title": "酒店住宿", "text": "珍珠度假村集酒店和游乐场，水上乐园，游乐场为一体，所以占地面积大，盖在富国岛的郊区，如果只在度假村里面玩，有班车直达各个景点，非常方便，而且很近。但如果大家想去市区酒店还有免费班车接送，虽然有点远但也基本算无忧出行"},
+          {"title": "导游领队", "text": "本行程无导游领队"}],
+        "userPhoto": [
+          "assets/detailImages/plan1.jpg",
+          "assets/detailImages/plan2.jpg",
+          "assets/detailImages/plan3.jpg",
+          "assets/detailImages/plan4.jpg",
+          "assets/detailImages/plan5.jpg",
+          "assets/detailImages/plan1.jpg"
+        ]
+      },
+      {
+        "evaluateDate": "2018-08-08",
+        "userName": "4068882",
+        "userEva":
+        [{"title": "行程安排", "text": "这是个半自助的团，泡酒店的玩法，所以并不需要导游领队一价全含模式让我们吃住行不再操心，只想着如何畅玩"},
+          {"title": "餐饮安排", "text": "特意要说珍珠酒店的自助餐，种类丰富，用餐环境干净宽敞，每一个餐台都有服务人员，一共住了五天，餐食都有变化，没见过小料那么丰富的自助餐。细节非常到位，还会有一些海鲜吃到，越南人微笑服务，让我们心旷神怡"},
+          {"title": "酒店住宿", "text": "珍珠度假村集酒店和游乐场，水上乐园，游乐场为一体，所以占地面积大，盖在富国岛的郊区，如果只在度假村里面玩，有班车直达各个景点，非常方便，而且很近。但如果大家想去市区酒店还有免费班车接送，虽然有点远但也基本算无忧出行"},
+          {"title": "导游领队", "text": "本行程无导游领队"}],
+        "userPhoto": [
+          "assets/detailImages/plan1.jpg",
+          "assets/detailImages/plan2.jpg",
+          "assets/detailImages/plan3.jpg",
+          "assets/detailImages/plan4.jpg",
+          "assets/detailImages/plan5.jpg",
+          "assets/detailImages/plan1.jpg"
+        ]
+      },
+      {
+        "evaluateDate": "2018-08-08",
+        "userName": "4068883",
+        "userEva":
+        [{"title": "行程安排", "text": "这是个半自助的团，泡酒店的玩法，所以并不需要导游领队一价全含模式让我们吃住行不再操心，只想着如何畅玩"},
+          {"title": "餐饮安排", "text": "特意要说珍珠酒店的自助餐，种类丰富，用餐环境干净宽敞，每一个餐台都有服务人员，一共住了五天，餐食都有变化，没见过小料那么丰富的自助餐。细节非常到位，还会有一些海鲜吃到，越南人微笑服务，让我们心旷神怡"},
+          {"title": "酒店住宿", "text": "珍珠度假村集酒店和游乐场，水上乐园，游乐场为一体，所以占地面积大，盖在富国岛的郊区，如果只在度假村里面玩，有班车直达各个景点，非常方便，而且很近。但如果大家想去市区酒店还有免费班车接送，虽然有点远但也基本算无忧出行"},
+          {"title": "导游领队", "text": "本行程无导游领队"}],
+        "userPhoto": [
+          "assets/detailImages/plan1.jpg",
+          "assets/detailImages/plan2.jpg",
+          "assets/detailImages/plan3.jpg",
+          "assets/detailImages/plan4.jpg",
+          "assets/detailImages/plan5.jpg",
+          "assets/detailImages/plan1.jpg"
+        ]
+      },
+      {
+        "evaluateDate": "2018-08-08",
+        "userName": "4068884",
+        "userEva":
+        [{"title": "行程安排", "text": "这是个半自助的团，泡酒店的玩法，所以并不需要导游领队一价全含模式让我们吃住行不再操心，只想着如何畅玩"},
+          {"title": "餐饮安排", "text": "特意要说珍珠酒店的自助餐，种类丰富，用餐环境干净宽敞，每一个餐台都有服务人员，一共住了五天，餐食都有变化，没见过小料那么丰富的自助餐。细节非常到位，还会有一些海鲜吃到，越南人微笑服务，让我们心旷神怡"},
+          {"title": "酒店住宿", "text": "珍珠度假村集酒店和游乐场，水上乐园，游乐场为一体，所以占地面积大，盖在富国岛的郊区，如果只在度假村里面玩，有班车直达各个景点，非常方便，而且很近。但如果大家想去市区酒店还有免费班车接送，虽然有点远但也基本算无忧出行"},
+          {"title": "导游领队", "text": "本行程无导游领队"}],
+        "userPhoto": [
+          "assets/detailImages/plan1.jpg",
+          "assets/detailImages/plan2.jpg",
+          "assets/detailImages/plan3.jpg",
+          "assets/detailImages/plan4.jpg",
+          "assets/detailImages/plan5.jpg",
+          "assets/detailImages/plan1.jpg"
+        ]
+      }
+    ],
+    "evaluateTags":[
+      "世界文化遗产",
+      "好玩",
+      "家庭游",
+      "爆款系列",
+      "悠久历史",
+      "浪漫",
+      "呼朋唤友"
+    ],
+    "alertBottom": [
+      {
+        "src": "assets/detailImages/iconPhone.png",
+        "word": "客服热线",
+        "text": "400-600-6666"
+      },
+      {
+        "src": "assets/detailImages/iconAsk.png",
+        "word": "在线客服",
+        "text": "服务时间：9:00 - 24:00"
+      },
+      {
+        "src": "assets/detailImages/iconShop.png",
+        "word": "遨游门店",
+        "text": "免费预约 上门服务"
+      }
+    ]
+  }]

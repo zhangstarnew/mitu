@@ -1,7 +1,7 @@
 <template>
     <div id="nextContent-con" >
         <div  v-for="(data,u) in scenicSiteTablate" :key="u" id="nextContent-conA">
-            <a href="" id="nextContent">
+            <a :href="'#/detail/'+data.productId" id="nextContent">
                 <div><img :src="data.scenicSitePicture" alt=""></div>
                 <div>
                     <div class="navContent-div">{{data.scenicSiteName}}</div>
@@ -108,5 +108,50 @@
         color: #999;white-space: nowrap;
         overflow:  hidden;
         text-overflow: ellipsis;
+    }
+    #nextSelecct{
+        width: 3.75rem;
+        height: 0.4rem;
+        background-color: white;
+        border-bottom: 0.01rem solid gainsboro;
+        display: flex;
+        justify-content: space-around;
+        box-sizing: border-box;
+
+    }
+    #nextSelecct img{
+        width:50%;
+        height: 50%;
+    }
+    #nextSelecct div:nth-of-type(1){
+        width: 0.25rem;
+        padding-top: 0.1rem;
+    }
+    #nextSelecct div:nth-of-type(2){
+        width: 2.2rem;
+        height: 0.26rem;
+        border: 0.01rem solid gainsboro;
+        border-radius: 0.5rem;
+        margin-top: 0.06rem;
+    }
+    #nextSelecct div:nth-of-type(2) input{
+        width: 1.8rem;
+        height: 0.2rem;
+        border: 0rem;
+        outline: none;
+        margin-left: 0.15rem;
+        padding-top: 0.03rem;
+    }
+    #nextSelecct div:nth-of-type(3){
+        width: 0.3rem;
+        padding-top: 0.1rem;
+    }
+    .icon{
+        width: 0.2rem;
+        height: 0.2rem;
+        position: absolute;
+        left: 0.8rem;
+        top: 0.11rem;
+        color: gainsboro;
     }
 </style>
