@@ -1,6 +1,6 @@
 <template>
     <div class="productList">
-        <a href="#" class="product" :key="index" v-for="(p,index) in productList">
+        <a :href="'#/detail/'+p.productId" class="product" :key="index" v-for="(p,index) in productList">
             <span>立省{{p.savePrice}}</span>
             <img :src="p.src"/>
             <p class="price">￥{{p.price}} <del>￥{{p.delprice}}起</del></p>

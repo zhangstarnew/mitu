@@ -1,6 +1,6 @@
 <template>
     <div class="putPrice">
-        <div class="putPrice-title">
+        <a class="putPrice-title" :href="'#/detail/'+putPrice.productId">
             <van-count-down class="countdown" :time="time" format="DD 天 HH 时 mm 分 ss 秒">
                 <template v-slot="timeData">
                     <span class="orgin">距离结束</span>
@@ -17,9 +17,9 @@
             </div>
             <h1>{{putPrice.title}}</h1>
             <p>{{putPrice.tip}}</p>
-        </div>
+        </a>
         <div class="putPrice-product">
-            <home-putPrice-product :productList="putPrice.productList"></home-putPrice-product>
+            <home-putPrice-product :productList="putPrice.productList" ></home-putPrice-product>
         </div>
     </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
     <div class="play">
-        <a class="play-productList" :key="index" v-for="(p,index) in play">
+        <a class="play-productList" :key="index" v-for="(p,index) in play" :href="'#/detail/'+p.productId">
             <img :src="p.src"/>
             <p class="title">{{p.title}}</p>
             <p class="price"><span>￥ {{p.price}}</span> 起</p>

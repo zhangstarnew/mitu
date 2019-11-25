@@ -2,7 +2,7 @@
     <div class="xl_home-footer">
         <div class="mt-ward">
             <div class="tit">
-                <span>遨游6大旅游保障</span>
+                <span>米途6大旅游保障</span>
             </div>
             <ul class="listinfor">
                 <li class="list-star">首家上市旅行社</li>

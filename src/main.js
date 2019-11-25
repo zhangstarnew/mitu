@@ -3,6 +3,11 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 import router from "./router"
 import ElementUI from "element-ui"
+import axios from "axios"
+import qs from 'qs'
+Vue.prototype.$axios = axios
+Vue.prototype.$qs = qs
+
 import 'element-ui/lib/theme-chalk/index.css'
 import { Swipe, SwipeItem,DropdownMenu, DropdownItem,Popup,Tab, Tabs } from 'vant'
 import "vant/lib/index.css"

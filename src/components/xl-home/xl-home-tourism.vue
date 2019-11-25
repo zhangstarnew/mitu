@@ -3,12 +3,12 @@
         <div class="tourism_title">
            <div class="xl_tour_con">
                <p> 旅友圈  </p>
-               <span class="xl-label-desc">跟随遨游产品设计师，在陌生的地方发现一种久违的感动</span>
+               <span class="xl-label-desc">跟随米途产品设计师，在陌生的地方发现一种久违的感动</span>
            </div>
         </div>
         <ul class="xl_tourism_list">
             <li class="tourism_list_item" v-for="(item,index) in tourCircle" :key="index">
-                <a href="#/">
+                <a :href="'#/detail/'+item.productId">
                     <div class="traveler-img">
                         <img :src="item.src">
                     </div>

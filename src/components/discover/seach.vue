@@ -20,7 +20,7 @@
                     this.flag=false
                     this.user.forEach((user) => {
                         if (user.userName == this.searchList) {
-                            console.log(1)
+                            this.flag=true
                             this.$router.push('/main/searchUser/'+this.searchList)
                         }
                     })

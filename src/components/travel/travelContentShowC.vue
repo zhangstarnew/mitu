@@ -36,7 +36,6 @@
     }
     .travelContentShowC-p{
         width: 2.1rem;
-        height: 0.40rem;
         font-size: 0.14rem;
         position: absolute;
         right: 0;

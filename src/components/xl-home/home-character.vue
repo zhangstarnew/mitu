@@ -1,7 +1,7 @@
 <template>
     <div class="xl_character">
         <div class="xl_character_product">
-            <a href="#/" class="character_product_item" v-for="(item,index) in characterList[flag].peak" :key="index">
+            <a :href="'#/detail/'+item.productId" class="character_product_item" v-for="(item,index) in characterList[flag].peak" :key="index">
                 <div class="character-item-img">
                     <img :src="item.src" />
                     <div class="shade jian">

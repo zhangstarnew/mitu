@@ -47,7 +47,7 @@
         },
         methods:{
           back(){
-              this.$route.go(-1)
+              this.$router.go(-1)
           },
             async _initCarifyData() {
                 let a = this.$route.params.id;

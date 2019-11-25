@@ -1,6 +1,6 @@
 <template>
     <div class="productList">
-        <a href="#" class="product" :key="index" v-for="(p,index) in productList">
+        <a :href="'#/detail/'+p.productId" class="product" :key="index" v-for="(p,index) in productList">
             <img :src="p.pic" />
             <div>
                 <div>{{p.title}}</div>

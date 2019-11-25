@@ -52,8 +52,11 @@
         font-size: 0.14rem;
         font-weight: 900;
         width: 2.5rem;
-        height: 0.4rem;
         overflow: hidden;
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
 
     }
     .navContent-pa{
@@ -62,8 +65,11 @@
         color: #999;
         margin-top: 0.05rem;
         width: 2.5rem;
-        white-space: nowrap;
         overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
     }
     .navContent-pb{
         font-size: 0.1rem;
