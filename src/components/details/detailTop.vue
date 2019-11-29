@@ -1,6 +1,6 @@
 <template>
         <div class="yz_top">
-            <img src="../../assets/detailImages/top.jpg" alt="">
+            <img :src="data.topImage" alt="">
             <div class="yz_info">
                 <p><label class="yz_type">{{data.type}}</label><label class="yz_level">{{data.level}}</label><label class="yz_number">产品编号：{{data.goodsId}}</label></p>
             </div>

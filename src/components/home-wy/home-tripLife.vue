@@ -48,4 +48,8 @@
         font-weight: 400;
         text-align: left;
     }
+    .tripLife-div>a>img{
+        width: 3.75rem;
+        height: 1.8rem;
+    }
 </style>

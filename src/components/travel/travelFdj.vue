@@ -1,6 +1,6 @@
 <template>
     <div>
-        <a href="#" class="destination-zx-box-a">
+        <a href="#/homeSelect" class="destination-zx-box-a">
             <span class="iconfont destination-zx-box-a-span1">&#xe600;</span>
             <span class="destination-zx-box-a-span2">搜索精彩内容</span>
         </a>

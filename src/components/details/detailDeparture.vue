@@ -52,8 +52,12 @@
     .yz_datePrice p:nth-child(1){
         margin-top: 0.06rem;
         color: #333;
+        font-size: 0.12rem;
+        text-align: center;
     }
     .yz_datePrice p:nth-child(2){
         color: #fc5a3f;
+        font-size: 0.12rem;
+        text-align: center;
     }
 </style>

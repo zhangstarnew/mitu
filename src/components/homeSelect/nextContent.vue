@@ -1,7 +1,7 @@
 <template>
     <div id="nextContent-con" >
-        <div  v-for="(data,u) in scenicSiteTablate" :key="u" id="nextContent-conA">
-            <a :href="'#/detail/'+data.productId" id="nextContent">
+        <div  v-for="(data,u) in scenicSiteTablate" :key="u">
+            <a :href="'#/detail/'+data.scenicSiteId" id="nextContent-conA">
                 <div><img :src="data.scenicSitePicture" alt=""></div>
                 <div>
                     <div class="navContent-div">{{data.scenicSiteName}}</div>
@@ -21,7 +21,8 @@
 <script>
     export default {
         name: "nextContent",
-        props:['scenicSiteTablate']
+        props:['scenicSiteTablate'],
+
     }
 </script>
 
@@ -31,13 +32,15 @@
         margin: 0rem auto;
     }
     #nextContent-conA{
+        display: flex;
+        justify-content: space-around;
         height: 1.2rem;
         border-bottom: 0.01rem solid gainsboro;
         padding-top: 0.15rem;
     }
-    #nextContent{
-        display: flex;
-        justify-content: space-around;
+    #nextContent-conA img{
+        width: 0.8rem;
+        height: 1rem;
     }
     #nextContent>div:nth-of-type(1){
         width: 0.8rem;
@@ -52,11 +55,8 @@
         font-size: 0.14rem;
         font-weight: 900;
         width: 2.5rem;
+        height: 0.4rem;
         overflow: hidden;
-        display: -webkit-box;
-        text-overflow: ellipsis;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
 
     }
     .navContent-pa{
@@ -65,11 +65,8 @@
         color: #999;
         margin-top: 0.05rem;
         width: 2.5rem;
+        white-space: nowrap;
         overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 1;
     }
     .navContent-pb{
         font-size: 0.1rem;

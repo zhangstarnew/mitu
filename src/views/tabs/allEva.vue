@@ -2,15 +2,15 @@
     <div class="yz_allBox">
         <header class="yz_header">
             <span class="yz_iconBack" @click="back"></span>
-            <p>用户评价 <span>({{product.totalEvaluate}})</span></p>
+            <p>用户评价 <span>({{totalEvaluate}})</span></p>
         </header>
         <div class="yz_evaDetail">
-            <p class="yz_evaRate">整体满意度：<span>{{product.evaluateRate}}</span></p>
+            <p class="yz_evaRate">整体满意度：<span>{{evaluateRate}}</span></p>
             <div class="yz_TagsBox">
-                <p class="yz_evaTags" v-for="(u,index) in product.evaluateTags" :key="index">{{u}}</p>
+                <p class="yz_evaTags" v-for="(u,index) in evaluateTags" :key="index">{{u}}</p>
             </div>
         </div>
-        <div v-for="(u,index) in product.userContent" :key="index" class="yz_evaItem" v-show="index<num">
+        <div v-for="(u,index) in userContent" :key="index" class="yz_evaItem" v-show="index<num">
             <div class="yz_itemHeader">
                 <p class="yz_user"><i class="yz_iconUser"></i>{{u.userName}}</p>
                 <i class="yz_iconStar"></i>
@@ -38,7 +38,7 @@
                 @change="onChange">
         </van-image-preview>
         <div class="yz_readMoreEva">
-            <p @click="readMore(product)">{{text}}</p>
+            <p @click="readMore">{{text}}</p>
         </div>
     </div>
 </template>
@@ -52,20 +52,135 @@
         },
         data(){
             return{
-                data:null,
                 num:1,
                 show: false,
                 isShow:true,
                 index: 0,
                 images:[],
                 text:"点击查看更多",
-                product:[]
+                "totalEvaluate": "74",
+                "evaluateRate": "100%",
+                "userContent": [
+                    {
+                        "evaluateDate": "2016-10-10",
+                        "userName": "406999",
+                        "userEva":
+                            [
+                                {"title": "行程安排", "text": "这是个半自助的团，泡酒店的玩法，所以并不需要导游领队一价全含模式让我们吃住行不再操心，只想着如何畅玩"},
+                                {"title": "餐饮安排", "text": "特意要说珍珠酒店的自助餐，种类丰富，用餐环境干净宽敞，每一个餐台都有服务人员，一共住了五天，餐食都有变化，没见过小料那么丰富的自助餐。细节非常到位，还会有一些海鲜吃到，越南人微笑服务，让我们心旷神怡"},
+                                {"title": "酒店住宿", "text": "珍珠度假村集酒店和游乐场，水上乐园，游乐场为一体，所以占地面积大，盖在富国岛的郊区，如果只在度假村里面玩，有班车直达各个景点，非常方便，而且很近。但如果大家想去市区酒店还有免费班车接送，虽然有点远但也基本算无忧出行"},
+                                {"title": "导游领队", "text": "本行程无导游领队"}
+                            ],
+                        "userPhoto": [
+                            "assets/detailImages/evaPhoto01.jpg",
+                            "assets/detailImages/evaPhoto02.jpg",
+                            "assets/detailImages/evaPhoto03.jpg",
+                            "assets/detailImages/evaPhoto04.jpg",
+                            "assets/detailImages/evaPhoto05.jpg",
+                            "assets/detailImages/evaPhoto06.jpg"
+                        ]
+                    },
+                    {
+                        "evaluateDate": "2018-08-08",
+                        "userName": "406888",
+                        "userEva":
+                            [{"title": "行程安排", "text": "这是个半自助的团，泡酒店的玩法，所以并不需要导游领队一价全含模式让我们吃住行不再操心，只想着如何畅玩"},
+                                {"title": "餐饮安排", "text": "特意要说珍珠酒店的自助餐，种类丰富，用餐环境干净宽敞，每一个餐台都有服务人员，一共住了五天，餐食都有变化，没见过小料那么丰富的自助餐。细节非常到位，还会有一些海鲜吃到，越南人微笑服务，让我们心旷神怡"},
+                                {"title": "酒店住宿", "text": "珍珠度假村集酒店和游乐场，水上乐园，游乐场为一体，所以占地面积大，盖在富国岛的郊区，如果只在度假村里面玩，有班车直达各个景点，非常方便，而且很近。但如果大家想去市区酒店还有免费班车接送，虽然有点远但也基本算无忧出行"},
+                                {"title": "导游领队", "text": "本行程无导游领队"}],
+                        "userPhoto": [
+                            "assets/detailImages/plan1.jpg",
+                            "assets/detailImages/plan2.jpg",
+                            "assets/detailImages/plan3.jpg",
+                            "assets/detailImages/plan4.jpg",
+                            "assets/detailImages/plan5.jpg",
+                            "assets/detailImages/plan1.jpg"
+                        ]
+                    },
+                    {
+                        "evaluateDate": "2018-08-08",
+                        "userName": "4068881",
+                        "userEva":
+                            [{"title": "行程安排", "text": "这是个半自助的团，泡酒店的玩法，所以并不需要导游领队一价全含模式让我们吃住行不再操心，只想着如何畅玩"},
+                                {"title": "餐饮安排", "text": "特意要说珍珠酒店的自助餐，种类丰富，用餐环境干净宽敞，每一个餐台都有服务人员，一共住了五天，餐食都有变化，没见过小料那么丰富的自助餐。细节非常到位，还会有一些海鲜吃到，越南人微笑服务，让我们心旷神怡"},
+                                {"title": "酒店住宿", "text": "珍珠度假村集酒店和游乐场，水上乐园，游乐场为一体，所以占地面积大，盖在富国岛的郊区，如果只在度假村里面玩，有班车直达各个景点，非常方便，而且很近。但如果大家想去市区酒店还有免费班车接送，虽然有点远但也基本算无忧出行"},
+                                {"title": "导游领队", "text": "本行程无导游领队"}],
+                        "userPhoto": [
+                            "assets/detailImages/plan1.jpg",
+                            "assets/detailImages/plan2.jpg",
+                            "assets/detailImages/plan3.jpg",
+                            "assets/detailImages/plan4.jpg",
+                            "assets/detailImages/plan5.jpg",
+                            "assets/detailImages/plan1.jpg"
+                        ]
+                    },
+                    {
+                        "evaluateDate": "2018-08-08",
+                        "userName": "4068882",
+                        "userEva":
+                            [{"title": "行程安排", "text": "这是个半自助的团，泡酒店的玩法，所以并不需要导游领队一价全含模式让我们吃住行不再操心，只想着如何畅玩"},
+                                {"title": "餐饮安排", "text": "特意要说珍珠酒店的自助餐，种类丰富，用餐环境干净宽敞，每一个餐台都有服务人员，一共住了五天，餐食都有变化，没见过小料那么丰富的自助餐。细节非常到位，还会有一些海鲜吃到，越南人微笑服务，让我们心旷神怡"},
+                                {"title": "酒店住宿", "text": "珍珠度假村集酒店和游乐场，水上乐园，游乐场为一体，所以占地面积大，盖在富国岛的郊区，如果只在度假村里面玩，有班车直达各个景点，非常方便，而且很近。但如果大家想去市区酒店还有免费班车接送，虽然有点远但也基本算无忧出行"},
+                                {"title": "导游领队", "text": "本行程无导游领队"}],
+                        "userPhoto": [
+                            "assets/detailImages/plan1.jpg",
+                            "assets/detailImages/plan2.jpg",
+                            "assets/detailImages/plan3.jpg",
+                            "assets/detailImages/plan4.jpg",
+                            "assets/detailImages/plan5.jpg",
+                            "assets/detailImages/plan1.jpg"
+                        ]
+                    },
+                    {
+                        "evaluateDate": "2018-08-08",
+                        "userName": "4068883",
+                        "userEva":
+                            [{"title": "行程安排", "text": "这是个半自助的团，泡酒店的玩法，所以并不需要导游领队一价全含模式让我们吃住行不再操心，只想着如何畅玩"},
+                                {"title": "餐饮安排", "text": "特意要说珍珠酒店的自助餐，种类丰富，用餐环境干净宽敞，每一个餐台都有服务人员，一共住了五天，餐食都有变化，没见过小料那么丰富的自助餐。细节非常到位，还会有一些海鲜吃到，越南人微笑服务，让我们心旷神怡"},
+                                {"title": "酒店住宿", "text": "珍珠度假村集酒店和游乐场，水上乐园，游乐场为一体，所以占地面积大，盖在富国岛的郊区，如果只在度假村里面玩，有班车直达各个景点，非常方便，而且很近。但如果大家想去市区酒店还有免费班车接送，虽然有点远但也基本算无忧出行"},
+                                {"title": "导游领队", "text": "本行程无导游领队"}],
+                        "userPhoto": [
+                            "assets/detailImages/plan1.jpg",
+                            "assets/detailImages/plan2.jpg",
+                            "assets/detailImages/plan3.jpg",
+                            "assets/detailImages/plan4.jpg",
+                            "assets/detailImages/plan5.jpg",
+                            "assets/detailImages/plan1.jpg"
+                        ]
+                    },
+                    {
+                        "evaluateDate": "2018-08-08",
+                        "userName": "4068884",
+                        "userEva":
+                            [{"title": "行程安排", "text": "这是个半自助的团，泡酒店的玩法，所以并不需要导游领队一价全含模式让我们吃住行不再操心，只想着如何畅玩"},
+                                {"title": "餐饮安排", "text": "特意要说珍珠酒店的自助餐，种类丰富，用餐环境干净宽敞，每一个餐台都有服务人员，一共住了五天，餐食都有变化，没见过小料那么丰富的自助餐。细节非常到位，还会有一些海鲜吃到，越南人微笑服务，让我们心旷神怡"},
+                                {"title": "酒店住宿", "text": "珍珠度假村集酒店和游乐场，水上乐园，游乐场为一体，所以占地面积大，盖在富国岛的郊区，如果只在度假村里面玩，有班车直达各个景点，非常方便，而且很近。但如果大家想去市区酒店还有免费班车接送，虽然有点远但也基本算无忧出行"},
+                                {"title": "导游领队", "text": "本行程无导游领队"}],
+                        "userPhoto": [
+                            "assets/detailImages/plan1.jpg",
+                            "assets/detailImages/plan2.jpg",
+                            "assets/detailImages/plan3.jpg",
+                            "assets/detailImages/plan4.jpg",
+                            "assets/detailImages/plan5.jpg",
+                            "assets/detailImages/plan1.jpg"
+                        ]
+                    }
+                ],
+                "evaluateTags":[
+                    "世界文化遗产",
+                    "好玩",
+                    "家庭游",
+                    "爆款系列",
+                    "悠久历史",
+                    "浪漫",
+                    "呼朋唤友"
+                ]
             }
         },
         methods:{
             back(){
-                // this.$route.go(-1)
-                this.$router.push('/detail')
+                this.$router.go(-1)
+                // this.$router.push('/detail')
             },
             showImage(u){
                 this.show=!this.show;
@@ -77,37 +192,21 @@
             onClose() {
 
             },
-            readMore(data){
+            readMore(){
                 this.isShow = !this.isShow;
                 this.num =this.num+2;
-                let l=data.userContent.length;
+                let l=this.userContent.length;
                 if(this.num>l){
                     this.text="已全部显示"
                 }else{
                     this.text="点击查看更多"
                 }
-            },
-            async _initCarifyData() {
-                let a = this.$route.params.id;
-                this.id=a;
-                if (this.data) {
-                    this.data.forEach((aaa) => {
-                        if (aaa.goodsId == a) {
-                            this.product = aaa;
-                        }
-                    })
-                }
             }
         },
         beforeMount() {
-            let allData=require('../../../mocks/detail');
-            this.data=allData;
+            // let allData=require('../../../mocks/detail');
+            // this.data=allData;
             window.scrollTo(0,0);
-            this._initCarifyData()
-        },
-        mounted() {
-            // eslint-disable-next-line no-console
-            // console.log(u.userPhoto)
         }
     }
 </script>
@@ -115,7 +214,6 @@
 <style scoped>
     .yz_allBox{
         background-color: #efeff4;
-        font-size: 0.12rem;
         /*position: relative;*/
     }
     .yz_header{

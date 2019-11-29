@@ -4,7 +4,7 @@
             <h2 @click="showText1">费用包含<i class="yz_iconNext" :class="[isActive1?'yz_iconNext':'down1']"></i></h2>
             <div class="yz_notice" v-if="show1">
                 <ul>
-                    <li v-for="(u,index) in data.feeInclude" :key="index"><span>【{{u.title}}】</span>{{u.text}}</li>
+                    <li v-for="(u,index) in feeInclude" :key="index"><span>【{{u.title}}】</span>{{u.text}}</li>
                 </ul>
             </div>
         </div>
@@ -12,7 +12,7 @@
             <h2 @click="showText2">费用不包含<i class="yz_iconNext" :class="[isActive2?'yz_iconNext':'down2']"></i></h2>
             <div class="yz_notice" v-show="show2">
                 <ul>
-                    <li v-for="(u,index) in data.feeNotInclude" :key="index"><span>【{{u.title}}】</span>{{u.text}}</li>
+                    <li v-for="(u,index) in feeNotInclude" :key="index"><span>【{{u.title}}】</span>{{u.text}}</li>
                 </ul>
             </div>
         </div>
@@ -20,7 +20,7 @@
             <h2>预订须知</h2>
             <div class="yz_notice">
                 <ul>
-                    <li v-for="(u,index) in data.reserve" :key="index"><span>【{{u.title}}】</span>{{u.text}}</li>
+                    <li v-for="(u,index) in reserve" :key="index"><span>【{{u.title}}】</span>{{u.text}}</li>
                 </ul>
             </div>
         </div>
@@ -30,13 +30,25 @@
 <script>
     export default {
         name: "detailNotice",
-        props:["data"],
         data(){
             return{
                 show1:false,
                 show2:false,
                 isActive1:true,
-                isActive2:true
+                isActive2:true,
+                feeInclude: [
+                    {"title": "导游", "text": "中文导游或英文导游中文翻译或英文导游领队兼中文翻译。"},
+                    {"title": "交通","text": "行程中所列航班经济舱团体机票及相关税费"},
+                    {"title": "餐饮","text": "行程中所列包含的餐食费用。早餐为酒店内，午餐和晚餐为中式桌餐、自助餐或当地餐，中餐标准为8菜1汤，10人一桌。平均餐标为40元/人，特色餐除外。"}
+                ],
+                feeNotInclude: [
+                    {"title": "保险","text": "旅游意外伤害保险及航空意外险（建议旅游者均购买）。"},
+                    {"title": "证件费","text": "办理证件费用。准备签证资料过程中发生的费用。"}
+                ],
+                reserve: [
+                    {"title": "成团方式","text": "此产品最低10人成团。"},
+                    {"title": "温馨提示","text": "土耳其时间晚于北京时间6小时（如：北京1月1日中午12点，土耳其1月1日上午6点）。"}
+                ]
             }
         },
         methods:{

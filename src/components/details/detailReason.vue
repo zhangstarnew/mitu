@@ -2,7 +2,7 @@
     <div class="yz_reason">
         <h2>推荐理由</h2>
         <ul>
-            <li v-for="(u,index) in data.reason" :key="index">
+            <li v-for="(u,index) in reason" :key="index">
                 <i></i>
                 <p>{{u}}</p>
             </li>
@@ -13,7 +13,15 @@
 <script>
     export default {
         name: "detailReason",
-        props:["data"]
+        data(){
+            return {
+                reason:[
+                    "米途旅行！",
+                    "全程三飞，享早报名优惠/信用卡立减优惠！",
+                    "五钻住宿还是有特色的五钻住宿！"
+                ]
+            }
+        }
     }
 </script>
 

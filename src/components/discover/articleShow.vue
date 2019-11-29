@@ -1,13 +1,16 @@
 <template>
-    <div>
-        <a :href="'#/main/userInfo/'+data.userId+'/'+data.article[0].articleId"><img :src="data.article[0].articleImg[0]" alt="" class="banner"></a>
-        <p class="title">{{data.article[0].articleTitle}}</p>
+    <div >
+<!--         :href="'#/main/userInfo/'+data.ud_id+'/'+data.article[0].articleId"-->
+        <a @click="userIn(data.article_id)">
+          <img :src="data.a_image" alt="" class="banner">
+        </a>
+        <p class="title" @click="userIn(data.article_id)">{{data.a_title}}</p>
         <div class="view">
             <div>
-                <img src="../../../public/images/cmdimg/view.png" alt="" class="cmdsee" ><span>{{data.article[0].articleView}}</span>
+                <img src="../../../public/images/cmdimg/view.png" alt="" class="cmdsee" ><span>{{data.view_num}}</span>
             </div>
             <div>
-                <img src="../../../public/images/cmdimg/zan.png" alt="" class="cmdsee" @click="data.article[0].articleLike++"><span>{{data.article[0].articleLike}}</span>
+                <img src="../../../public/images/cmdimg/zan.png" alt="" class="cmdsee" @click="data.good_num++"><span>{{data.good_num}}</span>
             </div>
         </div>
     </div>
@@ -16,7 +19,24 @@
 <script>
     export default {
         name: "articleShow",
-        props:["data"]
+        props:["data"],
+        data(){
+            return{
+                user:null
+            }
+        },
+        methods:{
+            //向后端传id
+            userIn(a){
+                this.$axios.get('http://39.105.52.171/api/discover/content/?article_id='+a)
+                    .then(()=>{
+                        this.$router.push('/main/articleInfo/'+a)
+                    })
+                    .catch(err=>{
+                        console.log(err)
+                    })
+            }
+        }
     }
 </script>
 
@@ -26,19 +46,20 @@
         width:100%;
     }
     .title{
+        text-align: left;
         width:90%;
         white-space: nowrap;
         margin: 0 auto;
-        padding: 0 20px;
-        margin-top: 20px;
-        line-height: 30px;
+        padding: 0 0.2rem;
+        margin-top: 0.2rem;
+        line-height: 0.3rem;
         overflow: hidden;
-        font-size: 17px;
+        font-size: 0.17rem;
         text-overflow: ellipsis;
     }
     .cmdsee{
-        width: 27px;
-        height: 20px;
+        width: 0.27rem;
+        height: 0.2rem;
         vertical-align: middle;
     }
     .view{

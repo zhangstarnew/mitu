@@ -37,7 +37,7 @@ active: './images/faxian1.png'
 },
 {
 text: "我的",
-url: '/main/my',
+url: '/main/personal',
 img: "./images/my.png",
 active: './images/my1.png'
 }

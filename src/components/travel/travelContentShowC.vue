@@ -3,7 +3,7 @@
         <a href="#" class="travelContentShowC-a" v-for="(u,i) in data.contentC" :key="i">
             <img :src="u.img" class="travelContentShowC-img">
             <p class="travelContentShowC-p">{{u.title}}</p>
-            <span class="travelContentShowC-span">{{u.price}}<span class="travelContentShowC-span2">起</span></span>
+            <span class="travelContentShowC-span"><span class="travelContentShowC-span3">￥</span>{{u.price}}<span class="travelContentShowC-span2">起</span></span>
         </a>
     </div>
 </template>
@@ -61,4 +61,5 @@
         font-size: 0.1rem;
         margin-left: 0.04rem;
     }
+
 </style>

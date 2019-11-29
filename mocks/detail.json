@@ -1,4 +1,5 @@
-[{
+[
+  {
   "goodsId": "1",
   "topImage": "detailImages/top.jpg",
   "type": "跟团游",
@@ -399,4 +400,5 @@
         "text": "免费预约 上门服务"
       }
     ]
-  }]
+  }
+]

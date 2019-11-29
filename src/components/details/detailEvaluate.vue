@@ -1,12 +1,12 @@
 <template>
     <div class="yz_evaBox">
         <div class="yz_evaTitle">
-            <p>用户评价(<span>{{data.totalEvaluate}}</span>)</p>
+            <p>用户评价(<span>{{totalEvaluate}}</span>)</p>
             <i class="yz_iconNotice" @click="showNotice"></i>
-            <a @click="yz_readAll">好评率{{data.evaluateRate}}</a>
+            <a @click="yz_readAll">好评率{{evaluateRate}}</a>
             <i class="yz_iconNext" @click="yz_readAll"></i>
         </div>
-        <div v-for="(u,index) in data.userContent.slice(0,1)" :key="index" class="yz_evaItem">
+        <div v-for="(u,index) in userContent.slice(0,1)" :key="index" class="yz_evaItem">
             <div class="yz_itemHeader">
                 <i class="yz_iconStar"></i>
                 <i class="yz_iconStar"></i>
@@ -58,7 +58,115 @@
                     "导游领队"
                 ],
                 show: false,
-                index: 0
+                index: 0,
+                "totalEvaluate": "74",
+                "evaluateRate": "100%",
+                "userContent": [
+                    {
+                        "evaluateDate": "2016-10-10",
+                        "userName": "406999",
+                        "userEva":
+                            [
+                                {"title": "行程安排", "text": "这是个半自助的团，泡酒店的玩法，所以并不需要导游领队一价全含模式让我们吃住行不再操心，只想着如何畅玩"},
+                                {"title": "餐饮安排", "text": "特意要说珍珠酒店的自助餐，种类丰富，用餐环境干净宽敞，每一个餐台都有服务人员，一共住了五天，餐食都有变化，没见过小料那么丰富的自助餐。细节非常到位，还会有一些海鲜吃到，越南人微笑服务，让我们心旷神怡"},
+                                {"title": "酒店住宿", "text": "珍珠度假村集酒店和游乐场，水上乐园，游乐场为一体，所以占地面积大，盖在富国岛的郊区，如果只在度假村里面玩，有班车直达各个景点，非常方便，而且很近。但如果大家想去市区酒店还有免费班车接送，虽然有点远但也基本算无忧出行"},
+                                {"title": "导游领队", "text": "本行程无导游领队"}
+                            ],
+                        "userPhoto": [
+                            "assets/detailImages/evaPhoto01.jpg",
+                            "assets/detailImages/evaPhoto02.jpg",
+                            "assets/detailImages/evaPhoto03.jpg",
+                            "assets/detailImages/evaPhoto04.jpg",
+                            "assets/detailImages/evaPhoto05.jpg",
+                            "assets/detailImages/evaPhoto06.jpg"
+                        ]
+                    },
+                    {
+                        "evaluateDate": "2018-08-08",
+                        "userName": "406888",
+                        "userEva":
+                            [{"title": "行程安排", "text": "这是个半自助的团，泡酒店的玩法，所以并不需要导游领队一价全含模式让我们吃住行不再操心，只想着如何畅玩"},
+                                {"title": "餐饮安排", "text": "特意要说珍珠酒店的自助餐，种类丰富，用餐环境干净宽敞，每一个餐台都有服务人员，一共住了五天，餐食都有变化，没见过小料那么丰富的自助餐。细节非常到位，还会有一些海鲜吃到，越南人微笑服务，让我们心旷神怡"},
+                                {"title": "酒店住宿", "text": "珍珠度假村集酒店和游乐场，水上乐园，游乐场为一体，所以占地面积大，盖在富国岛的郊区，如果只在度假村里面玩，有班车直达各个景点，非常方便，而且很近。但如果大家想去市区酒店还有免费班车接送，虽然有点远但也基本算无忧出行"},
+                                {"title": "导游领队", "text": "本行程无导游领队"}],
+                        "userPhoto": [
+                            "assets/detailImages/plan1.jpg",
+                            "assets/detailImages/plan2.jpg",
+                            "assets/detailImages/plan3.jpg",
+                            "assets/detailImages/plan4.jpg",
+                            "assets/detailImages/plan5.jpg",
+                            "assets/detailImages/plan1.jpg"
+                        ]
+                    },
+                    {
+                        "evaluateDate": "2018-08-08",
+                        "userName": "4068881",
+                        "userEva":
+                            [{"title": "行程安排", "text": "这是个半自助的团，泡酒店的玩法，所以并不需要导游领队一价全含模式让我们吃住行不再操心，只想着如何畅玩"},
+                                {"title": "餐饮安排", "text": "特意要说珍珠酒店的自助餐，种类丰富，用餐环境干净宽敞，每一个餐台都有服务人员，一共住了五天，餐食都有变化，没见过小料那么丰富的自助餐。细节非常到位，还会有一些海鲜吃到，越南人微笑服务，让我们心旷神怡"},
+                                {"title": "酒店住宿", "text": "珍珠度假村集酒店和游乐场，水上乐园，游乐场为一体，所以占地面积大，盖在富国岛的郊区，如果只在度假村里面玩，有班车直达各个景点，非常方便，而且很近。但如果大家想去市区酒店还有免费班车接送，虽然有点远但也基本算无忧出行"},
+                                {"title": "导游领队", "text": "本行程无导游领队"}],
+                        "userPhoto": [
+                            "assets/detailImages/plan1.jpg",
+                            "assets/detailImages/plan2.jpg",
+                            "assets/detailImages/plan3.jpg",
+                            "assets/detailImages/plan4.jpg",
+                            "assets/detailImages/plan5.jpg",
+                            "assets/detailImages/plan1.jpg"
+                        ]
+                    },
+                    {
+                        "evaluateDate": "2018-08-08",
+                        "userName": "4068882",
+                        "userEva":
+                            [{"title": "行程安排", "text": "这是个半自助的团，泡酒店的玩法，所以并不需要导游领队一价全含模式让我们吃住行不再操心，只想着如何畅玩"},
+                                {"title": "餐饮安排", "text": "特意要说珍珠酒店的自助餐，种类丰富，用餐环境干净宽敞，每一个餐台都有服务人员，一共住了五天，餐食都有变化，没见过小料那么丰富的自助餐。细节非常到位，还会有一些海鲜吃到，越南人微笑服务，让我们心旷神怡"},
+                                {"title": "酒店住宿", "text": "珍珠度假村集酒店和游乐场，水上乐园，游乐场为一体，所以占地面积大，盖在富国岛的郊区，如果只在度假村里面玩，有班车直达各个景点，非常方便，而且很近。但如果大家想去市区酒店还有免费班车接送，虽然有点远但也基本算无忧出行"},
+                                {"title": "导游领队", "text": "本行程无导游领队"}],
+                        "userPhoto": [
+                            "assets/detailImages/plan1.jpg",
+                            "assets/detailImages/plan2.jpg",
+                            "assets/detailImages/plan3.jpg",
+                            "assets/detailImages/plan4.jpg",
+                            "assets/detailImages/plan5.jpg",
+                            "assets/detailImages/plan1.jpg"
+                        ]
+                    },
+                    {
+                        "evaluateDate": "2018-08-08",
+                        "userName": "4068883",
+                        "userEva":
+                            [{"title": "行程安排", "text": "这是个半自助的团，泡酒店的玩法，所以并不需要导游领队一价全含模式让我们吃住行不再操心，只想着如何畅玩"},
+                                {"title": "餐饮安排", "text": "特意要说珍珠酒店的自助餐，种类丰富，用餐环境干净宽敞，每一个餐台都有服务人员，一共住了五天，餐食都有变化，没见过小料那么丰富的自助餐。细节非常到位，还会有一些海鲜吃到，越南人微笑服务，让我们心旷神怡"},
+                                {"title": "酒店住宿", "text": "珍珠度假村集酒店和游乐场，水上乐园，游乐场为一体，所以占地面积大，盖在富国岛的郊区，如果只在度假村里面玩，有班车直达各个景点，非常方便，而且很近。但如果大家想去市区酒店还有免费班车接送，虽然有点远但也基本算无忧出行"},
+                                {"title": "导游领队", "text": "本行程无导游领队"}],
+                        "userPhoto": [
+                            "assets/detailImages/plan1.jpg",
+                            "assets/detailImages/plan2.jpg",
+                            "assets/detailImages/plan3.jpg",
+                            "assets/detailImages/plan4.jpg",
+                            "assets/detailImages/plan5.jpg",
+                            "assets/detailImages/plan1.jpg"
+                        ]
+                    },
+                    {
+                        "evaluateDate": "2018-08-08",
+                        "userName": "4068884",
+                        "userEva":
+                            [{"title": "行程安排", "text": "这是个半自助的团，泡酒店的玩法，所以并不需要导游领队一价全含模式让我们吃住行不再操心，只想着如何畅玩"},
+                                {"title": "餐饮安排", "text": "特意要说珍珠酒店的自助餐，种类丰富，用餐环境干净宽敞，每一个餐台都有服务人员，一共住了五天，餐食都有变化，没见过小料那么丰富的自助餐。细节非常到位，还会有一些海鲜吃到，越南人微笑服务，让我们心旷神怡"},
+                                {"title": "酒店住宿", "text": "珍珠度假村集酒店和游乐场，水上乐园，游乐场为一体，所以占地面积大，盖在富国岛的郊区，如果只在度假村里面玩，有班车直达各个景点，非常方便，而且很近。但如果大家想去市区酒店还有免费班车接送，虽然有点远但也基本算无忧出行"},
+                                {"title": "导游领队", "text": "本行程无导游领队"}],
+                        "userPhoto": [
+                            "assets/detailImages/plan1.jpg",
+                            "assets/detailImages/plan2.jpg",
+                            "assets/detailImages/plan3.jpg",
+                            "assets/detailImages/plan4.jpg",
+                            "assets/detailImages/plan5.jpg",
+                            "assets/detailImages/plan1.jpg"
+                        ]
+                    }
+                ]
             }
         },
         methods:{
@@ -80,7 +188,7 @@
 
             },
             yz_readAll(){
-                this.$router.push('/alleva/'+this.data.goodsId)
+                this.$router.push('/alleva/1')
             }
         }
     }

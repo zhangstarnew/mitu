@@ -1,7 +1,7 @@
 <template>
     <div class="destinationContent-box">
-        <destination-left :data="all" @cityIndex="cityIndex"></destination-left>
-        <destination-right :data="all[i]"></destination-right>
+        <destination-left :data="all" @cityIndex="cityIndex" v-if="all"></destination-left>
+        <destination-right :data="all[i]" v-if="all"></destination-right>
     </div>
 </template>
 
@@ -17,296 +17,312 @@
         methods:{
             cityIndex(i){
                 this.i=i
+            },
+            _initDestinationContentInfo(){
+                this.$axios.get('http://117.78.9.95/api/views')
+                    .then(res=>{
+                        console.log(res)
+                        this.all=res.data.data
+                        console.log(this.all)
+                    })
+                    .catch(err=>{
+                        console.log(err)
+                    })
             }
+        },
+        created(){
+            this._initDestinationContentInfo()
         },
         data(){
             return {
                 i:0,
-                all:[
-                    {
-                        province:"陕西",
-                        pid:"1",
-                        city:[
-                            {
-                                cid:"1",
-                                cityImg:"./images/destinationRight/destinationRight-zx(1).jpg",
-                                cityName:"西安",
-                                scenicSiteTablate:[
-                                    {
-                                        scenicSitePicture:'http://images1.aoyou.com/productlist/201711/6h2ztf02163019.jpg?imageView2/1/w/80/h/100/q/90',
-                                        scenicSiteName:'【周边游 北京冰灯】北京2020龙庆峡冰灯一日游',
-                                        scenicSiteProject:'赏冰灯+永宁古城+柳沟豆腐宴',
-                                        scenicStieTag:[
-                                            '遨游代理','优惠','春节','家庭游'
-                                        ],
-                                        scenicSitePrice:'208',
-                                        scenicSiteDate:'01-15,01-16,01-17,01-18,01-19,01-20,01-21,01-22,01-23,01-24,01-25,01-26,01-27,01-28,01-29,01-30,01-31,02-01,02-02,02-03,02-04,02-05,02-06,02-07,02-08,02-09,02-10,02-11,02-12,02-13,02-14,02-15,02-16,02-17,02-18,02-19,02-20,02-21,02-22,02-23,02-24,02-25,02-26,02-27,02-28'
-                                    },
-                                    {
-                                        scenicSitePicture:'http://images1.aoyou.com/productlist/201807/t62z4819175828.jpg?imageView2/1/w/80/h/100/q/90',
-                                        scenicSiteName:'【故宫半日游 赠讲解+耳麦 免费携带1.2米以下儿童】北京天安门广场+故宫半日游',
-                                        scenicSiteProject:'免带1.2米以下儿童/如需预定次日出发行程，请您在当日18点之前完成下单并支付',
-                                        scenicStieTag:[
-                                            '遨游代理','优惠','圣诞节'
-                                        ],
-                                        scenicSitePrice:'98',
-                                        scenicSiteDate:'11-21,11-22,11-23,11-24,11-25,11-26,11-27,11-28,11-29,11-30,12-01,12-02,12-03,12-04,12-05,12-06,12-07,12-08,12-09,12-10,12-11,12-12,12-13,12-14,12-15,12-16,12-17,12-18,12-19,12-20,12-21,12-22,12-23,12-24,12-25,12-26,12-27,12-28,12-29,12-30,12-31,01-01,01-02,01-03,01-04,01-05,01-06,01-07,01-08,01-09,01-10,01-11,01-12,01-13,01-14,01-15,01-16,01-17,01-18,01-19,01-20,01-21,01-22,01-23,01-24,01-25,01-26,01-27,01-28,01-29,01-30,01-31,02-01,02-02,02-03,02-04,02-05,02-06,02-07,02-08,02-09,02-10,02-11,02-12,02-13,02-14,02-15,02-16,02-17,02-18,02-19,02-20,02-21,02-22,02-23,02-24,02-25,02-26,02-27,02-28,02-29,03-01,03-02,03-03,03-04,03-05,03-06,03-07,03-08,03-09,03-10,03-11,03-12,03-13,03-14,03-15,03-16,03-17,03-18,03-19,03-20,03-21,03-22,03-23,03-24,03-25,03-26,03-27,03-28,03-29,03-30,03-31'
-                                    },
-                                    {
-                                        scenicSitePicture:'http://images1.aoyou.com/productlist/201706/bp08lt23143126.jpg?imageView2/1/w/80/h/100/q/90',
-                                        scenicSiteName:'【北京一日游 人气·热卖 可选10点、12点出发时间】北京八达岭长城+鸟巢水立方一日游',
-                                        scenicSiteProject:'不早起晚出发/如需预定次日出发行程，请您在当日18点之前完成下单并支付',
-                                        scenicStieTag:[
-                                            '遨游代理','优惠','圣诞节'
-                                        ],
-                                        scenicSitePrice:'109',
-                                        scenicSiteDate:'11-21,11-22,11-23,11-24,11-25,11-26,11-27,11-28,11-29,11-30,12-01,12-02,12-03,12-04,12-05,12-06,12-07,12-08,12-09,12-10,12-11,12-12,12-13,12-14,12-15,12-16,12-17,12-18,12-19,12-20,12-21,12-22,12-23,12-24,12-25,12-26,12-27,12-28,12-29,12-30,12-31,01-01,01-02,01-03,01-04,01-05,01-06,01-07,01-08,01-09,01-10,01-11,01-12,01-13,01-14,01-15,01-16,01-17,01-18,01-19,01-20,01-21,01-22,01-23,01-24,01-25,01-26,01-27,01-28,01-29,01-30,01-31,02-01,02-02,02-03,02-04,02-05,02-06,02-07,02-08,02-09,02-10,02-11,02-12,02-13,02-14,02-15,02-16,02-17,02-18,02-19,02-20,02-21,02-22,02-23,02-24,02-25,02-26,02-27,02-28,02-29,03-01,03-02,03-03,03-04,03-05,03-06,03-07,03-08,03-09,03-10,03-11,03-12,03-13,03-14,03-15,03-16,03-17,03-18,03-19,03-20,03-21,03-22,03-23,03-24,03-25,03-26,03-27,03-28,03-29,03-30,03-31'
-                                    },
-                                    {
-                                        scenicSitePicture:'http://images1.aoyou.com/productlist/201612/0dfjzn01140910.jpg?imageView2/1/w/80/h/100/q/90',
-                                        scenicSiteName:'【北京滑雪周边游 石京龙滑雪 全天/半天】北京延庆石京龙滑雪场一日游',
-                                        scenicSiteProject:'专业雪场|设备齐全|嗨玩滑雪',
-                                        scenicStieTag:[
-                                            '遨游代理','优惠','春节','滑雪'
-                                        ],
-                                        scenicSitePrice:'128',
-                                        scenicSiteDate:'11-21,11-22,11-23,11-24,11-25,11-26,11-27,11-28,11-29,11-30,12-01,12-02,12-03,12-04,12-05,12-06,12-07,12-08,12-09,12-10,12-11,12-12,12-13,12-14,12-15,12-16,12-17,12-18,12-19,12-20,12-21,12-22,12-23,12-24,12-25,12-26,12-27,12-28,12-29,12-30,12-31,01-01,01-02,01-03,01-04,01-05,01-06,01-07,01-08,01-09,01-10,01-11,01-12,01-13,01-14,01-15,01-16,01-17,01-18,01-19,01-20,01-21,01-22,01-23,01-24,01-25,01-26,01-27,01-28,01-29,01-30,01-31,02-01,02-02,02-03,02-04,02-05,02-06,02-07,02-08,02-09,02-10,02-11,02-12,02-13,02-14,02-15,02-16,02-17,02-18,02-19,02-20,02-21,02-22,02-23,02-24,02-25,02-26,02-27,02-28,02-29,03-01,03-02,03-03,03-04,03-05,03-06,03-07,03-08,03-09,03-10,03-11,03-12,03-13,03-14,03-15,03-16,03-17,03-18,03-19,03-20,03-21,03-22,03-23,03-24,03-25,03-26,03-27,03-28,03-29,03-30,03-31'
-                                    },
-                                    {
-                                        scenicSitePicture:'http://images1.aoyou.com/productlist/201907/0z060202141434.jpg?imageView2/1/w/80/h/100/q/90',
-                                        scenicSiteName:'ClubMed joyview延庆度假村1晚2天百变自由行【高级房/可延住】',
-                                        scenicSiteProject:'本产品为单房产品，可升级为一价全包或房+餐饮套餐',
-                                        scenicStieTag:[
-                                            '遨游代理','优惠','春节','clubMeb','亲子游'
-                                        ],
-                                        scenicSitePrice:'444',
-                                        scenicSiteDate:'11-21,11-22,11-23,11-24,11-25,11-26,11-27,11-28,11-29,11-30,12-01,12-02,12-03,12-04,12-05,12-06,12-07,12-08,12-09,12-10,12-11,12-12,12-13,12-14,12-15,12-16,12-17,12-18,12-19,12-20,12-21,12-22,12-23,12-24,12-25,12-26,12-27,12-28,12-29,12-30,12-31,01-01,01-02,01-03,01-04,01-05,01-06,01-07,01-08,01-09,01-10,01-11,01-12,01-13,01-14,01-15,01-16,01-17,01-18,01-19,01-20,01-21,01-22,01-23,01-24,01-25,01-26,01-27,01-28,01-29,01-30,01-31,02-01,02-02,02-03,02-04,02-05,02-06,02-07,02-08,02-09,02-10,02-11,02-12,02-13,02-14,02-15,02-16,02-17,02-18,02-19,02-20,02-21,02-22,02-23,02-24,02-25,02-26,02-27,02-28,02-29,03-01,03-02,03-03,03-04,03-05,03-06,03-07,03-08,03-09,03-10,03-11,03-12,03-13,03-14,03-15,03-16,03-17,03-18,03-19,03-20,03-21,03-22,03-23,03-24,03-25,03-26,03-27,03-28,03-29,03-30,03-31'
-                                    },
-                                    {
-                                        scenicSitePicture:'http://images1.aoyou.com/productlist/201710/6t86b019113829.jpg?imageView2/1/w/80/h/100/q/90',
-                                        scenicSiteName:'【企业尊享】北京怀柔雁栖湖青龙峡2日游【企业团建/随心定制】',
-                                        scenicSiteProject:'游“京郊明珠”/凝聚企业力量/培养员工默契',
-                                        scenicStieTag:[
-                                            '自营','优惠','圣诞节'
-                                        ],
-                                        scenicSitePrice:'698',
-                                        scenicSiteDate:'11-21,11-22,11-23,11-24,11-25,11-26,11-27,11-28,11-29,11-30,12-01,12-02,12-03,12-04,12-05,12-06,12-07,12-08,12-09,12-10,12-11,12-12,12-13,12-14,12-15,12-16,12-17,12-18,12-19,12-20,12-21,12-22,12-23,12-24,12-25,12-26,12-27,12-28,12-29,12-30,12-31,01-01,01-02,01-03,01-04,01-05,01-06,01-07,01-08,01-09,01-10,01-11,01-12,01-13,01-14,01-15,01-16,01-17,01-18,01-19,01-20,01-21,01-22,01-23,01-24,01-25,01-26,01-27,01-28,01-29,01-30,01-31,02-01,02-02,02-03,02-04,02-05,02-06,02-07,02-08,02-09,02-10,02-11,02-12,02-13,02-14,02-15,02-16,02-17,02-18,02-19,02-20,02-21,02-22,02-23,02-24,02-25,02-26,02-27,02-28,02-29,03-01,03-02,03-03,03-04,03-05,03-06,03-07,03-08,03-09,03-10,03-11,03-12,03-13,03-14,03-15,03-16,03-17,03-18,03-19,03-20,03-21,03-22,03-23,03-24,03-25,03-26,03-27,03-28,03-29,03-30,03-31'
-                                    }
-                                ],
-                            },
-                            {
-                                cid:"2",
-                                cityImg:"./images/destinationRight/destinationRight-zx(2).jpg",
-                                cityName:"咸阳"
-                            },
-                            {
-                                cid:"3",
-                                cityImg:"./images/destinationRight/destinationRight-zx(3).jpg",
-                                cityName:"宝鸡"
-                            },
-                            {
-                                cid:"4",
-                                cityImg:"./images/destinationRight/destinationRight-zx(4).jpg",
-                                cityName:"汉中"
-                            },
-                            {
-                                cid:"5",
-                                cityImg:"./images/destinationRight/destinationRight-zx(5).jpg",
-                                cityName:"延安"
-                            },
-                        ]
-                    },
-                    {
-                        province:"海南",
-                        pid:"2",
-                        city:[
-                            {
-                                cid:"6",
-                                cityImg:"./images/destinationRight/destinationRight-zx(6).jpg",
-                                cityName:"三亚"
-                            },
-                            {
-                                cid:"7",
-                                cityImg:"./images/destinationRight/destinationRight-zx(7).jpg",
-                                cityName:"海口"
-                            },
-                            {
-                                cid:"8",
-                                cityImg:"./images/destinationRight/destinationRight-zx(8).jpg",
-                                cityName:"兴隆"
-                            }
-                        ]
-                    },
-                    {
-                        province:"云南",
-                        pid:"3",
-                        city:[
-                            {
-                                cid:"9",
-                                cityImg:"./images/destinationRight/destinationRight-zx(9).jpg",
-                                cityName:"丽江"
-                            },
-                            {
-                                cid:"10",
-                                cityImg:"./images/destinationRight/destinationRight-zx(10).jpg",
-                                cityName:"大理"
-                            },
-                            {
-                                cid:"11",
-                                cityImg:"./images/destinationRight/destinationRight-zx(11).jpg",
-                                cityName:"西双版纳"
-                            },
-                            {
-                                cid:"12",
-                                cityImg:"./images/destinationRight/destinationRight-zx(12).jpg",
-                                cityName:"香格里拉"
-                            }
-                        ]
-                    },
-                    {
-                        province:"四川",
-                        pid:"4",
-                        city:[
-                            {
-                                cid:"13",
-                                cityImg:"./images/destinationRight/destinationRight-zx(13).jpg",
-                                cityName:"成都"
-                            },
-                            {
-                                cid:"14",
-                                cityImg:"./images/destinationRight/destinationRight-zx(14).jpg",
-                                cityName:"都江堰"
-                            },
-                            {
-                                cid:"15",
-                                cityImg:"./images/destinationRight/destinationRight-zx(15).jpg",
-                                cityName:"九寨沟"
-                            },
-                            {
-                                cid:"16",
-                                cityImg:"./images/destinationRight/destinationRight-zx(16).jpg",
-                                cityName:"稻城"
-                            }
-                        ]
-                    },
-                    {
-                        province:"福建",
-                        pid:"5",
-                        city:[
-                            {
-                                cid:"17",
-                                cityImg:"./images/destinationRight/destinationRight-zx(17).jpg",
-                                cityName:"厦门"
-                            },
-                            {
-                                cid:"18",
-                                cityImg:"./images/destinationRight/destinationRight-zx(18).jpg",
-                                cityName:"鼓浪屿"
-                            }
-                        ]
-                    },
-                    {
-                        province:"广东",
-                        pid:"6",
-                        city:[
-                            {
-                                cid:"19",
-                                cityImg:"./images/destinationRight/destinationRight-zx(19).jpg",
-                                cityName:"广州"
-                            },
-                            {
-                                cid:"20",
-                                cityImg:"./images/destinationRight/destinationRight-zx(20).jpg",
-                                cityName:"珠海"
-                            }
-                        ]
-                    },
-                    {
-                        province:"广西",
-                        pid:"7",
-                        city:[
-                            {
-                                cid:"21",
-                                cityImg:"./images/destinationRight/destinationRight-zx(21).jpg",
-                                cityName:"桂林"
-                            },
-                            {
-                                cid:"22",
-                                cityImg:"./images/destinationRight/destinationRight-zx(22).jpg",
-                                cityName:"南宁"
-                            }
-                        ]
-                    },
-                    {
-                        province:"黑龙江",
-                        pid:"8",
-                        city:[
-                            {
-                                cid:"23",
-                                cityImg:"./images/destinationRight/destinationRight-zx(23).jpg",
-                                cityName:"哈尔滨"
-                            },
-                            {
-                                cid:"24",
-                                cityImg:"./images/destinationRight/destinationRight-zx(24).jpg",
-                                cityName:"大连"
-                            }
-                        ]
-                    },
-                    {
-                        province:"湖北",
-                        pid:"9",
-                        city:[
-                            {
-                                cid:"25",
-                                cityImg:"./images/destinationRight/destinationRight-zx(25).jpg",
-                                cityName:"武汉"
-                            },
-                            {
-                                cid:"26",
-                                cityImg:"./images/destinationRight/destinationRight-zx(26).jpg",
-                                cityName:"荆门"
-                            },
-                            {
-                                cid:"27",
-                                cityImg:"./images/destinationRight/destinationRight-zx(27).jpg",
-                                cityName:"黄冈"
-                            }
-                        ]
-                    },
-                    {
-                        province:"湖南",
-                        pid:"10",
-                        city:[
-                            {
-                                cid:"28",
-                                cityImg:"./images/destinationRight/destinationRight-zx(28).jpg",
-                                cityName:"长沙"
-                            },
-                            {
-                                cid:"29",
-                                cityImg:"./images/destinationRight/destinationRight-zx(29).jpg",
-                                cityName:"张家界"
-                            }
-                        ]
-                    },
-                    {
-                        province:"江西",
-                        pid:"11",
-                        city:[
-                            {
-                                cid:"30",
-                                cityImg:"./images/destinationRight/destinationRight-zx(30).jpg",
-                                cityName:"南昌"
-                            },
-                            {
-                                cid:"31",
-                                cityImg:"./images/destinationRight/destinationRight-zx(31).jpg",
-                                cityName:"宜春"
-                            }
-                        ]
-                    },
-                ]
+                all:null,
+                // all:[
+                //     {
+                //         province:"陕西",
+                //         pid:"1",
+                //         city:[
+                //             {
+                //                 cid:"1",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(1).jpg",
+                //                 cityName:"西安",
+                //                 scenicSiteTablate:[
+                //                     {
+                //                         scenicSitePicture:'http://images1.aoyou.com/productlist/201711/6h2ztf02163019.jpg?imageView2/1/w/80/h/100/q/90',
+                //                         scenicSiteName:'【周边游 北京冰灯】北京2020龙庆峡冰灯一日游',
+                //                         scenicSiteProject:'赏冰灯+永宁古城+柳沟豆腐宴',
+                //                         scenicStieTag:[
+                //                             '遨游代理','优惠','春节','家庭游'
+                //                         ],
+                //                         scenicSitePrice:'208',
+                //                         scenicSiteDate:'01-15,01-16,01-17,01-18,01-19,01-20,01-21,01-22,01-23,01-24,01-25,01-26,01-27,01-28,01-29,01-30,01-31,02-01,02-02,02-03,02-04,02-05,02-06,02-07,02-08,02-09,02-10,02-11,02-12,02-13,02-14,02-15,02-16,02-17,02-18,02-19,02-20,02-21,02-22,02-23,02-24,02-25,02-26,02-27,02-28'
+                //                     },
+                //                     {
+                //                         scenicSitePicture:'http://images1.aoyou.com/productlist/201807/t62z4819175828.jpg?imageView2/1/w/80/h/100/q/90',
+                //                         scenicSiteName:'【故宫半日游 赠讲解+耳麦 免费携带1.2米以下儿童】北京天安门广场+故宫半日游',
+                //                         scenicSiteProject:'免带1.2米以下儿童/如需预定次日出发行程，请您在当日18点之前完成下单并支付',
+                //                         scenicStieTag:[
+                //                             '遨游代理','优惠','圣诞节'
+                //                         ],
+                //                         scenicSitePrice:'98',
+                //                         scenicSiteDate:'11-21,11-22,11-23,11-24,11-25,11-26,11-27,11-28,11-29,11-30,12-01,12-02,12-03,12-04,12-05,12-06,12-07,12-08,12-09,12-10,12-11,12-12,12-13,12-14,12-15,12-16,12-17,12-18,12-19,12-20,12-21,12-22,12-23,12-24,12-25,12-26,12-27,12-28,12-29,12-30,12-31,01-01,01-02,01-03,01-04,01-05,01-06,01-07,01-08,01-09,01-10,01-11,01-12,01-13,01-14,01-15,01-16,01-17,01-18,01-19,01-20,01-21,01-22,01-23,01-24,01-25,01-26,01-27,01-28,01-29,01-30,01-31,02-01,02-02,02-03,02-04,02-05,02-06,02-07,02-08,02-09,02-10,02-11,02-12,02-13,02-14,02-15,02-16,02-17,02-18,02-19,02-20,02-21,02-22,02-23,02-24,02-25,02-26,02-27,02-28,02-29,03-01,03-02,03-03,03-04,03-05,03-06,03-07,03-08,03-09,03-10,03-11,03-12,03-13,03-14,03-15,03-16,03-17,03-18,03-19,03-20,03-21,03-22,03-23,03-24,03-25,03-26,03-27,03-28,03-29,03-30,03-31'
+                //                     },
+                //                     {
+                //                         scenicSitePicture:'http://images1.aoyou.com/productlist/201706/bp08lt23143126.jpg?imageView2/1/w/80/h/100/q/90',
+                //                         scenicSiteName:'【北京一日游 人气·热卖 可选10点、12点出发时间】北京八达岭长城+鸟巢水立方一日游',
+                //                         scenicSiteProject:'不早起晚出发/如需预定次日出发行程，请您在当日18点之前完成下单并支付',
+                //                         scenicStieTag:[
+                //                             '遨游代理','优惠','圣诞节'
+                //                         ],
+                //                         scenicSitePrice:'109',
+                //                         scenicSiteDate:'11-21,11-22,11-23,11-24,11-25,11-26,11-27,11-28,11-29,11-30,12-01,12-02,12-03,12-04,12-05,12-06,12-07,12-08,12-09,12-10,12-11,12-12,12-13,12-14,12-15,12-16,12-17,12-18,12-19,12-20,12-21,12-22,12-23,12-24,12-25,12-26,12-27,12-28,12-29,12-30,12-31,01-01,01-02,01-03,01-04,01-05,01-06,01-07,01-08,01-09,01-10,01-11,01-12,01-13,01-14,01-15,01-16,01-17,01-18,01-19,01-20,01-21,01-22,01-23,01-24,01-25,01-26,01-27,01-28,01-29,01-30,01-31,02-01,02-02,02-03,02-04,02-05,02-06,02-07,02-08,02-09,02-10,02-11,02-12,02-13,02-14,02-15,02-16,02-17,02-18,02-19,02-20,02-21,02-22,02-23,02-24,02-25,02-26,02-27,02-28,02-29,03-01,03-02,03-03,03-04,03-05,03-06,03-07,03-08,03-09,03-10,03-11,03-12,03-13,03-14,03-15,03-16,03-17,03-18,03-19,03-20,03-21,03-22,03-23,03-24,03-25,03-26,03-27,03-28,03-29,03-30,03-31'
+                //                     },
+                //                     {
+                //                         scenicSitePicture:'http://images1.aoyou.com/productlist/201612/0dfjzn01140910.jpg?imageView2/1/w/80/h/100/q/90',
+                //                         scenicSiteName:'【北京滑雪周边游 石京龙滑雪 全天/半天】北京延庆石京龙滑雪场一日游',
+                //                         scenicSiteProject:'专业雪场|设备齐全|嗨玩滑雪',
+                //                         scenicStieTag:[
+                //                             '遨游代理','优惠','春节','滑雪'
+                //                         ],
+                //                         scenicSitePrice:'128',
+                //                         scenicSiteDate:'11-21,11-22,11-23,11-24,11-25,11-26,11-27,11-28,11-29,11-30,12-01,12-02,12-03,12-04,12-05,12-06,12-07,12-08,12-09,12-10,12-11,12-12,12-13,12-14,12-15,12-16,12-17,12-18,12-19,12-20,12-21,12-22,12-23,12-24,12-25,12-26,12-27,12-28,12-29,12-30,12-31,01-01,01-02,01-03,01-04,01-05,01-06,01-07,01-08,01-09,01-10,01-11,01-12,01-13,01-14,01-15,01-16,01-17,01-18,01-19,01-20,01-21,01-22,01-23,01-24,01-25,01-26,01-27,01-28,01-29,01-30,01-31,02-01,02-02,02-03,02-04,02-05,02-06,02-07,02-08,02-09,02-10,02-11,02-12,02-13,02-14,02-15,02-16,02-17,02-18,02-19,02-20,02-21,02-22,02-23,02-24,02-25,02-26,02-27,02-28,02-29,03-01,03-02,03-03,03-04,03-05,03-06,03-07,03-08,03-09,03-10,03-11,03-12,03-13,03-14,03-15,03-16,03-17,03-18,03-19,03-20,03-21,03-22,03-23,03-24,03-25,03-26,03-27,03-28,03-29,03-30,03-31'
+                //                     },
+                //                     {
+                //                         scenicSitePicture:'http://images1.aoyou.com/productlist/201907/0z060202141434.jpg?imageView2/1/w/80/h/100/q/90',
+                //                         scenicSiteName:'ClubMed joyview延庆度假村1晚2天百变自由行【高级房/可延住】',
+                //                         scenicSiteProject:'本产品为单房产品，可升级为一价全包或房+餐饮套餐',
+                //                         scenicStieTag:[
+                //                             '遨游代理','优惠','春节','clubMeb','亲子游'
+                //                         ],
+                //                         scenicSitePrice:'444',
+                //                         scenicSiteDate:'11-21,11-22,11-23,11-24,11-25,11-26,11-27,11-28,11-29,11-30,12-01,12-02,12-03,12-04,12-05,12-06,12-07,12-08,12-09,12-10,12-11,12-12,12-13,12-14,12-15,12-16,12-17,12-18,12-19,12-20,12-21,12-22,12-23,12-24,12-25,12-26,12-27,12-28,12-29,12-30,12-31,01-01,01-02,01-03,01-04,01-05,01-06,01-07,01-08,01-09,01-10,01-11,01-12,01-13,01-14,01-15,01-16,01-17,01-18,01-19,01-20,01-21,01-22,01-23,01-24,01-25,01-26,01-27,01-28,01-29,01-30,01-31,02-01,02-02,02-03,02-04,02-05,02-06,02-07,02-08,02-09,02-10,02-11,02-12,02-13,02-14,02-15,02-16,02-17,02-18,02-19,02-20,02-21,02-22,02-23,02-24,02-25,02-26,02-27,02-28,02-29,03-01,03-02,03-03,03-04,03-05,03-06,03-07,03-08,03-09,03-10,03-11,03-12,03-13,03-14,03-15,03-16,03-17,03-18,03-19,03-20,03-21,03-22,03-23,03-24,03-25,03-26,03-27,03-28,03-29,03-30,03-31'
+                //                     },
+                //                     {
+                //                         scenicSitePicture:'http://images1.aoyou.com/productlist/201710/6t86b019113829.jpg?imageView2/1/w/80/h/100/q/90',
+                //                         scenicSiteName:'【企业尊享】北京怀柔雁栖湖青龙峡2日游【企业团建/随心定制】',
+                //                         scenicSiteProject:'游“京郊明珠”/凝聚企业力量/培养员工默契',
+                //                         scenicStieTag:[
+                //                             '自营','优惠','圣诞节'
+                //                         ],
+                //                         scenicSitePrice:'698',
+                //                         scenicSiteDate:'11-21,11-22,11-23,11-24,11-25,11-26,11-27,11-28,11-29,11-30,12-01,12-02,12-03,12-04,12-05,12-06,12-07,12-08,12-09,12-10,12-11,12-12,12-13,12-14,12-15,12-16,12-17,12-18,12-19,12-20,12-21,12-22,12-23,12-24,12-25,12-26,12-27,12-28,12-29,12-30,12-31,01-01,01-02,01-03,01-04,01-05,01-06,01-07,01-08,01-09,01-10,01-11,01-12,01-13,01-14,01-15,01-16,01-17,01-18,01-19,01-20,01-21,01-22,01-23,01-24,01-25,01-26,01-27,01-28,01-29,01-30,01-31,02-01,02-02,02-03,02-04,02-05,02-06,02-07,02-08,02-09,02-10,02-11,02-12,02-13,02-14,02-15,02-16,02-17,02-18,02-19,02-20,02-21,02-22,02-23,02-24,02-25,02-26,02-27,02-28,02-29,03-01,03-02,03-03,03-04,03-05,03-06,03-07,03-08,03-09,03-10,03-11,03-12,03-13,03-14,03-15,03-16,03-17,03-18,03-19,03-20,03-21,03-22,03-23,03-24,03-25,03-26,03-27,03-28,03-29,03-30,03-31'
+                //                     }
+                //                 ],
+                //             },
+                //             {
+                //                 cid:"2",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(2).jpg",
+                //                 cityName:"咸阳"
+                //             },
+                //             {
+                //                 cid:"3",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(3).jpg",
+                //                 cityName:"宝鸡"
+                //             },
+                //             {
+                //                 cid:"4",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(4).jpg",
+                //                 cityName:"汉中"
+                //             },
+                //             {
+                //                 cid:"5",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(5).jpg",
+                //                 cityName:"延安"
+                //             },
+                //         ]
+                //     },
+                //     {
+                //         province:"海南",
+                //         pid:"2",
+                //         city:[
+                //             {
+                //                 cid:"6",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(6).jpg",
+                //                 cityName:"三亚"
+                //             },
+                //             {
+                //                 cid:"7",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(7).jpg",
+                //                 cityName:"海口"
+                //             },
+                //             {
+                //                 cid:"8",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(8).jpg",
+                //                 cityName:"兴隆"
+                //             }
+                //         ]
+                //     },
+                //     {
+                //         province:"云南",
+                //         pid:"3",
+                //         city:[
+                //             {
+                //                 cid:"9",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(9).jpg",
+                //                 cityName:"丽江"
+                //             },
+                //             {
+                //                 cid:"10",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(10).jpg",
+                //                 cityName:"大理"
+                //             },
+                //             {
+                //                 cid:"11",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(11).jpg",
+                //                 cityName:"西双版纳"
+                //             },
+                //             {
+                //                 cid:"12",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(12).jpg",
+                //                 cityName:"香格里拉"
+                //             }
+                //         ]
+                //     },
+                //     {
+                //         province:"四川",
+                //         pid:"4",
+                //         city:[
+                //             {
+                //                 cid:"13",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(13).jpg",
+                //                 cityName:"成都"
+                //             },
+                //             {
+                //                 cid:"14",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(14).jpg",
+                //                 cityName:"都江堰"
+                //             },
+                //             {
+                //                 cid:"15",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(15).jpg",
+                //                 cityName:"九寨沟"
+                //             },
+                //             {
+                //                 cid:"16",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(16).jpg",
+                //                 cityName:"稻城"
+                //             }
+                //         ]
+                //     },
+                //     {
+                //         province:"福建",
+                //         pid:"5",
+                //         city:[
+                //             {
+                //                 cid:"17",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(17).jpg",
+                //                 cityName:"厦门"
+                //             },
+                //             {
+                //                 cid:"18",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(18).jpg",
+                //                 cityName:"鼓浪屿"
+                //             }
+                //         ]
+                //     },
+                //     {
+                //         province:"广东",
+                //         pid:"6",
+                //         city:[
+                //             {
+                //                 cid:"19",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(19).jpg",
+                //                 cityName:"广州"
+                //             },
+                //             {
+                //                 cid:"20",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(20).jpg",
+                //                 cityName:"珠海"
+                //             }
+                //         ]
+                //     },
+                //     {
+                //         province:"广西",
+                //         pid:"7",
+                //         city:[
+                //             {
+                //                 cid:"21",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(21).jpg",
+                //                 cityName:"桂林"
+                //             },
+                //             {
+                //                 cid:"22",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(22).jpg",
+                //                 cityName:"南宁"
+                //             }
+                //         ]
+                //     },
+                //     {
+                //         province:"黑龙江",
+                //         pid:"8",
+                //         city:[
+                //             {
+                //                 cid:"23",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(23).jpg",
+                //                 cityName:"哈尔滨"
+                //             },
+                //             {
+                //                 cid:"24",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(24).jpg",
+                //                 cityName:"大连"
+                //             }
+                //         ]
+                //     },
+                //     {
+                //         province:"湖北",
+                //         pid:"9",
+                //         city:[
+                //             {
+                //                 cid:"25",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(25).jpg",
+                //                 cityName:"武汉"
+                //             },
+                //             {
+                //                 cid:"26",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(26).jpg",
+                //                 cityName:"荆门"
+                //             },
+                //             {
+                //                 cid:"27",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(27).jpg",
+                //                 cityName:"黄冈"
+                //             }
+                //         ]
+                //     },
+                //     {
+                //         province:"湖南",
+                //         pid:"10",
+                //         city:[
+                //             {
+                //                 cid:"28",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(28).jpg",
+                //                 cityName:"长沙"
+                //             },
+                //             {
+                //                 cid:"29",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(29).jpg",
+                //                 cityName:"张家界"
+                //             }
+                //         ]
+                //     },
+                //     {
+                //         province:"江西",
+                //         pid:"11",
+                //         city:[
+                //             {
+                //                 cid:"30",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(30).jpg",
+                //                 cityName:"南昌"
+                //             },
+                //             {
+                //                 cid:"31",
+                //                 cityImg:"./images/destinationRight/destinationRight-zx(31).jpg",
+                //                 cityName:"宜春"
+                //             }
+                //         ]
+                //     },
+                // ]
+
             }
         }
     }

@@ -7,7 +7,7 @@
         </div>
         <div class="yz_route">
             <ul>
-                <li v-for="(u,index) in data.routeDetails" :key="index"><span>{{u.day}}</span>{{u.city}}</li>
+                <li v-for="(u,index) in routeDetails" :key="index"><span>{{u.day}}</span>{{u.city}}</li>
             </ul>
         </div>
     </div>
@@ -16,7 +16,24 @@
 <script>
     export default {
         name: "detailRoute",
-        props:["data"]
+        props:["data"],
+        data(){
+            return{
+                routeDetails: [
+                    {"day":"D1","city":"北京"},
+                    {"day":"D2","city":"北京/伊斯坦布尔"},
+                    {"day":"D3","city":"伊斯坦布尔"},
+                    {"day":"D4","city":"伊斯坦布尔－萨夫兰博卢Safranbulu（车程约5.5小时）"},
+                    {"day":"D5","city":"萨夫兰布鲁—安卡拉—图兹湖—卡帕多奇亚（车程约4+4个小时）"},
+                    {"day":"D6","city":"卡帕多奇亚"},
+                    {"day":"D7","city":"卡帕多奇亚-孔亚-安塔利亚（车程约4+4个小时） "},
+                    {"day":"D8","city":"安塔利亚-帕姆卡莱（棉花堡） （路程约330公里；约4小时）"},
+                    {"day":"D9","city":"帕姆卡莱-库萨达斯（路程约195公里；约3小时）"},
+                    {"day":"D10","city":"库萨达斯-埃菲所-伊兹密尔/伊斯坦布尔"},
+                    {"day":"D11","city":"伊斯坦布尔/北京"}
+                ]
+            }
+        }
     }
 </script>
 

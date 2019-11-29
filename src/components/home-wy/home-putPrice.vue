@@ -1,6 +1,6 @@
 <template>
     <div class="putPrice">
-        <a class="putPrice-title" :href="'#/detail/'+putPrice.productId">
+        <a class="putPrice-title" :href="'#/detail/'+putPrice.productId" v-if="putPrice.productId">
             <van-count-down class="countdown" :time="time" format="DD 天 HH 时 mm 分 ss 秒">
                 <template v-slot="timeData">
                     <span class="orgin">距离结束</span>

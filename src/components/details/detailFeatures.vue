@@ -2,7 +2,7 @@
     <div class="yz_featuresBox">
         <div class="yz_features">
             <ul>
-                <li v-for="(u,index) in data.productFeatures" :key="index">
+                <li v-for="(u,index) in productFeatures" :key="index">
                     <p>
                         <label>{{u.tags}}</label>
                         <span>{{u.title}}</span>
@@ -15,7 +15,7 @@
             <p>——————— 特色信息 ———————</p>
         </div>
         <div class="yz_featuresImages" v-show="show">
-            <img v-for="(u,index) in data.productImages" :src="u" :key="index">
+            <img v-for="(u,index) in productImages" :src="u" :key="index">
         </div>
         <div class="yz_readBox">
             <p class="yz_readMore" @click="readMore">查看特色信息更多内容</p><i class="yz_iconMore" :class="[isActive?'yz_iconMore':'up']"></i>
@@ -27,11 +27,34 @@
 <script>
     export default {
         name: "detailFeatures",
-        props:["data"],
         data(){
             return{
                 show:false,
-                isActive:true
+                isActive:true,
+                productFeatures: [
+                    {
+                        "tags": "行程亮点",
+                        "title": "[童乐时光]",
+                        "text": "【水上乐园】【海底世界】【室外机动游戏乐场】【海豚乐园】【4D电影院】【音乐喷池秀】【室内游乐场】"
+                    },
+                    {
+                        "tags": "成团方式",
+                        "title": "[说走就走]",
+                        "text": "2人成团，（不含领队和导游）"
+                    },
+                    {
+                        "tags": "一价全含",
+                        "title": "[超级省心]",
+                        "text": "酒店住宿、一日三餐、机场接送、珍珠乐园+野生动物园无限畅玩，食住行游超省心！"
+                    }
+                ],
+                productImages: [
+                    "assets/detailImages/details01.jpg",
+                    "assets/detailImages/details02.jpg",
+                    "assets/detailImages/details03.jpg",
+                    "assets/detailImages/details04.jpg",
+                    "assets/detailImages/details05.jpg"
+                ]
             }
         },
         methods:{

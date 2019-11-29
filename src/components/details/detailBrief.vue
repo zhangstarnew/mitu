@@ -47,6 +47,7 @@
         margin: 0 0.2rem;
         text-align: left;
         line-height: 0.2rem;
+        font-size: 0.12rem;
     }
     .yz_brief h1{
         font-size: 0.16rem;

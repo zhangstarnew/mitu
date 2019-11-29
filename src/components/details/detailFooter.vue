@@ -8,7 +8,7 @@
             <p @click="book">开始预订</p>
         </div>
         <van-popup v-model="show" position="bottom" class="yz_alertBox">
-            <div class="yz_alertBottom" v-for="(u,index) in data.alertBottom" :key="index">
+            <div class="yz_alertBottom" v-for="(u,index) in alertBottom" :key="index">
                 <img :src="u.src" alt="">
                 <p>{{u.word}}</p>
                 <p>{{u.text}}</p>
@@ -21,13 +21,29 @@
     import { Popup } from 'vant';
     export default {
         name: "detailFooter",
-        props:["data"],
         components:{
             [Popup.name]:Popup
         },
         data(){
             return{
                 show:false,
+                "alertBottom": [
+                    {
+                        "src": "assets/detailImages/iconPhone.png",
+                        "word": "客服热线",
+                        "text": "400-600-6666"
+                    },
+                    {
+                        "src": "assets/detailImages/iconAsk.png",
+                        "word": "在线客服",
+                        "text": "服务时间：9:00 - 24:00"
+                    },
+                    {
+                        "src": "assets/detailImages/iconShop.png",
+                        "word": "遨游门店",
+                        "text": "免费预约 上门服务"
+                    }
+                ]
             }
         },
         methods:{

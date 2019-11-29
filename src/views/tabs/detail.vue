@@ -49,22 +49,37 @@
           back(){
               this.$router.go(-1)
           },
-            async _initCarifyData() {
-                let a = this.$route.params.id;
-                this.id=a;
-                if (this.data) {
-                    this.data.forEach((aaa) => {
-                        if (aaa.goodsId == a) {
-                            this.product = aaa;
-                        }
+            _initDetailsInfo(){
+              let a = this.$route.params.id
+                this.$axios.get('http://117.78.9.95/api/goods/?id='+a)
+                    .then(res=>{
+                        this.product=res.data.data;
+                        // eslint-disable-next-line no-console
+                        console.log(this.product);
+                        // let a = this.$route.params.id;
+                        // this.id=a;
+                        // if (this.data) {
+                        //     this.data.forEach((aaa) => {
+                        //         if (aaa.goodsId == a) {
+                        //             this.product = aaa;
+                        //         }
+                        //     })
+                        // }
                     })
-                }
+                    .catch(err=>{
+                        // eslint-disable-next-line no-console
+                        console.log(err)
+                    })
             }
         },
         beforeMount() {
-            let allData=require('../../../mocks/detail');
-            this.data=allData;
-            this._initCarifyData()
+            // let allData=require('../../../mocks/detail');
+            // this.datalocal=allData;
+            // eslint-disable-next-line no-console
+            // console.log(this.datalocal)
+        },
+        created(){
+            this._initDetailsInfo()
         }
     }
 </script>
@@ -73,7 +88,6 @@
     .yz_details{
         background-color: #efeff4;
         position: relative;
-        font-size: 0.12rem;
     }
     .yz_header{
         width: 100%;

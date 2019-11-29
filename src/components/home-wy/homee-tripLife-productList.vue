@@ -26,6 +26,10 @@
         display: flex;
         text-align: left;
     }
+    .product>img{
+        width: 1.05rem;
+        height: 0.742rem;
+    }
     .product>div{
         margin-left: 0.1rem;
     }

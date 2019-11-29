@@ -1,22 +1,24 @@
 <template>
 	<div class="discover">
-		<header>
+		<div class="header">
 			<div :class="change===true?'cmd-change':'cmd-noChange'" @click="changeOne">精彩</div>
 			<div :class="change===true?'cmd-noChange':'cmd-change'" @click="changeTwo">旅行家</div>
-		</header>
-		<div v-if="change">
-		<div class="searchBox">
-			<a href="#/seach"><input type="text" placeholder="搜索精彩内容" href="#/seach"></a>
 		</div>
-		<div>
-			<img src="../../public/images/cmdimg/banner.png" alt="">
-		</div>
-		<user-show :data="user"></user-show>
-		</div>
-		<div v-else class="traveller">
-			<img src="../../public/images/cmdimg/travellerBanner.png" alt="">
-			<traveller :data="user"></traveller>
-		</div>
+			<div v-if="change">
+				<div class="searchBox">
+					<a href="#/seach">
+						<svg t="1574930098741" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1281" width="20" height="20"><path d="M998.417847 968.923523 738.389131 712.967573c68.050929-73.967263 109.909294-171.800228 109.909294-279.479317 0-230.345352-189.746575-417.036095-423.778057-417.036095-234.030475 0-423.77705 186.690742-423.77705 417.036095 0 230.297023 189.746575 416.986758 423.77705 416.986758 101.131452 0 193.870691-34.971414 266.723355-93.126882l261.095991 256.924553c12.70864 12.514315 33.370499 12.514315 46.078132 0C1011.174816 1001.759377 1011.174816 981.436831 998.417847 968.923523L998.417847 968.923523 998.417847 968.923523zM424.520368 786.354882c-198.040115 0-358.5393-157.977996-358.5393-352.86562 0-194.88863 160.499184-352.866627 358.5393-352.866627C622.562497 80.622635 783.110011 238.600632 783.110011 433.489262 783.110011 628.376886 622.562497 786.354882 424.520368 786.354882L424.520368 786.354882 424.520368 786.354882z" p-id="1282" fill="#8a8a8a"></path></svg>
+						<input type="text" placeholder="搜索精彩内容" href="#/seach"></a>
+				</div>
+				<div>
+					<img src="../../public/images/cmdimg/banner.png" />
+				</div>
+				<user-show :data="user"></user-show>
+			</div>
+			<div v-else class="traveller">
+				<img src="../../public/images/cmdimg/travellerBanner.png" />
+				<traveller></traveller>
+			</div>
 	</div>
 
 </template>
@@ -33,91 +35,8 @@
 		data(){
 			return {
 				change:true,
-				user:[
-					{
-						"userId":"01",
-						"charHead":"images/cmdimg/user001.jpg",
-						"userName":"光影艺术",
-						"userIntroduce":"喜欢游走在山川河流之间，用镜头记录下旅途的一切，并将路上的体会以游记形式向更多热爱旅游的朋友广为传播。",
-						"article":[
-							{"articleId":"01","articleTitle":"在深山古刹中，体验秋的绚丽，寺庙的香火缭","articleShow":"...................",
-								"articleView":3535,"articleLike":0,"articleImg":["images/cmdimg/user001banner.jpg"],"articleListImg":["images/cmdimg/user001banner.jpg"]
-							},
-							{"articleId":"01","articleTitle":"在深山古刹中，体验秋的绚丽，寺庙的香火缭","articleShow":"...................",
-								"articleView":3535,"articleLike":0,"articleImg":["images/cmdimg/user001banner.jpg"],"articleListImg":["images/cmdimg/user001banner.jpg"]
-							},
-							{"articleId":"01","articleTitle":"在深山古刹中，体验秋的绚丽，寺庙的香火缭","articleShow":"...................",
-								"articleView":3535,"articleLike":0,"articleImg":["images/cmdimg/user001banner.jpg"],"articleListImg":["images/cmdimg/user001banner.jpg"]
-							},
-						]
-					},
-					{
-						"userId":"02",
-						"charHead":"images/cmdimg/user002.jpg",
-						"userName":"奔跑的小东东",
-						"userIntroduce":"环球旅行家，米途旅行家，自媒体人，微博知名旅游博主，试睡师！",
-						"article":[
-							{"articleId":"01","articleTitle":"新疆是个好地方|一路向西，去遇见我的时光之旅","articleShow":"...................",
-								"articleView":1659,"articleLike":0,"articleImg":["images/cmdimg/user002banner.jpg"],"articleListImg":["images/cmdimg/user002banner.jpg"]
-							}
-						]
-					},
-					{
-						"userId":"03",
-						"charHead":"images/cmdimg/user003.jpg",
-						"userName":"超级小包子",
-						"userIntroduce":"畅销旅行作家，CPA摄影师，极限运动玩家，美食达人，旅行体验师，私人旅行订制专家。",
-						"article":[
-							{"articleId":"01","articleTitle":"双11不止我们有，国外也有，折扣更狠优惠更多","articleShow":"...................",
-								"articleView":54017,"articleLike":2,"articleImg":["images/cmdimg/user003banner.jpg"],"articleListImg":["images/cmdimg/user003banner.jpg"]
-							}
-						]
-					},
-					{
-						"userId":"04",
-						"charHead":"images/cmdimg/user004.jpg",
-						"userName":"米兰旅行",
-						"userIntroduce":"遨游旅行家，知名旅游博主，旅行专栏作家，新浪签约自媒体，资深旅行美食Kol。",
-						"article":[
-							{"articleId":"01","articleTitle":"漫山黄栌红似火，京西坡峰岭的醉美秋天！","articleShow":"...................",
-								"articleView":"10W+","articleLike":0,"articleImg":["images/cmdimg/user004banner.jpg"],"articleListImg":["images/cmdimg/user004banner.jpg"]
-							}
-						]
-					},
-					{
-						"userId":"05",
-						"charHead":"images/cmdimg/user005.jpg",
-						"userName":"jiexi",
-						"userIntroduce":"用镜头记录美的瞬间",
-						"article":[
-							{"articleId":"01","articleTitle":"东门市井#打卡成都新晋网红景点","articleShow":"...................",
-								"articleView":"10W+","articleLike":0,"articleImg":["images/cmdimg/user005banner.jpg"],"articleListImg":["images/cmdimg/user005banner.jpg"]
-							}
-						]
-					},
-					{
-						"userId":"06",
-						"charHead":"images/cmdimg/user006.jpg",
-						"userName":"蔻蔻",
-						"userIntroduce":"唯旅行与美食不可辜负",
-						"article":[
-							{"articleId":"01","articleTitle":"孝亲游|预算100亿的尼山圣境  光说“壕”可就太没文化了","articleShow":"...................",
-								"articleView":"10W+","articleLike":0,"articleImg":["images/cmdimg/user006banner.jpg"],"articleListImg":["images/cmdimg/user006banner.jpg"]
-							}
-						]
-					},
-					{
-						"userId":"07",
-						"charHead":"images/cmdimg/user007.jpg",
-						"userName":"色影姐",
-						"userIntroduce":"色影迷途，美食相伴",
-						"article":[
-							{"articleId":"01","articleTitle":"寻味顺德，人文艺术及美食探索深度游攻略","articleShow":"...................",
-								"articleView":"10W+","articleLike":0,"articleImg":["images/cmdimg/user007banner.jpg"],"articleListImg":["images/cmdimg/user007banner.jpg"]
-							}
-						]
-					},
-				]
+				isLoading: false,
+				user:null
 			}
 		},
 		methods:{
@@ -126,7 +45,22 @@
 			},
 			changeTwo(){
 				this.change=false;
-			}
+			},
+			//获取数据
+            _initDiscoverInfo(){
+                this.$axios.get('http://39.105.52.171/api/discover/jc/')
+                    .then(res=>{
+                        this.user=res.data.data
+                    })
+                    .catch(err=>{
+                        console.log(err)
+                    })
+            }
+		},
+		beforeMount() {
+			// let allData =require('../api/api');
+			// this.user=allData;
+            this._initDiscoverInfo()
 		}
 	}
 </script>
@@ -136,8 +70,13 @@
 	font-size: 0.12rem;
 	text-align: left;
 	margin-bottom: 0.5rem;
+	overflow: hidden;
+
 }
-.discover>header{
+.discover>div{
+	width: 100%;
+}
+.discover>.header{
 	display: flex;
 	justify-content: center;
 	width:100%;
@@ -166,9 +105,12 @@
 	border-bottom: 2px solid rgb(240, 100, 60);
 	line-height: 0.44rem;
 }
+.searchBox{
+	position: relative;
+}
 .searchBox>a{
 	margin-top: 0.5rem;
-	padding: 10px 20px;
+	padding: 0.1rem 0.2rem;
 	flex: auto;
 	display: -webkit-box;
 	display: flex;
@@ -178,14 +120,14 @@
 		display: block;
 		flex: 1;
 		background-color: #fff;
-		border-radius: 100px;
+		border-radius: 1rem;
 		position: relative;
-		padding-left: 40px;
-		height: 30px;
-		line-height: 30px;
-		font-size: 17px;
+		padding-left: 0.45rem;
+		height: 0.3rem;
+		line-height: 0.3rem;
+		font-size: 0.17rem;
 		color: #999;
-		border: 1px solid #dfdfdf;
+		border: 0.01rem solid #dfdfdf;
 		text-align: left;
 		outline: none;
 	}
@@ -199,6 +141,13 @@
 	width: 100%;
 	height: 2.2rem;
 }
+.searchBox svg{
+	position: absolute;
+	z-index: 2;
+	left: 0.35rem;
+	top:0.17rem;
+}
+
 </style>
 
 

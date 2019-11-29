@@ -2,35 +2,67 @@
     <div class="coupon">
             <ul>
                 <li>
-                    <a href="#/main/personal/coupon_cen">
+                    <a href="#/main/coupon_dis" @click="showDetails">
                         <p>优惠券</p>
                         <p>领券</p>
                     </a>
                 </li>
                 <li>
-                    <a href="#/main/personal/coupon_intel">
+                    <a href="#/main/coupon_intel">
                         <p>积分</p>
                         <p>查看</p>
                     </a>
                 </li>
                 <li>
-                    <a href="#/main/personal/coupon_bon">
+                    <a href="#/main/coupon_bon">
                         <p>奖金</p>
                         <p>邀请好友</p>
                     </a>
                 </li>
             </ul>
             <div class="click_img">
-                <a href="#/main/personal/coupon_cen">
-                    <img src="../../assets/lx_img/bb.png" alt="">
+                <a href="#/main/coupon_cen" @click="Details">
+                    <img src="../../assets/images/lx_img/bb.png" alt="">
                 </a>
             </div>
     </div>
 </template>
 
 <script>
+    import axios from 'axios';
     export default {
-        name: "lx_coupon"
+        name: "lx_coupon",
+        data(){
+            return {
+                mycoupon:[],
+                coupons:[]
+            }
+        },
+        methods:{
+            showDetails() {
+                let a=sessionStorage.getItem("ud_id")
+                // axios.get("http://10.35.167.10:3001/u_ticket")
+                // 只跳转路由
+                axios.get("http://117.78.9.95/api/u_ticket/?ud_id="+a)
+                    .then(()=>{
+                        this.$router.push('/main/coupon_dis/'+a)
+
+                    })
+                    .catch(err=>{
+                        console.log(err)
+                    })
+
+            },
+            Details(){
+                axios.get("http://117.78.9.95/api/s_ticket/?status=1")
+                    .then(()=> {
+                        this.$router.push('/main/coupon_cen/')
+                    })
+                    .catch(err=>{
+                        console.log(err)
+                    })
+            }
+        }
     }
 </script>
 
