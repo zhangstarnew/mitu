@@ -24,9 +24,7 @@
         data(){
             return {
                 flag:false,
-                // f:false,
-                // myWallet: {},
-                money:localStorage.getItem("hiden_rice")
+                money:sessionStorage.getItem("total_money")
             }
         },
         props:["tt"],
@@ -34,28 +32,7 @@
             changeStyle(){
                 this.flag = !this.flag;
             },
-            // getMoney(){
-            //     let s = sessionStorage.getItem("ud_id")
-            //     axios.get("http://10.35.167.69:8080/api/wallet/?ud_id="+s)
-            //         .then(() => {
-            //             this.$router.push('/main/myWallet/')
-            //         });
-            // }
-        },
-        // mounted() {
-        //     this.$eventBus.$on("change",(f)=>{
-        //         console.log(f);
-        //     })
-        // },
-        // methods: {
-        //     changeStyle(f){
-        //         this.flag = !this.flag;
-        //         this.f=!this.f;
-        //         this.$eventBus.$emit("change",f);
-        //         console.log(f);
-        //     }
-        // },
-
+        }
     }
 </script>
 

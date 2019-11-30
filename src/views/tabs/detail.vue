@@ -6,7 +6,7 @@
         </header>
         <detailTopBrief :data="product"></detailTopBrief>
         <detailReason :data="product"></detailReason>
-        <detailDeparture></detailDeparture>
+        <detailDeparture :data="product"></detailDeparture>
         <detailTabs class="yz_tabs"></detailTabs>
         <detailFeatures :data="product"></detailFeatures>
         <detailRoute :data="product"></detailRoute>
@@ -72,12 +72,12 @@
                     })
             }
         },
-        beforeMount() {
-            // let allData=require('../../../mocks/detail');
-            // this.datalocal=allData;
-            // eslint-disable-next-line no-console
-            // console.log(this.datalocal)
-        },
+        // beforeMount() {
+        //     // let allData=require('../../../mocks/detail');
+        //     // this.datalocal=allData;
+        //     // eslint-disable-next-line no-console
+        //     // console.log(this.datalocal)
+        // },
         created(){
             this._initDetailsInfo()
         }

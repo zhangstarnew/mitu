@@ -165,7 +165,7 @@
     margin-top: 0.1rem;
     border-bottom: 1px solid white!important;
 }
-.xl_character_tab>div{
+.xl_character_tab{
     padding: 0.17rem 0.2rem;
     height: 0.4rem;
     display: flex;
@@ -239,7 +239,6 @@
     border: 1px solid #5fc579;
     color: #5fc579;
 }
-
 .tag-wrap span {
     display: block;
     margin: 0.04rem .1rem 0 0;
@@ -272,6 +271,7 @@
 }
 .xl_home-footer{
     text-align: center;
+    padding-bottom: 0.45rem;
     background: #f5f5f5;
 }
 .mt-ward {
@@ -367,12 +367,12 @@
     /*background-size:15px 15px;*/
 }
 .isFixed{
-    position:fixed!important;
+    position:fixed;
     background-color:#Fff;
-    top:0.64rem;
-    z-index:99;
+    top:0;
+    z-index:999;
     width: 100%;
-    padding: 0.06rem 0.2rem!important;
+    padding: 0.06rem 0.2rem;
 }
 .isFixed .xl_tab-item{
     width: 0.8375rem;

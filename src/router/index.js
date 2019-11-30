@@ -31,6 +31,13 @@ import lx_secondary_service_three from '../components/personal/wuyi/lx_secondary
 import lx_secondary_service_four from '../components/personal/wuyi/lx_secondary_service-four';
 import lx_secondary_service_five from '../components/personal/wuyi/lx_secondary_service-five';
 
+// xl-订单页面
+import comment from "../components/personal/order/comment"
+import orderdetail from "../components/personal/order/orderdetail"
+import xl_optionalDate from "../components/xl-order/xl-optionalDate"
+import xl_data_travel from "../components/xl-order/xl-data-travel"
+// import lx_secondary_service_three from '../components/xl-order/lx_secondary_service-three';
+
 // import ceshi from "../components/ceshi/ceshi";
 Vue.use(VueRouter)
 let router = new VueRouter({
@@ -234,9 +241,39 @@ let router = new VueRouter({
         {
             path:'/main/balance',
             component:() => import('../components/personal/Level3Page/lx_Level3Page_myWallet')
+        },
+        //订单详情
+        {
+            path:'/main/personal/order/orderdetail/:id',
+            component:orderdetail,
+        },
+    //全部订单
+        {
+            path:'/main/personal/order/:id',
+            component: lx_secondary_order,
+        },
+    //提交订单
+        {
+            path:'/main/xl_detail/optional/:id',
+            component:xl_optionalDate,
+        },
+    //评价模块
+        {
+            //产品id和订单id
+            path:'/main/xl_detail/comment/:vid/:orderid',
+            component:comment,
+        },
+    //选择日期
+        {
+            path:'/main/xl_detail/xl_data_travel/:id',
+            component:xl_data_travel,
         }
 
     ],
+    // eslint-disable-next-line no-unused-vars
+    scrollBehavior (to, from, savedPosition) {
+        return { x: 0, y: 0 }
+    }
     })
 
 // 前置守卫,判断哪个需要登录

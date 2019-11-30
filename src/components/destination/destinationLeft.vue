@@ -15,8 +15,10 @@
         },
         methods:{
             update(i){
+
+                this.$bus.$emit("cityIndex",i)
                 this.index=i
-                this.$emit("cityIndex",i)
+                // console.log(11)
             }
         }
     }

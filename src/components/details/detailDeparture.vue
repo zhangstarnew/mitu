@@ -6,8 +6,9 @@
             </div>
             <div class="yz_datePriceBox">
                 <div class="yz_datePrice">
-                    <p>12/27</p>
-                    <p>￥<span>12399</span></p>
+                    <p>{{data.date}}</p>
+<!--                    {{data.date.substring(1,this.data.date.length-1)}}-->
+                    <p>￥<span>{{data.price}}</span></p>
                 </div>
             </div>
         </div>
@@ -16,7 +17,9 @@
 
 <script>
     export default {
-        name: "detailDeparture"
+        name: "detailDeparture",
+        props:["data"],
+
     }
 </script>
 
@@ -43,7 +46,7 @@
     }
     .yz_datePrice{
         display: inline-block;
-        width: 18%;
+        width: 22%;
         height: 0.4rem;
         text-align: center;
         border: 0.01rem solid #dfdfdf;

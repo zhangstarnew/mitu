@@ -119,6 +119,7 @@
         padding-top: 0.1rem;
     }
     .yz_readNotice{
+        font-size: 0.12rem;
         color: #999;
         padding-top: 0.1rem;
         position: relative;

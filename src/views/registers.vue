@@ -21,7 +21,8 @@
 </template>
 
 <script>
-	import axios from 'axios'
+	import axios from 'axios';
+	import {Toast} from 'vant';
 	export default {
 		data() {
 			return {
@@ -33,6 +34,10 @@
 				passward: '',
 				pass: '',
 			}
+		},
+		components:{
+			// eslint-disable-next-line vue/no-unused-components
+			Toast
 		},
 		methods: {
 			// 验证码
@@ -46,13 +51,14 @@
 						this.num = 30;
 					}
 				}, 1000)
+				// axios.get('http://10.35.167.122:8080/api/send_code/?phone='+this.tel).then((res) => {
 				axios.get('http://117.78.9.95/api/send_code/?phone='+this.tel).then((res) => {
 					if (res.data.status==1) {
 						console.log(res.data)
 					}
 					else{
-						alert("验证码输入有误")
-						return 
+						this.$toast("验证码输入有误")
+						return
 					}
 				})
 			},
@@ -66,7 +72,7 @@
 			// 验证登录数据
 			changepasaward() {
 				if (this.tel === "") {
-					window.console.log("手机号不能为空")
+					this.$toast("手机号不能为空")
 					return
 				} else {
 					// 判断是否是十一位
@@ -77,11 +83,11 @@
 						var myreg = /^0?(13[0-9]|14[5-9]|15[012356789]|166|17[0-8]|18[0-9]|19[8-9])[0-9]{8}$/;
 						// 输入手机号不合适
 						if (!myreg.test(this.tel)) {
-							window.console.log('手机号码格式不正确');
+							this.$toast('手机号码格式不正确');
 							return;
 						} else {
 								if (this.passward === "") {
-									window.console.log("密码不能为空")
+									this.$toast("密码不能为空")
 									return
 								} else {
 									var regExp = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,21}$/;
@@ -101,6 +107,7 @@
 													data = JSON.stringify(data)
 													return data
 												}],
+												// url: "http://10.35.167.122:8080/api/send_code/",
 												url: "http://117.78.9.95/api/send_code/",
 												method: "POST",
 												data: { //body
@@ -109,9 +116,9 @@
 												}
 											}).then(response => {
 												if(response.data.status==1){
-												console.log("验证成功")
+													this.$toast("验证成功")
 												axios({
-											
+													// url: "http://10.35.167.122:8080/api/register/",
 													url: "http://117.78.9.95/api/register/",
 													method: "POST",
 													data: { //body
@@ -119,16 +126,17 @@
 														"pwd": this.passward
 													}
 												}).then(res => {
-													if(res.data.status==1)
-													// console.log(res.data)
-													this.$router.push("/main/login")
+													if(res.data.status==1){
+														console.log(res.data)
+														this.$router.push("/main/login")
+													}
 												})
 											}else{
-												alert("注册失败")
+													this.$toast("注册失败")
 											}
-												
+
 											})
-											
+
 										}
 									}
 								}

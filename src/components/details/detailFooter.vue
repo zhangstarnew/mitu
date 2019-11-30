@@ -5,7 +5,9 @@
             <p @click="alert">咨询</p>
         </div>
         <div class="yz_footerRight">
-            <p @click="book">开始预订</p>
+            <a :href="'#/main/xl_detail/xl_data_travel/'+goodsId">
+                <p>开始预订</p>
+            </a>
         </div>
         <van-popup v-model="show" position="bottom" class="yz_alertBox">
             <div class="yz_alertBottom" v-for="(u,index) in alertBottom" :key="index">
@@ -27,6 +29,7 @@
         data(){
             return{
                 show:false,
+                goodsId:null,
                 "alertBottom": [
                     {
                         "src": "assets/detailImages/iconPhone.png",
@@ -44,16 +47,19 @@
                         "text": "免费预约 上门服务"
                     }
                 ]
+
             }
         },
         methods:{
             alert(){
                 this.show=true;
-            },
-            book(){
-                this.$router.push('/')
             }
-        }
+        },
+        created() {
+            //路由传商品id
+            let a = this.$route.params.id;
+            this.goodsId=a;
+        },
     }
 </script>
 

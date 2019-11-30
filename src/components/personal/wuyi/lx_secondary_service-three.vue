@@ -27,6 +27,7 @@
 
             <!-- 联系人卡片 -->
             <van-contact-card
+                    add-text="添加出行人"
                     :type="cardType"
                     :name="currentContact.name"
                     :tel="currentContact.tel"
@@ -36,6 +37,7 @@
             <!-- 联系人列表 -->
             <van-popup v-model="showList" position="bottom">
                 <van-contact-list
+                        add-text="添加出行人信息"
                         v-model="chosenContactId"
                         :list="list"
                         @add="onAdd"
@@ -168,7 +170,7 @@
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    url:"http://117.78.9.95/api/traveler/ud_id"+u,
+                    url:"http://117.78.9.95/api/traveler/ud_id="+u,
                     method:"POST",
                     data:{ //body
                         name:this.name,

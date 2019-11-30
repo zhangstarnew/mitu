@@ -26,6 +26,7 @@
                         <div class="booking-alert-content">
                             <input type="text" class="scanf" placeholder="请输入金额" v-model="pushMoney">
                             <div class="alert-btn">
+                                <span clas="cross"></span>
                                 <button class="xl-mitu_btn" @click="exit"> 确定 </button>
                                 <button class="xl-mitu_btn" @click="cancel"> 取消 </button>
                             </div>
@@ -33,12 +34,38 @@
                     </div>
                 </div>
             </div>
+            <!-- 支付密码框-->
+            <div class="order_pass" v-show="showKey">
+                <van-popup v-model="payKey" closeable
+                           position="bottom"
+                           :style="{ height: '60%' }"
+                >
+                    <!-- 密码输入框 -->
+                    <van-password-input
+                            :value="value"
+                            info="密码为 6 位数字"
+                            :focused="showKeyboard"
+                            @focus="showKeyboard = true"
+
+                    />
+                    <!--数字键盘-->
+                    <van-number-keyboard
+                            :show="showKeyboard"
+                            @input="onInput"
+                            @delete="onDelete"
+                            @blur="showKeyboard = false"
+                    > <div slot="extra-key" class="sucPay" @click="finshOrder">完成</div>
+                    </van-number-keyboard>
+                    <!--                    <extra-key>删除</extra-key>-->
+                </van-popup>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
     import axios from 'axios';
+    import { Dialog,Popup,Toast,PasswordInput, NumberKeyboard } from 'vant'
     export default {
         name: "lx_Level3Page_myWallet",
         data(){
@@ -49,15 +76,29 @@
                 myWallet:[],
                 pushMoney:'',
                 a:0,
-                price:0
+                price:0,
+                showKey:false, //密码键盘显示
+                payKey:false, //输入密码
+                showKeyboard: true,
+                userName:'',
+                value: '', //键盘输入密码值
             }
+        },
+        components:{
+            [Dialog.Component.name]: Dialog.Component,
+            [Popup.name]:Popup,
+            [PasswordInput.name]: PasswordInput,
+            [NumberKeyboard.name]: NumberKeyboard,
+            // eslint-disable-next-line vue/no-unused-components
+            Toast,
+
         },
         methods: {
             changeStyle(){
                 this.flag = !this.flag;
             },
             showDialog(){
-                this.show=!this.show;
+                this.show = true;
             },
             cancel(){
                 this.show = false;
@@ -66,9 +107,27 @@
                 var money = document.querySelector(".scanf");
                 sessionStorage.setItem("price", money.value);
                 console.log(sessionStorage.price);
+                this.showKey = true;
+                this.payKey= true;
+                this.showKeyboard = true
                 this.show = false;
-                this.a= sessionStorage.getItem("ud_id");
 
+            },
+            //支付密码弹出框
+            onInput(key) {
+                this.value = (this.value + key).slice(0, 6);
+            },
+            onDelete() {
+                this.value = this.value.slice(0, this.value.length - 1);
+            },
+            finshOrder(){
+                if(this.value.length===6){
+                    this.payKey = !this.payKey
+                    this.value="";
+                }else {
+                    this.$toast("输入密码错误");
+                }
+                this.a= sessionStorage.getItem("ud_id");
                 axios({
                     headers: {
                         'Content-Type': 'application/json'
@@ -77,6 +136,7 @@
                         data = JSON.stringify(data)
                         return data
                     }],
+                    // url: "http://10.35.167.122:8080/api/wallet/",
                     url: "http://117.78.9.95/api/wallet/",
                     method: "POST",
                     data: { //body
@@ -88,14 +148,13 @@
                     this.myWallet = res.data;
                     console.log(this.myWallet.w_acount);
                     this.hidenPrice=this.myWallet.w_acount;
-                    console.log(this.hidenPrice);
-                    localStorage.setItem("hiden_rice",this.hidenPrice)
+                    // console.log(this.hidenPrice);
+                    sessionStorage.setItem("total_money",this.hidenPrice)
                 })
-            },
-
+            }
         },
         beforeUpdate() {
-            this.hidenPrice=localStorage.getItem("hiden_rice")
+            this.hidenPrice=sessionStorage.getItem("total_money")
             console.log(this.hidenPrice)
         }
     }
@@ -202,6 +261,7 @@
     .scanf{
         width: 2rem;
         height: 0.25rem;
+        border-radius: 0.05rem 0.05rem;
         margin: 0.1rem 0 0.1rem 0.1rem;
     }
     .mitu-fade-transition {
@@ -273,5 +333,23 @@
     .alert-btn button:last-child {
         color: #41b3ee;
         margin-left: 0.1rem;
+    }
+    .order_pass>.van-popup{
+        background-color: #f8f8f8!important;
+    }
+    .van-password-input{
+        top: 0.5rem;
+    }
+    .order_pass{
+        display: flex;
+    }
+    .sucPay{
+        font-size: 16px;
+    }
+    .allAddPre{
+        font-size: 0.12rem;
+        height: 100%;
+        width:3.75rem;
+        background-color: white;
     }
 </style>

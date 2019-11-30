@@ -45,7 +45,7 @@
         data() {
             return {
                 flag:false,
-                money:localStorage.getItem("hiden_rice")
+                money:sessionStorage.getItem("total_money")
                 // f:false,
                 // dataList:[]
             }

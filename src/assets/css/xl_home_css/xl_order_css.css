@@ -1,0 +1,105 @@
+.list-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f5f5f5;
+    z-index: 200;
+}
+.white-header {
+    height: 44px;
+}
+.white-header .ay-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 9;
+}
+.ay-header {
+    position: relative;
+    padding: 2px 0;
+    box-sizing: border-box;
+    background-color: #ff5523;
+}
+.white-header .ay-header .ay-header-left {
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 44px;
+}
+.white-header .ay-header .ay-header-left a {
+    padding-left: 20px;
+    text-align: left;
+}
+.white-header .ay-header .ay-header-left a, .white-header .ay-header .ay-header-left button, .white-header .ay-header .ay-header-right a, .white-header .ay-header .ay-header-right button {
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 17px;
+    color: #333;
+    line-height: 44px;
+    font-weight: 300;
+}
+.ay-header .ay-header-left a, .ay-header .ay-header-left button, .ay-header .ay-header-right a, .ay-header .ay-header-right button {
+    float: left;
+    margin-right: 8px;
+    color: #fff;
+}
+.white-header .ay-header .ay-header-title, .white-header .ay-header h1 {
+    margin: 0 60px;
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size: 19px;
+    color: #333;
+    font-weight: 400;
+}
+.ay-header .ay-header-title, .ay-header h1 {
+    margin: 0 88px;
+    line-height: 40px;
+    text-align: center;
+    height: 40px;
+    font-size: 18px;
+    font-weight: 400;
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #fff;
+}
+.white-header .ay-header .ay-header-right {
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 44px;
+}
+.ay-header .ay-header-right {
+    right: 15px;
+}
+.ay-header .ay-header-left, .ay-header .ay-header-right {
+    position: absolute;
+    top: 14px;
+    display: block;
+    font-size: 14px;
+    line-height: 21px;
+    color: #fff;
+}
+.white-header .ay-header:after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px solid #dfdfdf;
+    color: #dfdfdf;
+    -webkit-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+}
+.white-header .ay-header .ay-header-right a {
+    padding-right: 20px;
+    text-align: right;
+}

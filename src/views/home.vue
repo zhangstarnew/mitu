@@ -119,23 +119,16 @@
 			<!--footer开始-->
 			<xl-home-footer></xl-home-footer>
 		</div>
-		<div v-else class="loading-box">
-			<van-loading  size="34px" color="#FE7763" vertical text-size="10px" type="spinner">
-				<img src="../assets/images/home-wy/logo.png" class="logoImg">
-				<!--				<span class="logoSpan">loading...</span>-->
-			</van-loading>
-		</div>
+		<loading v-else></loading>
 <!--		<div v-else class="home-sk">-->
 <!--			<van-skeleton  title avatar :row="20"></van-skeleton>-->
 <!--			-->
 <!--		</div>-->
-
-
 	</div>
-
 </template>
 
 <script>
+	import loading from "../components/loadingCommon/loading";
 	import banner from '../components/home-wy/banner'
 	import homePutPrice from  '../components/home-wy/home-putPrice'
 	import homePlay from '../components/home-wy/home-play'
@@ -147,6 +140,7 @@
 	export default{
 		name:"home",
 		components:{
+			loading,
 			wyBanner:banner,
 			homePutPrice,
 			homePlay,
@@ -155,6 +149,7 @@
 			"xl-home-tourism":xlHomeTourism,
 			"xl-home-character":xlHomeCharacter,
 			"xl-home-footer":xlHomeFooter,
+
 
 
 		},
@@ -671,25 +666,5 @@
 	.searchBarIsFixed>span{
 		background: url("../assets/images/home-wy/logo.jpg") no-repeat;
 		background-size: 100%;
-	}
-	.loading-box{
-		width: 100%;
-		height: 6.67rem;
-		background-color: white;
-		z-index: 10;
-		padding-top: 2.8rem;
-		box-sizing: border-box;
-		position: relative;
-
-	}
-	.logoImg{
-		width: 60px;
-		height: 40px;
-	}
-	.logoSpan{
-		color: #FE7763;
-		position: absolute;
-		top: 28px;
-		left: 205px;
 	}
 </style>

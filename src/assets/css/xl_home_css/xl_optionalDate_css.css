@@ -1,0 +1,566 @@
+.popup-list{
+    font-size: 0.16rem;
+}
+.xl-order-con{
+    display: flex;
+    background-color: #f5f5f5;
+    height: 100%;
+}
+.yz_header{
+    width: 100%;
+    height: 0.44rem;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid #dfdfdf;
+    background-color: white;
+}
+.yz_header p{
+    font-size: 0.19rem;
+    line-height: 0.44rem;
+    position: absolute;
+    left: 40%;
+}
+.yz_iconBack{
+    width: 0.2rem;
+    height: 0.2rem;
+    float: left;
+    margin: 0.11rem 0 0.11rem 0.2rem;
+    background-image: url("../../images/xl_home_img/leftArrowBlack.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+/*弹出框*/
+.mitu-fade-transition {
+    opacity: 1;
+    transition: opacity .2s linear;
+}
+.mitu_mask {
+    z-index: 1000;
+    background: rgba(0,0,0,.6);
+}
+.mitu_mask{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.mitu-dialog-transition {
+    opacity: 1;
+    transition-duration: .4s;
+    transform: translate(-50%,-50%) scale(1)!important;
+    transition-property: transform,opacity,-webkit-transform!important;
+}
+.mitu_dialog {
+    position: fixed;
+    z-index: 5000;
+    width: 2.7rem;
+    top: 50%;
+    left: 50%;
+    background-color: #fafafc;
+    text-align: center;
+    border-radius: 0.03rem;
+    overflow: hidden;
+}
+.mitu_dialog_bd {
+    padding: 0 0.2rem;
+    font-size: 0.14rem;
+    color: #888;
+}
+.booking-alert-content {
+    padding: 0.25rem 0 0.3rem;
+}
+.booking-alert-title {
+    font-size: 0.14rem;
+    font-weight: 300;
+    color: #333;
+    line-height:0.2rem;
+}
+.alert-btn {
+    display: flex;
+    align-items: center;
+    margin-top: 0.25rem;
+    padding: 0 0.1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+.xl-mitu_btn{
+    padding: 0 0.05rem;
+    width: 1rem;
+    height: 0.4rem;
+    box-sizing: border-box;
+    color: #666;
+    border: 1px solid #dfdfdf;
+    margin: 0;
+    font-size: 0.17rem;
+    border-radius: 1rem;
+    background-color: white;
+}
+.alert-btn button:last-child {
+    color: #41b3ee;
+    margin-left: 0.1rem;
+}
+/*产品信息*/
+.xl-order-section{
+    margin-top: 0.45rem;
+}
+.mitu-section {
+    padding: 0 0.2rem;
+    margin-bottom: 0.1rem;
+    width: 100%;
+    background-color: #fff;
+    box-sizing: border-box;
+    text-align: left;
+}
+.order-info .order-info-detail, .order-info .order-info-title {
+    position: relative;
+    padding: 8px 0;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    font-size: 0;
+    line-height: 20px;
+}
+.order-info .p-title {
+    font-size: 14px;
+    color: #333;
+    font-weight: 300;
+    line-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+.order-info b, .order-info span {
+    display: inline;
+    line-height: 20px;
+    vertical-align: middle;
+}
+.order-info span {
+    margin-right: 20px;
+    font-size: 12px;
+    color: #999;
+    font-weight: 300;
+}
+.order-info .p-title:last-child {
+    margin-top: 3px;
+}
+.order-info .order-info-detail {
+    line-height: 0;
+}
+.order-info .order-info-detail:before,.section-group:before,.form-item:before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1px;
+    border-top: 1px solid #dfdfdf;
+    color: #dfdfdf;
+    transform-origin: 0 0;
+    transform: scaleY(.5);
+}
+.order-info .p-detail {
+    display: block;
+    width: 100%;
+    height: auto;
+    line-height: 0;
+}
+.order-info b {
+    margin-right: 4px;
+    font-family: Helvetica Neue;
+    font-size: 14px;
+    font-weight: 700;
+}
+.order-info b, .order-info span {
+    display: inline;
+    line-height: 20px;
+    vertical-align: middle;
+}
+.section-title {
+    padding: 8px 0;
+    font-size: 17px;
+    color: #333;
+    line-height: 44px;
+}
+.section-group {
+    position: relative;
+    background-color: #fff;
+}
+.form-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+.contact-info .form-item .form-item-title {
+    color: #999;
+    font-weight: 300;
+}
+.form-item .form-item-title {
+    padding: 0;
+    width: 90px;
+    height: auto;
+    font-size: 17px;
+    color: #333;
+    line-height: 20px;
+}
+.form-item .form-item-inner {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    width: 50%;
+    min-height: 44px;
+    box-sizing: border-box;
+}
+.form-input {
+    display: block;
+    flex: 1;
+    padding: 13px 0 11px;
+    width: 50%;
+    height: 20px;
+    border: none;
+    font-family: Heiti SC,Helvetica Neue,Helvetica,Roboto,sans-serif;
+    font-size: 17px;
+    color: #333;
+    line-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+input::-ms-input-placeholder{
+    color:#D2C9CC;
+}
+input::-webkit-input-placeholder{
+    color: #D2C9CC;
+}
+input::-ms-input-placeholder{
+    color: #D2C9CC;
+}
+input.ayRed::-ms-input-placeholder{
+    color: #fa1f1f;
+}
+input.ayRed::-webkit-input-placeholder{
+    color: #fa1f1f;
+}
+input.ayRed::-ms-input-placeholder{
+    color: #fa1f1f;
+}
+.ayRed{
+    color: #fa1f1f;
+}
+.footer-wrap {
+    height: 60px;
+}
+
+.footer-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    padding: 0 20px;
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+    border-top: 1px solid #d9d9d9;
+    box-sizing: border-box;
+}
+.footer-bar .footer-item {
+    position: relative;
+    flex: 1;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -ms-flex: 1;
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;
+    font-size: 0.12rem;
+    color: #333;
+}
+.ay-center-v {
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.footer-bar .footer-item p span {
+    font-size: 12px;
+    color: #999;
+    font-weight: 300;
+}
+
+.footer-bar .footer-item p em {
+    font-style: normal;
+    font-size: 24px;
+    color: #ff5523;
+    line-height: 30px;
+}
+
+.footer-bar .footer-item p a {
+    font-size: 12px;
+    color: #41b3ee;
+    font-weight: 300;
+    line-height: 20px;
+}
+
+.footer-bar button.ay_btn, .footer-bar input.ay_btn {
+    margin: 0;
+    padding: 0;
+    width: 100px;
+    height: 45px;
+    border-width: 0;
+    outline: 0;
+    -webkit-appearance: none;
+    box-sizing: border-box;
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: #ff5523;
+    color: #fff;
+}
+.booking-wrap .ay_btn {
+    border-radius: 100px;
+}
+.ay-center-v {
+    display: flex;
+    justify-content: space-between;
+}
+
+.service-tel{
+    text-align: center;
+}
+/*.contract-info{*/
+/*    border-bottom: 0.1rem solid rgb(245, 245, 245);*/
+/*!*}*!*/
+.icon {
+    width: 0.2rem;
+    height: 0.2rem;
+}
+.traveller-info .section-title a {
+    float: right;
+    position: relative;
+    padding-left: 20px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 44px;
+    text-align: left;
+
+}
+.traveller-info .section-title a, .traveller-info .section-title p {
+    display: inline-block;
+    width: auto;
+    height: 44px;
+    text-align: left;
+}
+.traveller-info {
+    background-color: #fff;
+}
+.ay-section {
+    padding: 0 20px;
+    margin-bottom: 10px;
+    width: 100%;
+    background-color: #fff;
+    box-sizing: border-box;
+    text-align: left;
+}
+.traveller-info .section-title {
+    position: relative;
+    height: 60px;
+    box-sizing: border-box;
+}
+.traveller-info .section-title a.active .icon-checker {
+    background: #ff5523 no-repeat 50% url("../../images/xl_home_img/xl-orderchice.png");
+    background-size: 16px;
+    border: none;
+}
+.traveller-info .section-title .icon-checker {
+    position: absolute;
+    left: 0;
+    top: 14px;
+    display: block;
+    width: 16px;
+    height: 16px;
+    box-sizing: border-box;
+    border-radius: 16px;
+    border: 1px solid #bbb;
+}
+.traveller-info .section-title .icon-checker {
+    position: absolute;
+    left: 0;
+    top: 14px;
+    display: block;
+    width: 16px;
+    height: 16px;
+    box-sizing: border-box;
+    border-radius: 16px;
+}
+.form-item .form-placeholder {
+    color: #ccc;
+    font-weight: 300;
+}
+.form-item .form-placeholder, .form-item .form-value {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 17px;
+    line-height: 20px;
+}
+.form-item .form-item-inner.with-arrow:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-left: 0;
+    margin-top: -7px;
+    height: 14px;
+    width: 14px;
+    background: no-repeat 50% url(../../images/xl_home_img/addPeople.png);
+    background-size: 14px;
+    box-sizing: border-box;
+    border: none;
+    -webkit-transform: rotate(0deg);
+}
+.traveller-info .form-item .form-item-title {
+    color: #999;
+    font-weight: 300;
+}
+.form-item .form-item-title {
+    padding: 0;
+    width: 90px;
+    height: auto;
+    font-size: 17px;
+    color: #333;
+    line-height: 20px;
+}
+.order_paymoney{
+    font-size: 0.2rem;
+    font-weight: 400;
+    margin-top: 0.16rem ;
+    margin-bottom: 0.5rem;
+
+}
+.mitu-imdaetly{
+    border: none;
+    width: 3.4rem;
+    height: 0.45rem;
+    background-color: #337FE5;
+    color: white;
+    font-size: 0.18rem;
+    position: fixed;
+    transform: translateX(-50%);
+    bottom: 0;
+    left: 50%;
+    right: 0;
+    border-radius: 0.05rem;
+}
+.popup-list{
+    padding: 0 0.2rem;
+    height:3rem;
+    overflow: auto;
+    margin-top: 0.44rem;
+    text-align: left;
+}
+.subprice{
+    text-align: center;
+    margin-top: 0.3rem;
+    /*width: 20% !important;*/
+    font-size: 0.28rem;
+    color: #333;
+}
+.popup-list li{
+    position: relative;
+    min-height:0.5rem;
+    line-height: 0.5rem;
+}
+.popup-list li>div{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.popup-list li>div .title {
+    width: 70%;
+    font-family: STHeitiSC-Medium;
+    font-size: 17px;
+    color: rgb(153,153,153);
+    letter-spacing: .67px;
+}
+.popup-list li:after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px solid #e5e5e5;
+    color: #e5e5e5;
+    transform-origin: 0 100%;
+    transform: scaleY(.5);
+}
+.popup-list li>div .price{
+    text-align: right;
+    width: 80%;
+    font-family: PingFang-SC-Medium;
+    font-size: 17px;
+    color: #444444;
+    letter-spacing: .72px;
+    font-weight: 700;
+}
+.totle-price{
+    text-align: right;
+    padding: 0 20px;
+    margin-top: 10%;
+    font-family: HelveticaNeue;
+    font-size: 24px;
+    color: #fc5a3f;
+    letter-spacing: .13px;
+}
+.totle-price span{
+    font-family: STHeitiSC-Medium;
+    font-size: 16px;
+    color: #fc5a3f;
+    letter-spacing: .67px;
+    margin-right: 20px;
+}
+.totle-price em{
+    font-family: STHeitiSC-Light;
+    font-size: 17px;
+    color: #fc5a3f;
+    letter-spacing: 0;
+}
+em{
+    font-style: normal;
+}
+.van-toast--text {
+    width: 1.8rem!important;
+    min-height: unset;
+    padding: 8px 12px;
+}
+.van-toast{
+    background-color: rgba(0,0,0,.8)!important;
+}
+.van-toast--html .van-toast__text, .van-toast--text .van-toast__text {
+    padding: 20px 5px;
+    font-size: 14px;
+    line-height: 20px;
+}
+.order_pass>.van-popup{
+    background-color: #f8f8f8!important;
+}
+ .van-password-input{
+     top: 0.5rem;
+ }
+ .order_pass{
+     display: flex;
+ }
+ .sucPay{
+     font-size: 16px;
+ }
+ .allAddPre{
+     font-size: 0.12rem;
+     height: 100%;
+     width:3.75rem;
+     background-color: white;
+ }

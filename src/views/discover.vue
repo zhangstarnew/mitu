@@ -1,9 +1,10 @@
 <template>
-	<div class="discover">
-		<div class="header">
-			<div :class="change===true?'cmd-change':'cmd-noChange'" @click="changeOne">精彩</div>
-			<div :class="change===true?'cmd-noChange':'cmd-change'" @click="changeTwo">旅行家</div>
-		</div>
+	<div>
+		<div v-if="user" class="discover">
+			<div class="header">
+				<div :class="change===true?'cmd-change':'cmd-noChange'" @click="changeOne">精彩</div>
+				<div :class="change===true?'cmd-noChange':'cmd-change'" @click="changeTwo">旅行家</div>
+			</div>
 			<div v-if="change">
 				<div class="searchBox">
 					<a href="#/seach">
@@ -19,6 +20,8 @@
 				<img src="../../public/images/cmdimg/travellerBanner.png" />
 				<traveller></traveller>
 			</div>
+		</div>
+		<loading v-else></loading>
 	</div>
 
 </template>
@@ -26,11 +29,13 @@
 <script>
 	import userShow from "../components/discover/userShow";
 	import traveller from "../components/discover/traveller";
+	import loading from "../components/loadingCommon/loading";
 	export default{
 		name:"Discover",
 		components:{
 			userShow,
-			traveller
+			traveller,
+			loading
 		},
 		data(){
 			return {

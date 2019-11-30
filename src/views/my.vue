@@ -32,7 +32,6 @@
 					// this.flaglogin = true
 					var text = window.sessionStorage.data;
 					this.text = text;
-
 				}
 			}
 		},

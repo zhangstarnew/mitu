@@ -312,12 +312,12 @@
     }
     .modules span:nth-of-type(2){
         display: inline-block;
-        width: 0.58rem;
+        width: 1rem;
         font-size: 0.1rem;
         color: gray;
         text-align: right;
         position: relative;
-        left: 2.4rem;
+        left: 2rem;
     }
     .return{
         display: inline-block;
@@ -342,7 +342,7 @@
         background: url("../../../assets/images/lx_img/arrows.png") no-repeat;
         background-size: 80% 80%;
         position: relative;
-        left:2.5rem;
+        left:2.1rem;
         top: 0.05rem;
     }
     .right_arrow{

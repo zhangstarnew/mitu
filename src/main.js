@@ -17,8 +17,12 @@ Vue.use(ElementUI)
 Vue.use(VueRouter)
 Vue.use(Swipe).use(SwipeItem).use(DropdownMenu).use(DropdownItem).use(Popup).use(Tab).use(Tabs).use(Loading).use(Skeleton)
 Vue.config.productionTip = false
+
 let bus = new Vue()
 Vue.prototype.$bus = bus
+
+
+
 new Vue({
 	router,
   render: h => h(App),

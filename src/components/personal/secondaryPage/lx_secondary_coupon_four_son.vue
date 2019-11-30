@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="details"  v-for="(n,index) in ticketData[flag].dataList" :key="index">
+        <div class="details"  v-for="(n,index) in ticketData" :key="index">
 <!--            :style="'background:url('+n.bgColor+')'"-->
             <div class="details_left" >
                 <p class="pesd">{{n.st_money}}</p>
@@ -9,7 +9,7 @@
             </div>
             <div class="details_right">
                 <p class="type">{{n.st_name}}</p>
-                <a href="#/main"><p class="term">{{n.st_tiaojian}}</p></a>
+                <p class="term" @click="addTicket">{{n.st_tiaojian}}</p>
             </div>
         </div>
     </div>
@@ -19,126 +19,39 @@
     import axios from 'axios';
     export default {
         name: "lx_secondary_coupon_four_son",
-        props:["flag","ticketData","status"],
-        data(){
+        props:["ticketData"],
+        data() {
             return {
-            //     list:[
-            //         {
-            //             dataList:[
-            //                 {
-            //                     money:'￥500',
-            //                     opt:'出境长线参团 限时加磅专属优惠券',
-            //                     datetime:'2019.11.16-2019.11.25',
-            //                     num:'还剩276张',
-            //                     type:'参团',
-            //                     tiaojian:'立即领券',
-            //                     bgColor:'./images/lx_img/vip_1.455bad2.png'
-            //                 },
-            //                 {
-            //                     money:'￥500',
-            //                     opt:'出境长线参团 限时加磅专属优惠券',
-            //                     datetime:'2019.11.16-2019.11.25',
-            //                     num:'还剩276张',
-            //                     type:'参团',
-            //                     condition:'立即领券',
-            //                     bgColor:'./images/lx_img/vip_1.455bad2.png'
-            //                 },
-            //                 {
-            //                     money:'￥5',
-            //                     opt:'出境长线参团 限时加磅专属优惠券',
-            //                     datetime:'2019.11.16-2019.11.25',
-            //                     num:'还剩968张',
-            //                     type:'机票',
-            //                     condition:'立即领券',
-            //                     bgColor:'./images/lx_img/vip_1.png'
-            //                 },
-            //                 {
-            //                     money:'￥5',
-            //                     opt:'出境长线参团 限时加磅专属优惠券',
-            //                     datetime:'2019.11.16-2019.11.25',
-            //                     num:'还剩968张',
-            //                     type:'机票',
-            //                     tiaojian:'立即领券',
-            //                     bgColor:'./images/lx_img/vip_1.png'
-            //                 }
-            //             ]
-            //         },
-            //         {
-            //             dataList:[
-            //                 {
-            //                     money:'￥500',
-            //                     opt:'出境长线参团 限时加磅专属优惠券',
-            //                     datetime:'2019.11.16-2019.11.25',
-            //                     num:'还剩276张',
-            //                     type:'参团',
-            //                     tiaojian:'立即领券',
-            //                     bgColor:'./images/lx_img/vip_1.455bad2.png'
-            //                 },
-            //                 {
-            //                     money:'￥500',
-            //                     opt:'出境长线参团 限时加磅专属优惠券',
-            //                     datetime:'2019.11.16-2019.11.25',
-            //                     num:'还剩276张',
-            //                     type:'参团',
-            //                     condition:'立即领券',
-            //                     bgColor:'./images/lx_img/vip_1.455bad2.png'
-            //                 }
-            //             ]
-            //         },
-            //         {
-            //             dataList:[
-            //                 {
-            //                     money:'￥5',
-            //                     opt:'出境长线参团 限时加磅专属优惠券',
-            //                     datetime:'2019.11.16-2019.11.25',
-            //                     num:'还剩968张',
-            //                     type:'机票',
-            //                     tiaojian:'立即领券',
-            //                     bgColor:'./images/lx_img/vip_1.png'
-            //                 },
-            //                 {
-            //                     money:'￥5',
-            //                     opt:'出境长线参团 限时加磅专属优惠券',
-            //                     datetime:'2019.11.16-2019.11.25',
-            //                     num:'还剩968张',
-            //                     type:'机票',
-            //                     tiaojian:'立即领券',
-            //                     bgColor:'./images/lx_img/vip_1.png'
-            //                 }
-            //             ]
-            //         }
-            //     ]
-
-                // ticketData:[]
+                a: null
             }
         },
         methods:{
-            change2(){
-                axios.get("http://117.78.9.95/api/s_ticket/?status=2")
-                    .then(res => {
-                        console.log(res.data);
-                        this.ticketData = res.data.data;
-                        console.log(this.ticketData);
-                    })
-                    .catch(err => {
-                        console.log(err)
-                    })
-            },
-            change3(){
-                axios.get("http://117.78.9.95/api/s_ticket/?status=3")
-                    .then(res => {
-                        console.log(res.data);
-                        this.ticketData = res.data.data;
-                        console.log(this.ticketData);
-                    })
-                    .catch(err => {
-                        console.log(err)
-                    })
+            addTicket(){
+                this.a= sessionStorage.getItem("ud_id");
+                axios({
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    transformRequest: [function (data) {
+                        data = JSON.stringify(data)
+                        return data
+                    }],
+                    // url: "http://10.35.167.122:8080/api/s_ticket/",
+                    url: "http://117.78.9.95/api/s_ticket/",
+                    method: "POST",
+                    data: { //body
+                        ud_id:this.a,
+                        sys_ticket_id:this.ticketData.sys_ticket_id
+                    }
+                }).then(res => {
+                    console.log(res.data);
+                    if (res.data.status == 200) {
+                        alert("添加成功!");
+                    }else{
+                        alert("添加失败！")
+                    }
+                })
             }
-        },
-        beforeMount() {
-            this.change2(),
-                this.change3()
         }
     }
 </script>
@@ -180,6 +93,8 @@
         font-size: 0.12rem;
         width: 1.5rem;
         color: gray;
+        position: relative;
+        top:0.1rem;
     }
     .pesd{
         width: 0.4rem;
@@ -194,10 +109,11 @@
     .type{
         font-size: 0.14rem;
         color: white;
-        opacity: 0.3;
+        /*opacity: 0.3;*/
         position: relative;
-        left: 0.2rem;
-        top: -0.2rem;
+        /*left: 0.1rem;*/
+        top: -0.1rem;
+        text-align: center;
     }
     .term{
         width: 0.6rem;

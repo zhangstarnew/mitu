@@ -2,9 +2,9 @@
     <div class="order">
         <ul>
             <li v-for="(n,index) in dataList" :key="index">
-                <a href="#/main/order">
-                    <img :src="n.img" alt="">
-                    <p>{{n.text}}</p>
+                <a :href="'#/main/personal/order/'+index">
+                <img :src="n.img" alt="">
+                <p>{{n.text}}</p>
                 </a>
             </li>
         </ul>

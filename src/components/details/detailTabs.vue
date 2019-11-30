@@ -42,13 +42,13 @@
                 });
             }
         },
-        mounted() {
-            // window.addEventListener('scroll', () => {
-            //     let top = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset
-            //     // eslint-disable-next-line no-console
-            //     console.log(top);
-            // })
-        }
+        // mounted() {
+        //     // window.addEventListener('scroll', () => {
+        //     //     let top = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset
+        //     //     // eslint-disable-next-line no-console
+        //     //     console.log(top);
+        //     // })
+        // }
     }
 </script>
 

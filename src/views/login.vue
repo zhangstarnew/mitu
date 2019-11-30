@@ -2,7 +2,7 @@
 	<div id="login">
 		<div class="login-top">
 			<a href="#/main/personal"><img src="../assets/images/hm-img/back.png" alt=""></a>
-			<div class="warning" v-if="flaglogin">请确认输入是否正确</div>
+<!--			<div class="warning" v-if="flaglogin">请确认输入是否正确</div>-->
 		</div>
 		<!-- 中间 -->
 		<div class="login-main">
@@ -22,7 +22,7 @@
 			<div class="login-button" @click="jump"><button style="background: white; color: #000000; border: 0.01rem solid #999">注册</button></div>
 		</div>
 		<div class="loginWords" v-else>
-			<div class="login-input"><input type="text" placeholder="请输入手机号" v-model="tel" @keydown="btnYes1"></div>
+			<div class="login-input"><input type="text" placeholder="请输入手机号" v-model="tel" @keydown="btnYesn"></div>
 			<div class="login-input"><input type="text" placeholder="短信验证码" v-model="yanzhen">
 				<div class="logincheckone" v-if="flagyan" @click="checkMobile" ref="btn">{{message}}</div>
 				<div class="logincheck" v-else>{{message}}</div>
@@ -34,7 +34,8 @@
 	</div>
 </template>
 <script>
-	import axios from 'axios'
+	import axios from 'axios';
+	import {Toast} from 'vant';
 	export default {
 		name: "login",
 		data() {
@@ -47,9 +48,13 @@
 				password: '',
 				yanzhen:'',
 				// flaglogin: true,
-				flaglogin: false,
+				// flaglogin: false,
 				flagyan: false
 			}
+		},
+		components:{
+			// eslint-disable-next-line vue/no-unused-components
+			Toast
 		},
 		methods: {
 			forget() {
@@ -74,13 +79,13 @@
 			// 密码登陆
 			login() {
 				if (this.tel == '' || this.password == '') {
-					this.flaglogin = true;
-					console.log('账号不能为空');
+					// this.flaglogin = true;
+					this.$toast('账号不能为空');
 					return;
 				} else {
-					this.flaglogin = false;
+					// this.flaglogin = false;
 					if (window.sessionStorage.data == this.tel) {
-						alert("该用户已注册")
+						this.$toast("该用户已注册")
 					} else {
 						axios({
 							headers: {
@@ -90,6 +95,7 @@
 								data = JSON.stringify(data)
 								return data
 							}],
+							// url: "http://10.35.167.122:8080/api/login/",
 							url: "http://117.78.9.95/api/login/",
 							method: "POST",
 							data: { //body
@@ -101,10 +107,11 @@
 								console.log(res.data.user_data)
 								window.sessionStorage.setItem("data",this.tel)
 								window.sessionStorage.setItem("ud_id",res.data.user_data.ud_id)
+								window.sessionStorage.setItem("total_money",res.data.wallet)
 								this.$router.push("/main/personal")
 							}
 							else{
-								console.log("密码输入有误")
+								this.$toast("密码输入有误")
 							}
 						})
 					}
@@ -126,17 +133,19 @@
 					}
 				}, 1000)
 				// 连接短信验证码
-				axios.get('http://117.78.9.95/api/send_code/?phone='+this.tel).then((res) => {
-					if (res.data.status==0) {
-						console.log(res.data)
-					}
-					else{
-						alert("验证码输入有误")
-						return 
-					}
-				})
+				// axios.get('http://10.35.167.122:8080/api/send_code/?phone='+this.tel).then((res) => {
+					axios.get('http://117.78.9.95/api/send_code/?phone='+this.tel).then((res) => {
+						if (res.data.status==0) {
+							console.log(res.data)
+						}
+						else{
+							this.$toast("验证码输入有误")
+							return
+						}
+					})
+				}
 			},
-			btnYes1() {
+			btnYesn() {
 				//因为是从零开始所以当输入10位是其实为11位数，所以判断当输入的长度为10的时候解除按钮的禁用
 				if (this.tel.length == "10") {
 					this.flagyan = true
@@ -150,14 +159,14 @@
 				} else {
 					// 判断是否是十一位
 					if (this.tel.length != 11) {
-						window.console.log('请输入有效的手机号码，需是11位！');
+						alert('请输入有效的手机号码，需是11位！');
 						return;
 					} else {
 						var myreg = /^0?(13[0-9]|14[5-9]|15[012356789]|166|17[0-8]|18[0-9]|19[8-9])[0-9]{8}$/;
 						// 输入手机号不合适
 						if (!myreg.test(this.tel)) {
-							
-							window.console.log('手机号码格式不正确');
+
+							this.$toast('手机号码格式不正确');
 							return;
 						} else {
 							// 验证短信
@@ -169,6 +178,7 @@
 									data = JSON.stringify(data)
 									return data
 								}],
+								// url: "http://10.35.167.122:8080/api/send_code/",
 								url: "http://117.78.9.95/api/send_code/",
 								method: "POST",
 								data: { //body
@@ -178,22 +188,21 @@
 							}).then(response => {
 								if(response.data.status==1){
 								console.log("验证成功")
-								window.sessionStorage.setItem("data",this.tel)
-								window.sessionStorage.setItem("ud_id",response.data.user_data.ud_id)
-								window.sessionStorage.setItem("allMoney",response.data.user_data.w_acount)
+									window.sessionStorage.setItem("data",this.tel)
+									window.sessionStorage.setItem("ud_id",response.data.user_data.ud_id)
+									window.sessionStorage.setItem("total_money",response.data.wallet)
 								this.$router.push("/main/personal")
 								
 							}else{
 								
-								alert("该用户已被注册")
+								this.$toast("该用户已被注册")
 							}
 								
 							})
 						}
 					}
 				}
-			},
-		},
+			}
 	}
 </script>
 

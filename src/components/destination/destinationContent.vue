@@ -1,8 +1,9 @@
 <template>
     <div class="destinationContent-box">
-        <destination-left :data="all" @cityIndex="cityIndex" v-if="all"></destination-left>
-        <destination-right :data="all[i]" v-if="all"></destination-right>
+        <destination-left :data="data" v-if="data"></destination-left>
+        <destination-right :data="data" v-if="data"></destination-right>
     </div>
+
 </template>
 
 <script>
@@ -10,33 +11,13 @@
     import destinationRight from "./destinationRight";
     export default {
         name: "destinationContent",
+        props:["data"],
         components:{
             destinationLeft,
             destinationRight
         },
-        methods:{
-            cityIndex(i){
-                this.i=i
-            },
-            _initDestinationContentInfo(){
-                this.$axios.get('http://117.78.9.95/api/views')
-                    .then(res=>{
-                        console.log(res)
-                        this.all=res.data.data
-                        console.log(this.all)
-                    })
-                    .catch(err=>{
-                        console.log(err)
-                    })
-            }
-        },
-        created(){
-            this._initDestinationContentInfo()
-        },
         data(){
             return {
-                i:0,
-                all:null,
                 // all:[
                 //     {
                 //         province:"陕西",
@@ -322,7 +303,6 @@
                 //         ]
                 //     },
                 // ]
-
             }
         }
     }

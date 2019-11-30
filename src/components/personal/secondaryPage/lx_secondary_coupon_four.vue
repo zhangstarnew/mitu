@@ -6,14 +6,14 @@
             <span class="share"></span>
         </div>
         <div class="option">
-            <div :class="flag === 0?'option_select':''" @click="status=1,flag=0">全部</div>
-            <div :class="flag === 1?'option_select':''" @click="status=2,flag=1" >参团</div>
-            <div :class="flag === 2?'option_select':''" @click="status=3,flag=2">机票</div>
+            <div :class="status === 1?'option_select':''" @click="change1">全部</div>
+            <div :class="status === 2?'option_select':''" @click="change2" >参团</div>
+            <div :class="status === 3?'option_select':''" @click="change3">机票</div>
 <!--            <div class="status === 1?option_select:''" @click="status = 1">全部</div>-->
 <!--            <div class="status === 2?option_select:''" @click="status = 2" >参团</div>-->
 <!--            <div class="status === 3?option_select:''" @click="status = 3">机票</div>-->
         </div>
-        <lx-secondary-coupon-four-son :flag="flag"></lx-secondary-coupon-four-son>
+        <lx-secondary-coupon-four-son :ticketData="ticketData"></lx-secondary-coupon-four-son>
     </div>
 </template>
 
@@ -25,17 +25,44 @@
         name: "lx_secondary_coupon_four",
         data() {
             return {
-                flag:0,
-                ticketData:[],
+                // flag:0,
+                ticketData:null,
                 status:1
             }
         },
         methods:{
             change1(){
+                this.status=1;
+                // axios.get('http://10.35.167.122:8080/api/s_ticket/?status=1')
                 axios.get("http://117.78.9.95/api/s_ticket/?status=1")
+                    .then(res=> {
+                    this.ticketData = res.data.dataList;
+                    console.log(res.data);
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+            },
+            change2(){
+                this.status=2;
+                // axios.get('http://10.35.167.122:8080/api/s_ticket/?status=2')
+                axios.get("http://117.78.9.95/api/s_ticket/?status=2")
                     .then(res => {
                         console.log(res.data);
-                        this.ticketData = res.data.data;
+                        this.ticketData = res.data.dataList;
+                        console.log(this.ticketData);
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
+            },
+            change3(){
+                this.status=3;
+                // axios.get('http://10.35.167.122:8080/api/s_ticket/?status=3')
+                axios.get("http://117.78.9.95/api/s_ticket/?status=3")
+                    .then(res => {
+                        console.log(res.data);
+                        this.ticketData = res.data.dataList;
                         console.log(this.ticketData);
                     })
                     .catch(err => {
@@ -86,9 +113,6 @@
         components:{
             "lx-secondary-coupon-four-son":lx_secondary_coupon_four_son
         },
-        // mounted() {
-        //     weChatApi.wxRegister(this.wxRegCallback);
-        // }
         beforeMount() {
             this.change1()
         }
@@ -130,18 +154,25 @@
     .option{
         width: 100%;
         text-align: left;
-        /*padding: 0.1rem 0;*/
+        padding-left: 0.1rem;
         background-color:whitesmoke;
         box-sizing: border-box;
     }
     .option div{
         display: inline-block;
-        margin-left: 0.2rem;
+        width: 0.44rem;
+        height: 0.38rem;
+        text-align: center;
+        /*margin-left: 0.2rem;*/
         font-size: 0.12rem;
         box-sizing: border-box;
     }
     .option_select{
-        padding: 0.1rem 0.1rem;
+        width: 0.44rem;
+        height: 0.38rem;
+        line-height: 0.38rem;
+        text-align: center;
+        /*padding: 0.1rem 0.1rem;*/
         border-bottom: 0.02rem solid crimson;
     }
 </style>

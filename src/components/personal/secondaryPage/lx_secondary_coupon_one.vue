@@ -14,7 +14,7 @@
         <div class="compons" v-for="(n,index) in list" :key="index">
             <div class="compons_left">
                 <p class="explain">{{n.ut_desc}}</p>
-<!--                <p class="time">{{n.datetime}}</p>-->
+                <p class="time">{{n.create_time}}</p>
             </div>
             <div class="compons_right">
                 <p class="pesd">￥{{n.ut_money}}</p>
@@ -53,71 +53,48 @@
             [DropdownItem.name]:DropdownItem
         },
         methods:{
-            change(){
-                // let a = this.$route.params.id;
-
+            change(i){
                 let t =sessionStorage.getItem("ud_id");
-                // console.log(a);
-                // this.id=a;
-                // axios.get("http://10.35.167.10:3001/u_ticket")
-                // 只接收数据
-                console.log(this.option1[0].value)
-                if(this.value == 'a'){
-                    axios.get('http://117.78.9.95/api/u_ticket/?ud_id='+t+'&status=5')
+                // console.log(this.option1[0].value);
+                // if(this.option1[0].value == 'a'){
+                //     axios.get('http://10.35.167.122:8080/api/u_ticket/?ud_id='+t+'&status='+i)
+                    axios.get('http://117.78.9.95/api/u_ticket/?ud_id='+ t +'&status='+i)
                         .then(res => {
                             console.log(res.data);
-                            this.list = res.data;
+                            this.list = res.data.dataList;
                             console.log(this.list);
                         })
                         .catch(err => {
                             console.log(err)
                         })
-                }else if(this.value == 0){
-                            axios.get("http://117.78.9.95/api/u_ticket/?ud_id="+t+'&status=1')
-                                .then(res2 => {
-                                    console.log(res2.data);
-                                    this.list = res2.data.data;
-                                    console.log(this.list);
-                                })
-                                .catch(err => {
-                                    console.log(err)
-                                })
-                        }else if(this.value==1){
-                            axios.get("http://117.78.9.95/api/u_ticket/?ud_id="+t+'&status=2')
-                                .then(res3 => {
-                                    console.log(res3.data);
-                                    this.list = res3.data.data;
-                                    console.log(this.list);
-                                })
-                                .catch(err => {
-                                    console.log(err)
-                                })
-                        }else if(this.value=='e'){
-                            axios.get("http://117.78.9.95/api/u_ticket/?ud_id="+t+'&status=3')
-                                .then(res4 => {
-                                    console.log(res4.data);
-                                    this.list = res4.data.data;
-                                    console.log(this.list);
-                                })
-                                .catch(err => {
-                                    console.log(err)
-                                })
-                        }else if(this.value=='f'){
-                            axios.get("http://117.78.9.95/api/u_ticket/?ud_id="+t+'&status=4')
-                                .then(res5 => {
-                                    console.log(res5.data);
-                                    this.list = res5.data.data;
-                                    console.log(this.list);
-                                })
-                                .catch(err => {
-                                    console.log(err)
-                                })
-                        }
-                    }
+                // }
+            }
         },
-        beforeMount() {
-            this.change();
-        }
+        watch:{
+           value1(){
+               if(this.value1 == 'a'){
+                   this.change(5);
+               }
+           },
+            value2(){
+                if(this.value2 == 0){
+                    this.change(2);
+                }else if(this.value2 == 1){
+                    this.change(1);
+                }
+            },
+            value3(){
+                if(this.value3 == 'e'){
+                    this.change(3);
+                }else if(this.value3 == 'f'){
+                    this.change(4);
+                }
+            }
+
+        },
+        // beforeMount() {
+        //     this.change(5);
+        // }
     }
 </script>
 
@@ -173,21 +150,26 @@
         font-size: 0.16rem;
         width: 2rem;
         text-align: left;
+        position: relative;
+        top: -0.4rem;
     }
     .time{
         font-size: 0.12rem;
         width: 1.5rem;
         color: gray;
+        margin-top: -0.4rem;
     }
     .pesd{
         width: 0.4rem;
         font-size: 0.2rem;
         color: white;
+        padding-top: 0.15rem;
         font-weight: 600;
     }
     .term{
         color: white;
         font-size: 0.12rem;
         width: 0.8rem;
+        margin:0.1rem 0 0 0.2rem;
     }
 </style>
