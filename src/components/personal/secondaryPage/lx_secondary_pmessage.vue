@@ -128,7 +128,7 @@
                 ff:false,
                 ee:false,
                 tt:false,
-                modifyName:15569796601,
+                modifyName:null,
                 message:"",
                 sex_Per:"",
                 pEmail:"",
@@ -231,7 +231,7 @@
                     }
                 }).then(res => {
                     console.log(res.data);
-                    if (res.data.status == 200) {
+                    if (res.data) {
                         alert("修改成功!");
                         let msg = res.data;
                         sessionStorage.setItem("changeName",msg.nick_name);

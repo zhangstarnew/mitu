@@ -133,7 +133,7 @@
             },
 
             async getDate(){
-                let data=await travelDateApi.getTravelData(2)
+                let data=await travelDateApi.getTravelData(this.goodsId)
                 this.travelDate = data.start_time;
                 this.price = data
                 console.log(this.travelDate);

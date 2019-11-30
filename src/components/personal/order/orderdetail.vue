@@ -223,7 +223,7 @@
                     // userId
                     let data = await orderDetailApi.goPay(1,this.orderId,this.dataPrice)
                     console.log(data)
-                    this.$router.push('/main/personal')
+                    // this.$router.push('http://106.13.228.250/succeed/#/payoff')
                 }else {
                     this.$toast("输入密码错误")
                 }

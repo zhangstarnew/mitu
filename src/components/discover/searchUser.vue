@@ -150,7 +150,7 @@
                 //         }
                 //     })
                 // }
-                this.$axios.get('http://39.105.52.171/api/discover/searchArticle/?keyword='+a)
+                this.$axios.get('http://117.78.9.95/api/discover/searchArticle/?keyword='+a)
                     .then(res => {
                         this.auserData = res.data.data
                         // console.log(this.userData)

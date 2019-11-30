@@ -53,7 +53,7 @@
 			},
 			//获取数据
             _initDiscoverInfo(){
-                this.$axios.get('http://39.105.52.171/api/discover/jc/')
+                this.$axios.get('http://117.78.9.95/api/discover/jc/')
                     .then(res=>{
                         this.user=res.data.data
                     })

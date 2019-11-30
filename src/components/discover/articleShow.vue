@@ -28,7 +28,7 @@
         methods:{
             //向后端传id
             userIn(a){
-                this.$axios.get('http://39.105.52.171/api/discover/content/?article_id='+a)
+                this.$axios.get('http://117.78.9.95/api/discover/content/?article_id='+a)
                     .then(()=>{
                         this.$router.push('/main/articleInfo/'+a)
                     })

@@ -172,7 +172,7 @@
             //从后端获取数据
             _initDiscoverInfo() {
                 let a = this.$route.params.id;
-                this.$axios.get('http://39.105.52.171/api/discover/userArticle/?ud_id='+a)
+                this.$axios.get('http://117.78.9.95/api/discover/userArticle/?ud_id='+a)
                     .then(res => {
                         this.userData = res.data.data
                         // console.log(this.userData)
@@ -193,7 +193,7 @@
             //         })
             // },
             userIn(a){
-                this.$axios.get('http://39.105.52.171/api/discover/content/?article_id='+a)
+                this.$axios.get('http://117.78.9.95/api/discover/content/?article_id='+a)
                     .then(()=>{
                         this.$router.push('/main/articleInfo/'+a)
                     })

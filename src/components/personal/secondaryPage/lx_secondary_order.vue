@@ -67,54 +67,6 @@
                 ],
                 tabindex: 0,
                 index: 0,
-                // orders: [
-                //             {
-                //         "status":"待评价",
-                //         "order_id":"031911222824",
-                //         "order_name":"【亲子自营】“小小人”系列活动·“二代宗师”少儿武术及咏春拳体验活动1日游",
-                //         "price":"0",
-                //         "tip":"跟团游",
-                //         "people":"1",
-                //         "start_time":"2019-11-11",
-                //     },
-                //             {
-                //                 "status":"待支付",
-                //                 "order_id":"031911222824",
-                //                 "order_name":"【亲子自营】“小小人”系列活动·“二代宗师”少儿武术及咏春拳体验活动1日游",
-                //                 "price":"0",
-                //                 "tip":"跟团游",
-                //                 "people":"1",
-                //                 "start_time":"2019-11-27",
-                //             },
-                //             {
-                //                 "status":"待出行",
-                //                 "order_id":"031911222824",
-                //                 "order_name":"【亲子自营】“小小人”系列活动·“二代宗师”少儿武术及咏春拳体验活动1日游",
-                //                 "price":"0",
-                //                 "tip":"跟团游",
-                //                 "people":"1",
-                //                 "start_time":"2019-11-27",
-                //             },
-                //             {
-                //                 "status":"已完成",
-                //                 "order_id":"031911222824",
-                //                 "order_name":"【亲子自营】“小小人”系列活动·“二代宗师”少儿武术及咏春拳体验活动1日游",
-                //                 "price":"0",
-                //                 "tip":"跟团游",
-                //                 "people":"1",
-                //                 "start_time":"2019-11-27",
-                //             },
-                //             {
-                //                 "status":"已取消",
-                //                 "order_id":"031911222824",
-                //                 "order_name":"【亲子自营】“小小人”系列活动·“二代宗师”少儿武术及咏春拳体验活动1日游",
-                //                 "price":"0",
-                //                 "tip":"跟团游",
-                //                 "people":"1",
-                //                 "start_time":"2019-11-27",
-                //             },
-                // ],
-                // 已完成
                 orders:"",
                 confirItem: [],
                 //已取消
@@ -155,8 +107,10 @@
 
             //进入订单详情页面接口 //发送参数：用户编号ud_id 以及type
             async _initDate() {
-                // let a = window.sessionStorage.ud_id
-                let data =await allOrderApi.getOrderData(1)
+                let a = window.sessionStorage.ud_id
+                console.log(a)
+                console.log(111)
+                let data =await allOrderApi.getOrderData(a)
                 this.orders = data.data
                 if (this.orders) {
                     //把所有不同状态的订单通过if判断push到相对应的订单状态集合中。

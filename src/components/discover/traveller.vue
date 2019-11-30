@@ -19,7 +19,7 @@
         },
         methods:{
             _initDiscoverInfo(){
-                this.$axios.get('http://39.105.52.171/api/discover/lxj')
+                this.$axios.get('http://117.78.9.95/api/discover/lxj')
                     .then(res=>{
                         this.data=res.data.data
                     })
@@ -28,7 +28,7 @@
                     })
             },
             userIn(a){
-                this.$axios.get('http://39.105.52.171/api/discover/userArticle/?ud_id='+a)
+                this.$axios.get('http://117.78.9.95/api/discover/userArticle/?ud_id='+a)
                     .then(()=>{
                         this.$router.push('/main/userInfo/'+a)
                     })

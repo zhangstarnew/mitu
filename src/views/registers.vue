@@ -116,7 +116,7 @@
 												}
 											}).then(response => {
 												if(response.data.status==1){
-													this.$toast("验证成功")
+													//this.$toast("验证成功")
 												axios({
 													// url: "http://10.35.167.122:8080/api/register/",
 													url: "http://117.78.9.95/api/register/",

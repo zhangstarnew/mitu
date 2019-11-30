@@ -154,7 +154,7 @@
             //     }
             // }
             search(){
-                this.$axios.get('http://39.105.52.171/api/discover/searchArticle/?keyword='+this.searchList)
+                this.$axios.get('http://117.78.9.95/api/discover/searchArticle/?keyword='+this.searchList)
                     .then(res=>{
                         this.auserData = res.data.data
                             // this.$router.push('/main/searchUser/'+this.searchList)

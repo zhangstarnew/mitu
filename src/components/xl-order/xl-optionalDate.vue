@@ -291,7 +291,7 @@
 
             // 获取商品信息接口  参数： v_id='+goodsId
             async getDate() {
-                let data= await optionalDataApi.getTravelData(2)
+                let data= await optionalDataApi.getTravelData(this.goodsId)
                 this.travelDate = data;
                 console.log(this.travelDate)
             },
@@ -322,40 +322,21 @@
             sumbit() {
                 this.checkFlag()
                 this.postDate()
-                //提交表单数据
-                // axios({
-                //     headers: {
-                //         'Content-Type': 'application/json'
-                //     },
-                //     transformRequest: [function(data) {
-                //         data = JSON.stringify(data)
-                //         return data
-                //     }],
-                //     url:"http://10.35.167.69:8080/api/order/",
-                //     method:"POST",
-                //     data:{ //body
-                //         ud_id:2,
-                //         v_id:2,
-                //         name:this.userName,
-                //         phone_:this.userPhone,
-                //         email_:this.email,
-                //     }
-                // }).then(res=>{
-                //     console.log(res.data)
-                // })
                 if( this.nameFlag && this.phoneFlag && this.emailFlag){
-                    this.$router.push('/main/personal')
+                    //this.$router.push('/main/personal')
+                    // window.location.replace('http://106.13.228.250/succeed/#/book')
                 }
             },
             async postDate(){
-                let data= await optionalDataApi.setmessageData(1,1,this.userName,this.userPhone,this.email)
+                let a = window.sessionStorage.ud_id
+                let data= await optionalDataApi.setmessageData(a,this.goodsId,this.userName,this.userPhone,this.email)
                 this.returnValue = data;
                 console.log( this.returnValue)
             },
             //预订成功跳转页面
             bookSuccessful(){
                this.$router.push('/main/personal')
-                   // window.location.replace('http://106.13.229.84/mitu-react')
+
             },
             // 正则验证
             checkFlag(){

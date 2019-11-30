@@ -44,6 +44,7 @@
             selector() {
                 this.show = !this.show;
                 window.sessionStorage.clear();
+                localStorage.clear()
 
             },
             set(){

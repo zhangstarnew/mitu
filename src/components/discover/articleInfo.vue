@@ -138,7 +138,7 @@
             _initDiscoverInfo() {
                 let a = this.$route.params.aid;
                 console.log(a)
-                this.$axios.get('http://39.105.52.171/api/discover/content/?article_id='+a)
+                this.$axios.get('http://117.78.9.95/api/discover/content/?article_id='+a)
                     .then(res => {
                         this.articleData = res.data.data
                     })
