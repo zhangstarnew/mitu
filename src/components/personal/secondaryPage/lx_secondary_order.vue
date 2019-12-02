@@ -24,19 +24,17 @@
         <!--头部结束-->
         <div class="order-kong"></div>
         <!-- cartList开始-->
-        <div class="xl-cart-list">
+        <div class="xl-cart-list" v-if="orderAll[tabindex]">
             <!--全部订单开始-->
-            <div v-if="orderAll[tabindex]">
-                <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+            <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
                     <all-order  :orderList="orderAll[tabindex]"></all-order>
-                </van-pull-refresh>
+            </van-pull-refresh>
+        </div>
+        <!--   loading效果        -->
+        <div class="loading-wrap" v-else >
+            <div class="loading-pic">
+                <img  src="http://pic1.aoyou.com/load/loading.gif">
             </div>
-            <!--   loading效果        -->
-            <div class="loading-wrap" v-else >
-                <div class="loading-pic">
-                    <img  src="http://pic1.aoyou.com/load/loading.gif">
-                </div>
-             </div>
         </div>
     </div>
 </template>
@@ -97,23 +95,21 @@
             },
 
             onRefresh() {
-                this._initDate()
                 setTimeout(() => {
+                    //this._initDate()
                     this.$toast('刷新成功');
                     this.isLoading = false;
                     this.count++;
                 }, 500);
             },
 
-            //进入订单详情页面接口 //发送参数：用户编号ud_id 以及type
+            //进入全部订单接口 //发送参数：用户编号ud_id 以及type
             async _initDate() {
                 let a = window.sessionStorage.ud_id
-                console.log(a)
-                console.log(111)
                 let data =await allOrderApi.getOrderData(a)
                 this.orders = data.data
                 if (this.orders) {
-                    //把所有不同状态的订单通过if判断push到相对应的订单状态集合中。
+                        //把所有不同状态的订单通过if判断push到相对应的订单状态集合中。
                     this.orders.forEach((order) => {
                         //待付款
                         if (order.status == "待支付") {
@@ -139,7 +135,7 @@
         },
         beforeMount() {
             this.tabindex = this.$route.params.id;
-        },
+        }
 
     }
 </script>
@@ -287,6 +283,9 @@
         display: block;
         margin: 0 auto;
         width: 60px;
+    }
+    .van-pull-refresh{
+        overflow: visible!important;
     }
 
 

@@ -37,7 +37,6 @@
                 axios.get("http://117.78.9.95/api/s_ticket/?status=1")
                     .then(res=> {
                     this.ticketData = res.data.dataList;
-                    console.log(res.data);
                 })
                 .catch(err => {
                     console.log(err)
@@ -48,9 +47,7 @@
                 // axios.get('http://10.35.167.122:8080/api/s_ticket/?status=2')
                 axios.get("http://117.78.9.95/api/s_ticket/?status=2")
                     .then(res => {
-                        console.log(res.data);
                         this.ticketData = res.data.dataList;
-                        console.log(this.ticketData);
                     })
                     .catch(err => {
                         console.log(err)
@@ -61,9 +58,7 @@
                 // axios.get('http://10.35.167.122:8080/api/s_ticket/?status=3')
                 axios.get("http://117.78.9.95/api/s_ticket/?status=3")
                     .then(res => {
-                        console.log(res.data);
                         this.ticketData = res.data.dataList;
-                        console.log(this.ticketData);
                     })
                     .catch(err => {
                         console.log(err)

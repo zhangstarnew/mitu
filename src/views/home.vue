@@ -172,7 +172,6 @@
 						.then(res=>{
 							// console.log(res.data)
 							this.homeInfo=res.data.data
-							console.log(this.homeInfo)
 						})
 						.catch(err=>{
 							console.log(err)

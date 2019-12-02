@@ -133,6 +133,17 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
 }
+.p-desc{
+    font-size: 12px;
+    color: #333;
+    font-weight: 300;
+    line-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
 .order-info b, .order-info span {
     display: inline;
     line-height: 20px;

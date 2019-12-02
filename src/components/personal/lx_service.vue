@@ -14,8 +14,13 @@
 
 <script>
     import axios from 'axios';
+    import { Toast } from 'vant';
     export default {
         name: "lx_service",
+        components:{
+            // eslint-disable-next-line vue/no-unused-components
+            Toast
+        },
         data(){
             return{
                 list:[
@@ -45,7 +50,7 @@
                         url:'#/main/service_history'
                     }
                 ],
-                travelers:{}
+                travelers:null
             }
         },
         methods:{
@@ -54,8 +59,8 @@
                 axios.get("http://117.78.9.95/api/traveler/?ud_id="+s)
                     .then(res => {
                         console.log(res.data);
-                        this.travelers = res.data;
-                        alert(this.travelers.msg)
+                        this.travelers = res.data.msg;
+                        // this.$toast(this.travelers)
                     });
             }
         }

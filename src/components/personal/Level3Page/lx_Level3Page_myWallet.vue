@@ -10,7 +10,8 @@
                 <span class="synax_cli"  @click="changeStyle" v-show="flag == false"></span>
                 <span class="synax" v-show="flag == true" @click="changeStyle"></span>
                 <span class="totalMoney" v-show="flag == false">******</span>
-                <span class="hidenMoney" v-show="flag == true" v-text="hidenPrice"></span>
+<!--                <span class="hidenMoney" v-show="flag == true" v-text="hidenPrice"></span>-->
+                <span class="hidenMoney" v-show="flag == true" >{{this.hidenPrice}}</span>
             </p>
         </div>
         <div class="recharge">
@@ -136,7 +137,6 @@
                         data = JSON.stringify(data)
                         return data
                     }],
-                    // url: "http://10.35.167.122:8080/api/wallet/",
                     url: "http://117.78.9.95/api/wallet/",
                     method: "POST",
                     data: { //body
@@ -146,16 +146,27 @@
                 }).then(res => {
                     // console.log(res.data);
                     this.myWallet = res.data;
-                    console.log(this.myWallet.w_acount);
+                   // console.log(res.data)
+                    //console.log(this.myWallet.w_acount);
                     this.hidenPrice=this.myWallet.w_acount;
                     // console.log(this.hidenPrice);
-                    sessionStorage.setItem("total_money",this.hidenPrice)
+                    //sessionStorage.setItem("total_money",this.hidenPrice)
                 })
             }
         },
+        created() {
+            this.a= sessionStorage.getItem("ud_id")
+            axios.get("http://117.78.9.95/api/wallet/?ud_id="+this.a)
+                .then(res=>{
+                    //console.log(res.data);
+                    this.hidenPrice=res.data.data.w_acount;
+                    //console.log(this.money);
+                    //sessionStorage.setItem("total_money",this.money);
+                })
+        },
         beforeUpdate() {
             this.hidenPrice=sessionStorage.getItem("total_money")
-            console.log(this.hidenPrice)
+            //console.log(this.hidenPrice)
         }
     }
 </script>

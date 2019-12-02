@@ -50,14 +50,23 @@
                 <div class="oc-star-b"><input type="hidden" value="2" id="J_orderType">
                     <input type="submit" id="J_comment" class="c-btn-orange" value="发表评价" @click="commented"></div>
             </section>
+            <!--  评论成功      -->
+            <van-popup v-model="commentShow"  closeable>
+                <div class="info-box">
+                    <i class="icon-succeed"></i>
+                    <p class="info-title" >评论成功</p>
+                    <p class="info-desc">正调转至订单页面...</p>
+                </div>
+            </van-popup>
         </div>
+
         <!--内容结束-->
         <date-loading v-else></date-loading>
     </div>
 </template>
 
 <script>
-    import { Rate } from 'vant';
+    import { Popup,Rate } from 'vant';
     import commentApi from '../../../xl_api/orderComment'
     import loading from '../../common/xl_loding'
     export default {
@@ -69,14 +78,16 @@
                 value3: 0,
                 msg:"",
                 com:"",
-                userId:'',
-                orderId:'',
-                goodId:'',
-                goodsData:''
+                userId:null,
+                orderId:null,
+                goodId:null,
+                goodsData:'',
+                commentShow:false
             };
         },
         components: {
             "van-rate":Rate,
+            [Popup.name]:Popup,
             "date-loading":loading
         },
         methods: {
@@ -103,8 +114,14 @@
             //    stars:this.value1, //星星数
             //    content:this.com  //评论内容
             async commented() {
-                let data = await commentApi.submitComment(1,this.orderId,this.value1,this.com)
-               console.log(data)
+                let data = await commentApi.submitComment( this.userId,this.orderId,this.value1,this.com)
+               //console.log(data)
+                if(data.msg == "评论成功"){
+                    this.commentShow = true
+                    setTimeout(()=>{
+                        this.$router.push('/main/personal/order/0')
+                    },3000)
+                }
             },
             //获取数据接口
             async getDate() {
@@ -112,11 +129,11 @@
                 this.userId  = a
                 let b = this.$route.params.vid;
                 let c = this.$route.params.orderid
-                this.orderId = c
+                this.orderId = Number(c)
                 this.goodsId=b;
                 let data = await commentApi.getCommentData(this.goodsId)
                 this.goodsData = data.data
-                console.log(data)
+                //console.log(data)
             },
         },
         created() {
@@ -331,5 +348,62 @@
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
+    }
+    .info-box {
+        padding: 50px 20px 20px;
+    }
+    .info-box i {
+        margin: 0 auto;
+    }
+    .icon-succeed {
+        display: block;
+        width: 54px;
+        height: 54px;
+    }
+    .icon-succeed {
+        background: url(../../../assets/images/xl_home_img/sucsess_order.png) no-repeat;
+        background-size: 100%;
+    }
+    .info-box .info-title {
+        margin-top: 20px;
+        font-size: 19px;
+        line-height: 28px;
+        text-align: center;
+    }
+    .info-box .info-detail {
+        margin-top: 30px;
+        font-weight: 300;
+        line-height: 22px;
+        text-align: center;
+    }.info-box {
+         padding: 50px 20px 20px;
+     }
+    .info-box i {
+        margin: 0 auto;
+    }
+    .icon-succeed {
+        display: block;
+        width: 54px;
+        height: 54px;
+    }
+    .icon-succeed {
+        background: url(../../../assets/images/xl_home_img/sucsess_order.png) no-repeat;
+        background-size: 100%;
+    }
+    .info-box .info-title {
+        margin-top: 20px;
+        font-size: 19px;
+        line-height: 28px;
+        text-align: center;
+    }
+    .info-box .info-detail {
+        margin-top: 30px;
+        font-weight: 300;
+        line-height: 22px;
+        text-align: center;
+    }
+    .info-desc{
+        text-align: center;
+        margin-top: 0.1rem;
     }
 </style>

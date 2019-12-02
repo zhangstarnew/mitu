@@ -1,33 +1,30 @@
 <template>
     <div class="userInfo">
-        <div class="userHeader">
-            <div :class="topFixed == true ? 'block' :'none'"><p>{{userData.nick_name}}</p>
-                <div><img src="../../../public/images/cmdimg/backwhite.png" @click="changeRouter" class="back"></div>
-            </div>
-            <img :src="userData.ud_img" class="background"/>
-            <div class="user"><img :src="userData.ud_img" class="char">
-                <h1>{{userData.nick_name}}</h1>
-                <p>{{userData.ud_info}}</p>
-            </div>
-            <div><img src="../../../public/images/cmdimg/backwhite.png" @click="changeRouter" class="back"></div>
-        </div>
+     <div class="userHeader">
+         <div :class="topFixed == true ? 'block' :'none'"><p>{{userData.userName}}</p>
+             <div><img src="../../../public/images/cmdimg/backwhite.png" @click="changeRouter" class="back"></div>
+         </div>
+         <img :src="userData.charHead" class="background"/>
+         <div class="user"><img :src="userData.charHead" class="char">
+         <h1>{{userData.userName}}</h1>
+             <p>{{userData.userIntroduce}}</p>
+         </div>
+         <div><img src="../../../public/images/cmdimg/backwhite.png" @click="changeRouter" class="back"></div>
+     </div>
 
         <div class="slogan">加入米途，传递美好</div>
-        <div v-for="(data,u) in userData.article" :key="u" class="article">
-            <!--                :href="'#/main/userInfo/'+userData.userId+'/'+data.articleId"-->
-            <a @click="userIn(data.article_id)"><img :src="data.a_image" alt="" class="banner"></a>
-            <p class="title" @click="userIn(data.article_id)">{{data.a_title}}</p>
-            <div class="view">
-                <div>
-                    <img src="../../../public/images/cmdimg/view.png" alt=""
-                         class="cmdsee"><span>{{data.good_num}}</span>
-                </div>
-                <div>
-                    <img src="../../../public/images/cmdimg/zan.png" alt="" class="cmdsee"
-                         @click="data.articleLike++"><span>{{data.good_num}}</span>
+            <div v-for="(data,u) in userData.article" :key="u" class="article">
+                <a :href="'#/main/userInfo/'+userData.userId+'/'+data.articleId"><img :src="data.articleImg[0]" alt="" class="banner"></a>
+                <p class="title">{{data.articleTitle}}</p>
+                <div class="view">
+                    <div>
+                        <img src="../../../public/images/cmdimg/view.png" alt="" class="cmdsee" ><span>{{data.articleView}}</span>
+                    </div>
+                    <div>
+                        <img src="../../../public/images/cmdimg/zan.png" alt="" class="cmdsee" @click="data.articleLike++"><span>{{data.articleLike}}</span>
+                    </div>
                 </div>
             </div>
-        </div>
 
     </div>
 </template>
@@ -37,9 +34,9 @@
         name: "userInfo",
         data() {
             return {
-                id: "",
-                userData: null,
-                topFixed: false,
+                id:"",
+                userData:[],
+                topFixed:false,
                 // user:[
                 //     {
                 //         "userId":"01",
@@ -143,206 +140,156 @@
                 //         ]
                 //     },
                 // ]
-                user: null
+                user:null
+
             }
         },
         methods: {
-            // async _initCarifyData() {
-            //     let a = this.$route.params.id;
-            //     this.id=a;
-            //     if (this.user) {
-            //         this.user.forEach((user) => {
-            //             if (user.userId == a) {
-            //                 this.userData = user;
-            //             }
-            //         })
-            //     }
-            // },
-            changeRouter() {
-                this.$router.go(-1)
-            },
-            handleScroll() {
-                var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-                if (scrollTop > 100) {
-                    this.topFixed = true
-                } else {
-                    this.topFixed = false
+            async _initCarifyData() {
+                let a = this.$route.params.id;
+                this.id=a;
+                if (this.user) {
+                    this.user.forEach((user) => {
+                        if (user.userId == a) {
+                            this.userData = user;
+                        }
+                    })
                 }
             },
-            //从后端获取数据
-            _initDiscoverInfo() {
-                let a = this.$route.params.id;
-                this.$axios.get('http://117.78.9.95/api/discover/userArticle/?ud_id='+a)
-                    .then(res => {
-                        this.userData = res.data.data
-                        // console.log(this.userData)
-                    })
-                    .catch(err => {
-                        console.log(err)
-                    })
+            changeRouter(){
+                this.$router.go(-1)
             },
-            //点击事件向后端传id
-            // userIn(a) {
-            //     console.log(a)
-            //     this.$axios.get('http://39.105.52.171/api/discover/content/?article_id=' + a)
-            //         .then(() => {
-            //             this.$router.push('/main/articleInfo/'+a)
-            //         })
-            //         .catch(err => {
-            //             console.log(err)
-            //         })
-            // },
-            userIn(a){
-                this.$axios.get('http://117.78.9.95/api/discover/content/?article_id='+a)
-                    .then(()=>{
-                        this.$router.push('/main/articleInfo/'+a)
-                    })
-                    .catch(err=>{
-                        console.log(err)
-                    })
-            }
+                handleScroll () {
+                    var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+                    if (scrollTop > 100) {
+                        this.topFixed = true
+                    } else {
+                        this.topFixed = false
+                    }
+                }
 
         },
         beforeMount() {
-            // let allData =require('../../api/api');
-            // this.user=allData;
-            // this._initCarifyData()
-            this._initDiscoverInfo()
+            let allData =require('../../api/api');
+            this.user=allData;
+            this._initCarifyData()
         },
-        mounted() {
+        mounted(){
             window.addEventListener("scroll", this.handleScroll)
         }
     }
 </script>
 
 <style scoped>
-    .userInfo {
+    .userInfo{
         font-size: 0.12rem;
         overflow: hidden;
     }
-
-    .userHeader {
-        width: 100%;
-        height: 3rem;
+    .userHeader{
+        width:100%;
+        height:3rem;
         overflow: hidden;
-        position: relative;
-        background: rgba(0, 0, 0, .7);
+        position:relative;
+        background: rgba(0,0,0,.7);
     }
-
-    .background {
-        width: 100%;
-        height: 3rem;
+    .background{
+        width:100%;
+        height:3rem;
         opacity: 0.3;
     }
-
-    .user {
-        width: 3.2rem; /*根据自己的需要随便写*/
-        height: 2rem; /*根据自己的需要随便写*/
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        margin-top: -1rem; /*上面设置的高度的一半*/
-        margin-left: -1.6rem; /*上面设置的宽度的一半*/
+    .user{
+        width:3.2rem;/*根据自己的需要随便写*/
+        height:2rem;/*根据自己的需要随便写*/
+        position:absolute;
+        left:50%;
+        top:50%;
+        margin-top:-1rem;/*上面设置的高度的一半*/
+        margin-left:-1.6rem;/*上面设置的宽度的一半*/
     }
-
-    .user > h1 {
+    .user>h1{
         margin-top: 0.1rem;
         font-size: 0.2rem;
         color: white;
     }
-
-    .user > p {
+    .user>p{
         margin-top: 0.1rem;
         font-size: 0.12rem;
         color: white;
     }
-
-    .char {
-        width: 0.7rem;
-        height: 0.7rem;
-        border-radius: 1rem;
+    .char{
+        width: 70px;
+        height: 70px;
+        border-radius: 100px;
         border: gainsboro 0.03rem solid;
     }
-
-    .banner {
+    .banner{
         padding-top: 0.05rem;
-        width: 100%;
+        width:100%;
     }
-
-    .title {
-        text-align: left;
-        width: 90%;
+    .title{
+        width:90%;
         /*height:0.3rem;*/
         white-space: nowrap;
         margin: 0 auto;
-        padding: 0 0.2rem;
-        margin-top: 0.2rem;
-        line-height: 0.3rem;
+        padding: 0 20px;
+        margin-top: 20px;
+        line-height: 30px;
         overflow: hidden;
-        font-size: 0.17rem;
+        font-size: 17px;
         text-overflow: ellipsis;
     }
-
-    .cmdsee {
-        width: 0.27rem;
-        height: 0.2rem;
+    .cmdsee{
+        width: 27px;
+        height: 20px;
         vertical-align: middle;
     }
-
-    .view {
-        width: 90%;
+    .view{
+        width:90%;
         margin: 0 auto;
         text-align: left;
     }
-
-    .view > div {
+    .view>div{
         margin: 0.1rem 0.2rem 0.1rem 0;
         display: inline-block;
     }
-
-    .view span {
+    .view span{
         display: inline-block;
-        margin-left: 0.05rem;
+        margin-left:0.05rem;
         font-size: 0.12rem;
         color: #999;
         font-weight: 400;
         vertical-align: middle;
     }
-
-    .slogan {
-        width: 100%;
-        height: 0.4rem;
+    .slogan{
+        width:100%;
+        height:0.4rem;
         background-color: white;
         font-size: 0.16rem;
         line-height: 0.4rem;
     }
-
-    .article {
-        border-bottom: 0.1rem solid rgb(245, 245, 245);
-    }
-
-    .back {
-        width: 0.3rem;
+.article{
+    border-bottom: 0.1rem solid rgb(245,245,245);
+}
+    .back{
+        width:0.3rem;
         position: absolute;
         top: 0.05rem;
-        left: 0.1rem;
+        left:0.1rem;
     }
-
-    .none {
+    .none{
         width: 100%;
-        height: 0.4rem;
+        height:0.4rem;
         background-color: #fc5a3f;
-        line-height: 0.4rem;
+        line-height:0.4rem;
         font-size: 0.16rem;
         color: white;
         display: none;
     }
-
-    .block {
+    .block{
         width: 100%;
-        height: 0.4rem;
+        height:0.4rem;
         background-color: #fc5a3f;
-        line-height: 0.4rem;
+        line-height:0.4rem;
         font-size: 0.16rem;
         color: white;
         display: block;

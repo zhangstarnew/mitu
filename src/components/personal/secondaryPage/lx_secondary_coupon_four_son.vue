@@ -37,15 +37,15 @@
                         return data
                     }],
                     // url: "http://10.35.167.122:8080/api/s_ticket/",
-                    url: "http://117.78.9.95/api/s_ticket/",
+                    url: "http://10.35.167.123:5000/api/s_ticket/",
                     method: "POST",
                     data: { //body
-                        ud_id:this.a,
-                        sys_ticket_id:this.ticketData.sys_ticket_id
+                        "ud_id":this.a,
+                        "sys_ticket_id":this.ticketData.sys_ticket_id
                     }
                 }).then(res => {
                     console.log(res.data);
-                    if (res.data.status == 200) {
+                    if (res.data) {
                         alert("添加成功!");
                     }else{
                         alert("添加失败！")

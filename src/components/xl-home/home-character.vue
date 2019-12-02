@@ -18,8 +18,8 @@
                     <p class="xl_item-des">{{item.details}}</p>
                     <div class="tag-wrap" v-if="item.tag">
                         <p>
-                            <span class="tag-green" v-for="(titem,tindex) in item.tag" :key="tindex">
-                                {{titem}}
+                            <span class="tag-green">
+                                {{item.tag}}
                             </span></p>
                     </div>
                 </div>

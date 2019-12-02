@@ -6,21 +6,21 @@
                     <div class="left-arrow v-transition" style="display: none;"></div>
                 </div>
                 <h1 class="ay-header-title"><span class="v-transition" style="display: none;"></span>
-                    <p>预订成功</p></h1>
+                    <p>支付成功</p></h1>
                 <div class="ay-header-right"></div>
             </div>
         </div>
         <div class="pop-content">
             <div class="info-box">
                 <i class="icon-succeed"></i>
-                <p class="info-title" >恭喜您，预订成功！</p>
+                <p class="info-title" >恭喜您，支付成功！</p>
                 <p class="info-detail">客服会尽快与您确认订单信息，请保持手机畅通。</p>
             </div>
             <div class="ay-section button-section">
                 <button class="ay_btn ay_btn_default ay_btn_plain_default"><a href="#/main/personal/order/0">查看订单</a>
                 </button>
                 <br>
-                <button class="ay_btn ay_btn_default ay_btn_plain_default"><a href="#/main/home">回到首页</a></button>
+                <button class="ay_btn ay_btn_default ay_btn_plain_default"><a href="#/main/home ">回到首页</a></button>
             </div>
         </div>
     </div>

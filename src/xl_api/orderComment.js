@@ -17,7 +17,7 @@ export default {
     // content: this.com  //评论内容
 
     async submitComment(userid,orderId,stars,content) {
-        console.log(userid,orderId,stars,content)
+        //console.log(userid,orderId,stars,content)
         let res = await fetch('http://117.78.9.95/api/discuss/', {
         // let res = await fetch('http://10.35.167.122:8080/api/discuss/', {
             method: "POST",

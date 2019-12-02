@@ -15,6 +15,7 @@ import homeSelect from "../components/homeSelect/homeSelect";
 import nextSelect from "../components/homeSelect/nextSelect";
 import detail from "../views/tabs/detail";
 import allEva from "../views/tabs/allEva";
+import searchUser from "../components/discover/searchUser";
 
 import lx_secondary_set from "../components/personal/secondaryPage/lx_secondary_set";
 import lx_secondary_order from "../components/personal/secondaryPage/lx_secondary_order";
@@ -99,8 +100,12 @@ let router = new VueRouter({
             component:userInfo
         },
         {
-            path:'/main/articleInfo/:aid',
+            path:'/main/userInfo/:id/:aid',
             component:articleInfo
+        },
+        {
+            path: '/main/searchUser/:id',
+            component: searchUser,
         },
         {
             path:'/homeSelect',
@@ -110,6 +115,7 @@ let router = new VueRouter({
             path:'/main/nextSelect/:id',
             component:nextSelect,
         },
+
         {path:"/detail/:id",component:detail},
         {path:"/alleva/:id",component:allEva},
         // {
@@ -123,81 +129,43 @@ let router = new VueRouter({
         // },
 
         // 我的二级页面
-        // {
-        //     path:'/main/set',
-        //     component: lx_secondary_set
-        // },
-        // {
-        //     path:'/main/message',
-        //     component: lx_secondary_message,meta:{needLogin: true}
-        // },
-        // {
-        //     path:'/main/pMessage',
-        //     component: lx_secondary_pmessage,meta:{needLogin: true}
-        // },
-        // {
-        //     path:'/main/order',
-        //     component: lx_secondary_order,meta:{needLogin: true}
-        // },
-        // {
-        //     path:'/main/myWallet',
-        //     component: lx_secondary_wallet,meta:{needLogin: true}
-        // },
-        // {
-        //     path:'/main/coupon_dis/:id',
-        //     component: lx_secondary_coupon_one,meta:{needLogin: true}
-        // },
-        // {
-        //     path:'/main/coupon_intel',
-        //     component: lx_secondary_coupon_two,meta:{needLogin: true}
-        // },
-        // {
-        //     path:'/main/coupon_bon',
-        //     component: lx_secondary_coupon_three,meta:{needLogin: true}
-        // },
-        // {
-        //     path:'/main/coupon_cen',
-        //     component: lx_secondary_coupon_four,meta:{needLogin: true}
-        // },
-
-
-        // 我的二级页面
         {
             path:'/main/set',
             component: lx_secondary_set
         },
         {
             path:'/main/message',
-            component: lx_secondary_message
+            component: lx_secondary_message,meta:{needLogin: true}
         },
         {
             path:'/main/pMessage',
-            component: lx_secondary_pmessage
+            component: lx_secondary_pmessage,meta:{needLogin: true}
         },
         {
             path:'/main/order',
-            component: lx_secondary_order
+            component: lx_secondary_order,meta:{needLogin: true}
         },
         {
             path:'/main/myWallet',
-            component: lx_secondary_wallet
+            component: lx_secondary_wallet,meta:{needLogin: true}
         },
         {
             path:'/main/coupon_dis/:id',
-            component: lx_secondary_coupon_one
+            component: lx_secondary_coupon_one,meta:{needLogin: true}
         },
         {
             path:'/main/coupon_intel',
-            component: lx_secondary_coupon_two
+            component: lx_secondary_coupon_two,meta:{needLogin: true}
         },
         {
             path:'/main/coupon_bon',
-            component: lx_secondary_coupon_three
+            component: lx_secondary_coupon_three,meta:{needLogin: true}
         },
         {
             path:'/main/coupon_cen',
-            component: lx_secondary_coupon_four
+            component: lx_secondary_coupon_four,meta:{needLogin: true}
         },
+
         // 常用服务
         {
             path:'/main/service_adviser',
@@ -245,12 +213,12 @@ let router = new VueRouter({
         //订单详情
         {
             path:'/main/personal/order/orderdetail/:id',
-            component:orderdetail,
+            component:orderdetail,meta:{needLogin: true}
         },
     //全部订单
         {
             path:'/main/personal/order/:id',
-            component: lx_secondary_order,
+            component: lx_secondary_order,meta:{needLogin: true}
         },
     //提交订单
         {
@@ -266,7 +234,17 @@ let router = new VueRouter({
     //选择日期
         {
             path:'/main/xl_detail/xl_data_travel/:id',
-            component:xl_data_travel,
+            component:xl_data_travel,meta:{needLogin: true}
+        },
+        //预定成功
+        {
+            path:'/main/reserve',
+            component:() => import('../components/personal/order/reserve')
+        },
+        //支付成功
+        {
+            path:'/main/paysuccessful',
+            component:() => import('../components/personal/order/pay_successful')
         }
 
     ],
@@ -280,7 +258,7 @@ let router = new VueRouter({
 router.beforeEach((to, from, next) => {
     if (to.meta.needLogin) {
         next()
-        window.console.log("请先登录")
+       // window.console.log("请先登录")
 //当页面需要登录的时候判断浏览器是否有sessionStorage
         if (window.sessionStorage.data) {
 // 注意next()必须加

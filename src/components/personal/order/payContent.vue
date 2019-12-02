@@ -14,9 +14,8 @@
                 </div>
                 <div class="content">
                     <h3>{{date.order_name}}</h3>
-                    <p>时间：{{date.start_time}}</p>
+                    <p>时间：{{date.start_time | formatDate}}</p>
                     <p class="contentSpan">
-                    <!--  <span>人数：{{data.peopleNum}}成人</span>-->
                         <span class="color-a">￥{{date.price}}</span>
                     </p>
                     <p class="contentSpan">
@@ -37,10 +36,15 @@
                    :style="{ height: '80%' }">
             <ul class="popup-list">
                 <li>
-                    <div>
+                    <div v-if="date.status== '待评价' || date.status== '待出发' || date.status== '已完成'">
+                        <div class="title" >已完成支付</div>
+                        <div class="price" >￥{{date.price}}</div>
+                    </div>
+                    <div v-else>
                         <div class="title" >暂时没有支付信息</div>
                         <div class="price" >￥0</div>
                     </div>
+
                 </li>
 <!--                <li>-->
 <!--                    <div >-->
@@ -52,7 +56,11 @@
 <!--                    <div class="subprice">￥{{date.price}}</div>-->
 <!--                </li>-->
             </ul>
-            <div class="totle-price" >
+            <div class="totle-price" v-if="date.status== '待评价' || date.status== '待出发' || date.status== '已完成'">
+                <span >待支付</span>
+                <em >¥ </em>0
+            </div>
+            <div class="totle-price" v-else>
                 <span >待支付</span>
                 <em >¥ </em>{{date.price}}
             </div>
@@ -60,6 +68,7 @@
     </div>
 </template>
 <script>
+    import { formatDate } from '../../common/commonUtil'
     import { Popup } from 'vant';
     export default {
         name: "payContent",
@@ -77,7 +86,13 @@
         },
         components:{
             [Popup.name]:Popup,
-        }
+        },
+        filters: {
+            formatDate(time) {
+                var date = new Date(time);
+                return formatDate(date, 'yyyy-MM-dd');
+            },
+        },
     }
 </script>
 
@@ -268,6 +283,7 @@ em{
         color: #999;
     }
     .contentSpan{
+        margin-top: 0.2rem;
         display: flex;
         justify-content: space-between;
     }

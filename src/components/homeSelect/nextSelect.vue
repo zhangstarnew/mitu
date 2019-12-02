@@ -51,7 +51,7 @@
                 this.$axios.get('http://117.78.9.95/api/CityViewList/?id='+b)
                     .then(res=>{
                         this.tab=res.data.data
-                        console.log(this.tab)
+                       // console.log(this.tab)
                     })
                     .catch(err=>{
                         console.log(err)

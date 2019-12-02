@@ -25,9 +25,9 @@
 				this.$axios.get('http://117.78.9.95/api/views1')
 						.then(res=>{
 							// eslint-disable-next-line no-mixed-spaces-and-tabs
-							 console.log(res)
+							 //console.log(res)
 							this.data=res.data.data
-							console.log(this.data)
+							//console.log(this.data)
 						})
 						.catch(err=>{
 							console.log(err)

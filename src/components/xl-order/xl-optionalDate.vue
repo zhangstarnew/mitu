@@ -31,7 +31,8 @@
                 <section class="mitu-section order-info" >
                     <div class="order-info-title" v-if="travelDate.data">
                         <p class="p-title"><span>产品编号：{{goodsId}}</span></p>
-                        <p class="p-title">{{travelDate.data.v_desc}}</p>
+                        <p class="p-title">{{travelDate.data.name}}</p>
+                        <p class="p-desc">{{travelDate.data.v_desc}}</p>
                     </div>
                     <div class="order-info-detail">
                         <p class="p-detail">
@@ -271,7 +272,7 @@
             finshOrder(){
                 if(this.value.length===6){
                     this.payKey = !this.payKey
-                    this.$router.push('/main/personal')
+                    this.$router.push('/main/paysuccessful')
                 }else {
                     this.$toast("输入密码错误")
                 }
@@ -293,7 +294,7 @@
             async getDate() {
                 let data= await optionalDataApi.getTravelData(this.goodsId)
                 this.travelDate = data;
-                console.log(this.travelDate)
+                // console.log(this.travelDate)
             },
 
             back(){
@@ -319,23 +320,27 @@
             //         phone_:this.userPhone,
             //         email_:this.email,
 
-            sumbit() {
+            async sumbit() {
                 this.checkFlag()
-                this.postDate()
                 if( this.nameFlag && this.phoneFlag && this.emailFlag){
-                    //this.$router.push('/main/personal')
+                    let a = window.sessionStorage.ud_id
+                    let data= await optionalDataApi.setmessageData(a,this.goodsId,this.userName,this.userPhone,this.email)
+                    if(data.msg == "下单成功"){
+                        this.$router.push('/main/reserve')
+                    }else{
+                        console.log('下单失败')
+                    }
+                    this.returnValue = data;
+                    console.log( this.returnValue)
                     // window.location.replace('http://106.13.228.250/succeed/#/book')
                 }
             },
             async postDate(){
-                let a = window.sessionStorage.ud_id
-                let data= await optionalDataApi.setmessageData(a,this.goodsId,this.userName,this.userPhone,this.email)
-                this.returnValue = data;
-                console.log( this.returnValue)
+
             },
             //预订成功跳转页面
             bookSuccessful(){
-               this.$router.push('/main/personal')
+               this.$router.push('/main/reserve')
 
             },
             // 正则验证

@@ -2,31 +2,36 @@
     <div class="seach">
         <div class="searchBox">
             <div><img src="../../../public/images/cmdimg/goback.png" @click="changeRouter"/></div>
-            <div>
-                <input type="text" placeholder="搜索精彩内容" v-model="searchList"></div>
-           <div><a @click="search">搜索</a></div>
-        </div>
-        <div class="userShow" v-for="(data,u) in auserData" :key="u">
-            <a :href="'#/main/userInfo/'+data.ud_id"><img :src="data.ud_img" alt="" class="chartHead"></a>
-            <div class="head">
-                <span class="userName">{{data.nick_name}}</span>
-                <span class="label">{{data.ud_info}}</span>
-            </div>
-            <article-show :data="data.article"></article-show>
+            <div><input type="text" placeholder="搜索精彩内容" v-model="searchList"></div>
+           <div><a @click="isSearch">搜索</a></div>
         </div>
     </div>
 </template>
 
 <script>
-    import articleShow from "./articleShow";
     export default {
         name: "seach",
-        components:{
-            articleShow
+        methods:{
+            changeRouter(){
+                this.$router.go(-1)
+            },
+            isSearch(){
+                if(this.user){
+                    this.flag=false
+                    this.user.forEach((user) => {
+                        if (user.userName == this.searchList) {
+                            this.flag=true
+                            this.$router.push('/main/searchUser/'+this.searchList)
+                        }
+                    })
+                    if(this.flag==false){
+                        alert("请输入用户名")
+                    }
+                }
+            }
         },
         data(){
             return {
-                flag:false,
                 searchList:'',
                 // user:[
                 //     {
@@ -130,45 +135,15 @@
                 //             },
                 //         ]
                 //     },
-                // ]
+                // ],
                 user:null,
-                auserData:null
+                flag:false
             }
         },
-        methods:{
-            changeRouter(){
-                this.$router.go(-1)
-            },
-            // search(){
-            //     this.flag=false;
-            //     if(this.user){
-            //         this.user.forEach((user) => {
-            //             if (user.userName == this.searchList) {
-            //                 this.flag=true;
-            //                 this.$router.replace('/main/searchUser/'+this.searchList)
-            //             }
-            //         })
-            //         if(this.flag==false){
-            //             alert("您搜索的信息有误")
-            //         }
-            //     }
-            // }
-            search(){
-                this.$axios.get('http://117.78.9.95/api/discover/searchArticle/?keyword='+this.searchList)
-                    .then(res=>{
-                        this.auserData = res.data.data
-                            // this.$router.push('/main/searchUser/'+this.searchList)
-                        if(this.auserData.length==0){
-                            alert("抱歉，暂无相关信息")
-                        }
-
-                    })
-                    .catch(err=>{
-                        console.log(err);
-                    })
-            }
+        beforeMount() {
+            let allData =require('../../api/api');
+            this.user=allData;
         }
-
     }
 </script>
 
@@ -183,21 +158,21 @@
     /*height: 0.5rem;*/
     width:90%;
     margin: 0.1rem auto;
-    padding: 0.05rem;
+    padding: 5px;
     border-bottom: 1px solid rgb(245,245,245);
 
 }
 .searchBox>div>a{
     height: 0.5rem;
-    font-size: 0.17rem;
+    font-size: 17px;
     line-height: 0.35rem;
 }
 .searchBox>div>input{
     display: block;
     background-color: #fff;
     border-radius: 100px;
-    padding-left: 0.4rem;
-    height: 0.3rem;
+    padding-left: 40px;
+    height: 30px;
     font-size: 0.14rem;
     color: #999;
     border: 1px solid #dfdfdf;
@@ -207,65 +182,4 @@
 .searchBox>div>img{
     width:0.3rem;
 }
-.searchBox svg{
-    position: absolute;
-    z-index: 2;
-    left: 0.9rem;
-    top:0.2rem;
-}
-.userShow{
-    width:100%;
-    margin: 0.2rem auto;
-    border-bottom: 0.1rem solid rgb(245,245,245);
-    position: relative;
-}
-.head{
-    width:80%;
-    margin: 0 auto;
-    margin-left: 0.55rem;
-    /*height: 0.2rem;*/
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-}
-.userName{
-    font-size: 0.14rem;
-    padding-left: 0.2rem;
-}
-.userName:after{
-    content: "";
-    height: 0.12rem;
-    width: 1px;
-    clear: both;
-    margin: 0 0.06rem;
-    border-right: 1px solid #ccc;
-}
-.label{
-    font-size: 0.12rem;
-    color: #999;
-}
-
-.view>div{
-    margin: 0.1rem 0.2rem 0.1rem 0;
-    display: inline-block;
-}
-.view span{
-    display: inline-block;
-    margin-left:0.05rem;
-    font-size: 0.12rem;
-    color: #999;
-    font-weight: 400;
-    vertical-align: middle;
-}
-.chartHead{
-    width: 45px;
-    height: 45px;
-    border-radius: 100px;
-    border: white 0.03rem solid;
-    position: absolute;
-    left:0.2rem;
-    top:-0.08rem;
-}
-
 </style>

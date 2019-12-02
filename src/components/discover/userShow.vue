@@ -1,13 +1,12 @@
 <template>
     <div>
         <div v-for="(data,u) in data" :key="u" class="userShow">
-<!--             :href="'#/main/userInfo/'+data.ud_id"-->
-            <a @click="userIn(data.ud_id)"><img :src="data.ud_img" class="chartHead"/></a>
+            <a :href="'#/main/userInfo/'+data.userId"><img :src="data.charHead" alt="" class="chartHead"></a>
         <div class="head">
-            <span class="userName">{{data.nick_name}}</span>
-            <span class="label">{{data.ud_info}}</span>
+            <span class="userName">{{data.userName}}</span>
+            <span class="label">{{data.userIntroduce}}</span>
         </div>
-            <article-show :data="data.article"></article-show>
+            <article-show :data="data"></article-show>
         </div>
     </div>
 </template>
@@ -19,18 +18,6 @@
         props:["data"],
         components:{
             articleShow
-        },
-        methods:{
-            //向后端传id
-            userIn(a){
-                this.$axios.get('http://117.78.9.95/api/discover/userArticle/?ud_id=' + a)
-                    .then(()=>{
-                        this.$router.push('/main/userInfo/'+a)
-                    })
-                    .catch(err=>{
-                        console.log(err)
-                    })
-            }
         }
     }
 </script>
@@ -79,16 +66,16 @@
         /*height:0.3rem;*/
         white-space: nowrap;
         margin: 0 auto;
-        padding: 0 0.2rem;
-        margin-top: 0.2rem;
-        line-height: 0.3rem;
+        padding: 0 20px;
+        margin-top: 20px;
+        line-height: 30px;
         overflow: hidden;
-        font-size: 0.17rem;
+        font-size: 17px;
         text-overflow: ellipsis;
     }
     .cmdsee{
-        width: 0.27rem;
-        height: 0.2rem;
+        width: 27px;
+        height: 20px;
         vertical-align: middle;
     }
     .view{
@@ -110,8 +97,8 @@
         vertical-align: middle;
     }
     .chartHead{
-        width: 0.45rem;
-        height: 0.45rem;
+        width: 45px;
+        height: 45px;
         border-radius: 100px;
         border: white 0.03rem solid;
         position: absolute;

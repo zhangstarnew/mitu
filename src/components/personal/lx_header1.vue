@@ -48,7 +48,7 @@
             // }
 		},
         beforeMount() {
-            var a=localStorage.getItem("img");
+           let a=localStorage.getItem("img");
             this.headportrait=a
         }
 
@@ -67,6 +67,8 @@
         height: 0.5rem;
         border-radius: 50%;
         margin: 0.3rem 0 0 0.2rem;
+        background: url("../../assets/images/lx_img/logo.png") no-repeat;
+        background-size: 100% 100%;
     }
     .right_top{
         width: 100%;

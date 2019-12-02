@@ -18,13 +18,15 @@
 </template>
 
 <script>
-    // import axios from 'axios';
+    import axios from 'axios';
     export default {
         name: "lx_wallet",
         data(){
             return {
                 flag:false,
-                money:sessionStorage.getItem("total_money")
+                a:null,
+                // money:sessionStorage.getItem("total_money")
+                money:null
             }
         },
         props:["tt"],
@@ -32,6 +34,16 @@
             changeStyle(){
                 this.flag = !this.flag;
             },
+        },
+        created() {
+            this.a= sessionStorage.getItem("ud_id")
+            axios.get("http://117.78.9.95/api/wallet/?ud_id="+this.a)
+                .then(res=>{
+                    //console.log(res.data);
+                    this.money=res.data.data.w_acount;
+                    //console.log(this.money);
+                    //sessionStorage.setItem("total_money",this.money);
+                })
         }
     }
 </script>

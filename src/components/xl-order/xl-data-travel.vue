@@ -136,7 +136,6 @@
                 let data=await travelDateApi.getTravelData(this.goodsId)
                 this.travelDate = data.start_time;
                 this.price = data
-                console.log(this.travelDate);
                 this.useYear = this.travelDate.trim().split('-')[0]
                 this.useMonth = this.travelDate.trim().split('-')[1]
                 this.useDate = this.travelDate.trim().split('-')[2]

@@ -13,10 +13,9 @@
                                     <!--                                <span class="orange colGroup"></span>-->
                                     <div>
                                         <div class="name">{{item.order_name}}</div>
-                                        <div class="date">出行日期：{{item.start_time}}</div>
+                                        <div class="date">出行日期：{{item.start_time | formatDate}}</div>
                                         <div class="price">
                                             <span>
-        <!--                                        <span>共{{item.people}}人出游</span>-->
                                                 实付款：
                                             </span>
                                             <b>￥{{item.price}}</b>
@@ -34,6 +33,7 @@
                             </div>
                             <div style="line-height: 0; font-size: 0" v-if="item.status=='待出行'">
                                 <span>出行</span>
+                                <span>已出行</span>
                             </div>
                         </div>
                     </a>
@@ -42,30 +42,31 @@
         <div  v-else class="xl-noOrder">
             <div class="noorders"><i></i> <p>非常抱歉，您还没有符合条件的订单</p></div>
         </div>
-
     </div>
 </template>
 
 <script>
-
+    import { formatDate } from '../../common/commonUtil'
     export default {
         name: "paymentsItem",
-        props:['orderList'],
-        data(){
-            return{
+        props: ['orderList'],
+        data() {
+            return {
                 count: 0,
                 isLoading: false,
-                flag:false
+                flag: false
             }
         },
 
-        components:{
-
+        filters: {
+            formatDate(time) {
+                var date = new Date(time);
+                return formatDate(date, 'yyyy-MM-dd');
+            },
         },
-        methods: {
 
-        }
     }
+
 </script>
 
 <style scoped>
@@ -211,8 +212,9 @@
     }
 
     .noorders {
-        margin-top: 1.9rem;
+        margin-top: 1.2rem;
         padding-top: 0.88rem;
+        margin-bottom: 1rem;
 
     }
 

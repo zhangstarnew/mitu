@@ -48,7 +48,7 @@
         <van-action-sheet v-model="show" :actions="actions" @select="onSelect" />
         <div class="modules" @click="this.flag=true">
             <span class="intro">生日</span>
-            <span class="msgs_three">1997-11-29</span>
+            <span class="msgs_three"></span>
             <span class="right_arrows"></span>
         </div>
         <div class="birthday">
@@ -110,6 +110,7 @@
 <script>
     import { ActionSheet,Uploader,DatetimePicker } from 'vant';
     import axios from 'axios';
+    import { Toast } from 'vant';
     export default {
         name: "lx_secondary_pmessage",
         props:[],
@@ -144,17 +145,16 @@
         components:{
             [ ActionSheet.name ]:ActionSheet,
             [ Uploader.name ]:Uploader,
-            [ DatetimePicker.name ]:DatetimePicker
+            [ DatetimePicker.name ]:DatetimePicker,
+            // eslint-disable-next-line vue/no-unused-components
+            Toast
         },
         methods: {
             cancel(){
                 this.ff = false;
             },
             exit1() {
-                // localStorage.setItem("tel_num", modifyName.value);
-                // console.log(localStorage.tel_num);
                 this.message=this.modifyName;
-                console.log(this.message);
                 this.ff = false;
             },
             afterRead(file) {
@@ -163,11 +163,11 @@
                 axios.post("http://117.78.9.95/api/update_img/",{ud_img:file.content,ud_id:a})
                     .then(res=> {
                         if(res.data){
-                            console.log(res.data);
+                            // console.log(res.data);
                             localStorage.setItem("img",file.content);
-                            console.log(file.content);
+                            // console.log(file.content);
                         }else{
-                            alert("上传失败！！！")
+                            this.$toast("上传失败！！！")
                         }
                     })
                     .catch(err => {
@@ -180,11 +180,10 @@
                 // 可以通过 close-on-click-action 属性开启自动关闭
                 let male=document.querySelector(".van-action-sheet__name");
                 // let female=document.getElementsByClassName(".van-action-sheet__name")[1];
-                console.log(male);
-                // console.log(female);
+                // console.log(male);
                 this.show = false;
                 this.sex_Per=male.innerHTML;
-                console.log(this.sex_Per);
+                // console.log(this.sex_Per);
             },
             selector() {
                 this.show = !this.show;
@@ -198,16 +197,9 @@
             fillEmail(){
                this.tt=!this.tt;
             },
-            // exit2() {
-            //     this.pTel=this.innerPhone;
-            //     console.log(this.pTel);
-            //     this.ee = false;
-            // },
             exit3() {
                 this.pEmail=this.innerEmail;
-                console.log(this.pEmail);
-                // localStorage.setItem("u_email", pEmail.value);
-                // console.log(localStorage.tel_num);
+                // console.log(this.pEmail);
                 this.tt = false;
             },
             actions_for() {
@@ -230,15 +222,14 @@
                         ud_email: this.pEmail
                     }
                 }).then(res => {
-                    console.log(res.data);
                     if (res.data) {
-                        alert("修改成功!");
-                        let msg = res.data;
+                        this.$toast("修改成功!");
+                        let msg = res.data.data;
                         sessionStorage.setItem("changeName",msg.nick_name);
                         sessionStorage.setItem("changeSex",msg.gender);
                         sessionStorage.setItem("changeEmail",msg.ud_email);
                     }else{
-                        alert("修改失败！")
+                        this.$toast("修改失败！")
                     }
                 })
             }
@@ -268,12 +259,15 @@
         // }
         beforeMount() {
             this.pTel=sessionStorage.getItem("data");
-        },
-        mounted() {
             this.message=sessionStorage.getItem("changeName");
             this.sex_Per=sessionStorage.getItem("changeSex");
             this.pEmail=sessionStorage.getItem("changeEmail");
-        }
+        },
+        // mounted() {
+        //     this.message=sessionStorage.getItem("changeName");
+        //     this.sex_Per=sessionStorage.getItem("changeSex");
+        //     this.pEmail=sessionStorage.getItem("changeEmail");
+        // }
     }
 </script>
 

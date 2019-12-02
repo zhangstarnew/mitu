@@ -104,7 +104,7 @@
 							}
 						}).then(res => {
 							if(res.data.status==2){
-								console.log(res.data.user_data)
+								//console.log(res.data.user_data)
 								window.sessionStorage.setItem("data",this.tel)
 								window.sessionStorage.setItem("ud_id",res.data.user_data.ud_id)
 								window.sessionStorage.setItem("total_money",res.data.wallet)

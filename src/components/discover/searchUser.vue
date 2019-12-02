@@ -4,19 +4,19 @@
             <div class="searchBox">
                 <div><img src="../../../public/images/cmdimg/goback.png" alt="" @click="changeRouter"></div>
                 <div class="ss">
-                    {{id}}
+                    {{auserData.userName}}
 <!--                    <input type="text" placeholder="搜索精彩内容" :value="auserData.userId">-->
                 </div>
 <!--                <div><a :href="'#/main/searchUser/'+searchList">搜索</a></div>-->
             </div>
         </div>
-        <div class="userShow" v-for="(data,u) in auserData" :key="u">
-            <a :href="'#/main/userInfo/'+data.ud_id"><img :src="data.ud_img" alt="" class="chartHead"></a>
+        <div class="userShow">
+            <a :href="'#/main/userInfo/'+auserData.userId"><img :src="auserData.charHead" alt="" class="chartHead"></a>
             <div class="head">
-                <span class="userName">{{data.nick_name}}</span>
-                <span class="label">{{data.ud_info}}</span>
+                <span class="userName">{{auserData.userName}}</span>
+                <span class="label">{{auserData.userIntroduce}}</span>
             </div>
-            <article-show :data="data.article"></article-show>
+            <article-show :data="auserData"></article-show>
         </div>
     </div>
     
@@ -32,7 +32,7 @@
         data(){
             return {
                 id:"",
-                auserData:null,
+                auserData:[],
                 // user:[
                 //     {
                 //         "userId":"01",
@@ -135,7 +135,7 @@
                 //             },
                 //         ]
                 //     },
-                // ],
+                // ]
                 user:null
             }
         },
@@ -143,30 +143,22 @@
             async _initCarifyData() {
                 let a = this.$route.params.id;
                 this.id=a;
-                // if (this.user) {
-                //     this.user.forEach((auser) => {
-                //         if (auser.userName == a) {
-                //             this.auserData = auser;
-                //         }
-                //     })
-                // }
-                this.$axios.get('http://117.78.9.95/api/discover/searchArticle/?keyword='+a)
-                    .then(res => {
-                        this.auserData = res.data.data
-                        // console.log(this.userData)
+                if (this.user) {
+                    this.user.forEach((auser) => {
+                        if (auser.userName == a) {
+                            this.auserData = auser;
+                        }
                     })
-                    .catch(err => {
-                        console.log(err)
-                    })
+                }
             },
             changeRouter(){
                 this.$router.go(-1)
             }
         },
         beforeMount() {
-            // let allData =require('../../api/api');
-            // this.user=allData;
-            this._initCarifyData();
+            let allData =require('../../api/api');
+            this.user=allData;
+            this._initCarifyData()
         }
     }
 </script>

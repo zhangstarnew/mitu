@@ -39,13 +39,15 @@
 </template>
 
 <script>
-    // import  axios from 'axios';
+    import  axios from 'axios';
     export default {
         name: "lx_secondary_wallet",
         data() {
             return {
                 flag:false,
-                money:sessionStorage.getItem("total_money")
+                //money:sessionStorage.getItem("total_money"),
+                money:null,
+                a:null
                 // f:false,
                 // dataList:[]
             }
@@ -79,6 +81,15 @@
             //             console.log(err)
             //         })
             // }
+        },
+        created() {
+            this.a= sessionStorage.getItem("ud_id")
+            axios.get("http://117.78.9.95/api/wallet/?ud_id="+this.a)
+                .then(res=>{
+                    //console.log(res.data);
+                    this.money=res.data.data.w_acount;
+                    sessionStorage.setItem("total_money",this.money);
+                })
         }
     }
 </script>

@@ -4,15 +4,15 @@
             <div><img src="../../../public/images/cmdimg/goback.png"  @click="changeRouter"></div>
         </div>
         <div class="user">
-            <img :src="articleData.user_info.ud_img" alt="">
-            <p>{{articleData.user_info.ud_img.nick_name}}</p>
+            <img :src="userData.charHead" alt="">
+            <p>{{userData.userName}}</p>
         </div>
         <div class="article">
-            <h1>{{articleData.a_title}}</h1>
-            <p>{{articleData.content}}</p>
-<!--            <div v-for="(data,u) in articleData.articleImg" :key="u">-->
-                <img :src="articleData.a_image" class="articleImg">
-<!--            </div>-->
+            <h1>{{articleData.articleTitle}}</h1>
+            <p>{{articleData.articleShow}}</p>
+            <div v-for="(data,u) in articleData.articleImg" :key="u">
+                <img :src="data" class="articleImg">
+            </div>
         </div>
         <div class="collectList"><p>已到底线</p></div>
     </div>
@@ -25,9 +25,8 @@
             return {
                 id:"",
                 aid:"",
-                articleData:null,
+                articleData:[],
                 userData:[],
-                user:null
                 // user:[
                 //     {
                 //         "userId":"01",
@@ -131,47 +130,37 @@
                 //         ]
                 //     },
                 // ]
+                user:null
             }
         },
         methods: {
-            //从后端获取数据
-            _initDiscoverInfo() {
-                let a = this.$route.params.aid;
-                console.log(a)
-                this.$axios.get('http://117.78.9.95/api/discover/content/?article_id='+a)
-                    .then(res => {
-                        this.articleData = res.data.data
+            async _initCarifyData() {
+                let a = this.$route.params.id;
+                let b = this.$route.params.aid;
+                this.id=a;
+                if (this.user) {
+                    this.user.forEach((user) => {
+                        if (user.userId == a) {
+                            this.userData = user;
+                        user.article.forEach((article)=>{
+                            if (article.articleId == b) {
+                                 this.articleData = article;
+                                // console.log(this.articleData);
+                            }
+                        })
+                            }
                     })
-                    .catch(err => {
-                        console.log(err)
-                    })
+                }
             },
-            // async _initCarifyData() {
-            //     let a = this.$route.params.id;
-            //     let b = this.$route.params.aid;
-            //     this.id=a;
-            //     if (this.user) {
-            //         this.user.forEach((user) => {
-            //             if (user.userId == a) {
-            //                 this.userData = user;
-            //             user.article.forEach((article)=>{
-            //                 if (article.articleId == b) {
-            //                      this.articleData = article;
-            //                 }
-            //             })
-            //             }
-            //         })
-            //     }
-            // },
             changeRouter(){
                 this.$router.go(-1)
             }
         },
 
         beforeMount() {
-            // let allData =require('../../api/api');
-            // this.user=allData;
-            this._initDiscoverInfo();
+            let allData =require('../../api/api');
+            this.user=allData;
+            this._initCarifyData();
         }
     }
 </script>
@@ -229,7 +218,7 @@
         padding: 15px 0 0;
         margin-bottom: 10px;
         line-height: 1.2;
-        font-size: 0.19em;
+        font-size: 19px;
         font-weight: 400;
         overflow: hidden;
         text-overflow: ellipsis;
